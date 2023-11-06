@@ -1,0 +1,2227 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02_Tipus_Variables_Operadors/">
+      
+      
+        <link rel="next" href="../04_Funcions/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>3. Estructures de control - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#31-sentencies" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Estructures de control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-sentencies" class="md-nav__link">
+    3.1. Sentències
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-sentencies-alternatives" class="md-nav__link">
+    3.2. Sentències alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Sentències alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-condicions-simples" class="md-nav__link">
+    3.2.1. Condicions simples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-condicions-compostes" class="md-nav__link">
+    3.2.2. Condicions compostes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-condicions-niuades" class="md-nav__link">
+    3.2.3. Condicions niuades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-bucles" class="md-nav__link">
+    3.3. Bucles
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-bucles-condicionals-while" class="md-nav__link">
+    3.3.1. Bucles condicionals. while
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.1. Bucles condicionals. while">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convergencia" class="md-nav__link">
+    Convergencia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-bucle-incondicional-bucle-for" class="md-nav__link">
+    3.3.2. Bucle incondicional. Bucle for
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-for-en-java" class="md-nav__link">
+    3.3.3. for en Java
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.3. for en Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    range()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-for-en-python" class="md-nav__link">
+    3.3.4. for en Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-bucles-infinits" class="md-nav__link">
+    3.3.5. Bucles infinits
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.5. Bucles infinits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ruptura-de-bucles-break-continue-i-else-als-bucles" class="md-nav__link">
+    Ruptura de bucles. break, continue i else als bucles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336-bucle-de-demanar-dades" class="md-nav__link">
+    3.3.6. Bucle de demanar dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337-else-en-bucles" class="md-nav__link">
+    3.3.7. else en bucles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#338-la-sentencia-pass" class="md-nav__link">
+    3.3.8. La sentència pass
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-sentencies" class="md-nav__link">
+    3.1. Sentències
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-sentencies-alternatives" class="md-nav__link">
+    3.2. Sentències alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2. Sentències alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-condicions-simples" class="md-nav__link">
+    3.2.1. Condicions simples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-condicions-compostes" class="md-nav__link">
+    3.2.2. Condicions compostes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#323-condicions-niuades" class="md-nav__link">
+    3.2.3. Condicions niuades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-bucles" class="md-nav__link">
+    3.3. Bucles
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Bucles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-bucles-condicionals-while" class="md-nav__link">
+    3.3.1. Bucles condicionals. while
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.1. Bucles condicionals. while">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convergencia" class="md-nav__link">
+    Convergencia
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-bucle-incondicional-bucle-for" class="md-nav__link">
+    3.3.2. Bucle incondicional. Bucle for
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-for-en-java" class="md-nav__link">
+    3.3.3. for en Java
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.3. for en Java">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    range()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-for-en-python" class="md-nav__link">
+    3.3.4. for en Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-bucles-infinits" class="md-nav__link">
+    3.3.5. Bucles infinits
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.5. Bucles infinits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ruptura-de-bucles-break-continue-i-else-als-bucles" class="md-nav__link">
+    Ruptura de bucles. break, continue i else als bucles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336-bucle-de-demanar-dades" class="md-nav__link">
+    3.3.6. Bucle de demanar dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337-else-en-bucles" class="md-nav__link">
+    3.3.7. else en bucles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#338-la-sentencia-pass" class="md-nav__link">
+    3.3.8. La sentència pass
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>3. Estructures de control</h1>
+
+<h2 id="31-sentencies">3.1. Sentències</h2>
+<p>Les <strong>sentències</strong> són cadascuna de les ordres que es donen a un programa. Si recordem un <em>algorisme</em> és una seqüencia de passos, doncs be, una sentència especificarà un (o diversos) d'aquests passos per transcriure un algorisme a un programa.</p>
+<p>Les sentències poden ser de distint tipus, ateses a la seua naturalesa:</p>
+<ul>
+<li><strong>Importació</strong>. Són les sentències (habitualment a l'inici del programa) que indiquen quines llibreries del programa van a fer-se servir. Com ja hem vist, les llibreries són un conjunt de funcions que ja estan a punt per a fer-se servir.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>import java.io      // importació de llibreria en Java
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>import time         // importació de llibreria en Python
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>#include&lt;stdio.h&gt;   // importació de llibreria en C
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Declaratives</strong>. Són les sentències que es fan servir per a indicar alguna cosa. No representen cap acció dins d'un programa. Per exemple destaquen la declaració de variables o les de funcions:</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>int n;                      // en Java es declaren les variables
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>def area(base, altura):     // declaració de funció en Python
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>public float area(float base, float altura)  //declaració de funció en Java
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>Assignacions</strong> o <strong>Instruccions sequencials</strong>. Són les instruccions propiament dites. Serveixen per a fer un càlcul i assignar-lo a una variable. El càlcul es pot fer amb qualsevol dels operadors estudiats, i habitualment guardar el valor calculat en una variable. També poden simplement fer una acció sense guardar-la en cap lloc, com puga ser mostrar alguna cosa per pantalla (<code>print</code>), emetre un so o esborrar un fitxer.</li>
+<li><strong>Sentències de control</strong>. És el que estudiarem en aquest tema. Són aquelles instruccions que ens permeten moure el fluxe <em>continuo</em> o de dalt cap avall d'un programa, permetent-nos prendre desicions i repetir una sèrie d'intruccions les vegades que calga. Es tracta de les <strong>bifurcacions</strong> i dels <strong>bucles</strong></li>
+</ul>
+<h2 id="32-sentencies-alternatives">3.2. Sentències alternatives</h2>
+<h3 id="321-condicions-simples">3.2.1. Condicions simples</h3>
+<p>Com ja em comentat, l'ordre en el fluxe del programa és de dalt cap avall i d'una en una. </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>...
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>sentència 1
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>sentència 2
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>sentència 3
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>...
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>sentència n
+</code></pre></div></td></tr></table></div>
+<p>Si volem alternar entre un o altre camí deurem de fer alguna mená de pregunta o condició, de manera que si passa una condició farem una cosa i cas que no pase farem altra. La sintaxi en <code>Python</code> és:</p>
+<details class="example" open="open">
+<summary>Bifurcacions simples en <code>Python</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">if</span> <span class="n">condicio1</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>    <span class="n">sentencia</span> <span class="mi">1</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="n">sentencia</span> <span class="mi">2</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="c1">#...</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="k">elif</span> <span class="n">condicio2</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>    <span class="n">sentencia</span> <span class="n">a</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">sentencia</span> <span class="n">b</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="c1">#...</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">sentencia</span> <span class="n">n</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">sentencia</span> <span class="n">m</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="c1">#...</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>On:</p>
+<ul>
+<li><code>condicio1</code> i <code>condicio2</code> son expressions relacionals, que ens donen com a resultat <code>True</code> o <code>False</code>. Si s'acompleix la <code>condicio1</code> s'executa les sentencies indentades desprès dels <code>:</code> (sentencies 1,2,...). Molt important el tabular be aquelles sentències dins de cada <code>if</code></li>
+<li>Si la <code>condicio1</code> ha donat com ha resultat <code>False</code> llavors s'avalua la <code>condicio2</code>, dins del <code>elif</code>. <code>elif</code> ve a ser la contracció de <code>else - if</code>. Si la <code>condició2</code> és <code>True</code> llavors s'executa el bloc indentat (sentencies a, b ,...). Poden apareixer molts o cap bloc <code>elif</code>, per la qual cosa és opcional.</li>
+<li>Sinó s'ha acomplit cap condicio (ni <code>if</code> ni <code>elif</code>) finalment s'executarà el bloc <code>else</code>, com alternativa a niguna de les anteriors. Aquest bloc també és opcional.</li>
+</ul>
+<p>L'equivalent en <code>Java</code> és el següent:</p>
+<details class="example" open="open">
+<summary>Bifurcacions simples en <code>Java</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condicio1</span><span class="p">){</span><span class="w">         </span><span class="c1">// condició entre parèntesi</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">        </span><span class="c1">// els blocs venen marcat per les claus</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">        </span><span class="c1">// no per la indentació</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="c1">//...</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condicio2</span><span class="p">){</span><span class="w">       </span><span class="c1">// no es contrau else-if per elif</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">    </span><span class="c1">//...</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="k">else</span><span class="p">{</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">    </span><span class="n">sentencia</span><span class="w"> </span><span class="n">m</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">    </span><span class="c1">//...</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Demanar un numero a l'usuari i indicar si el número és positiu.</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">if</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;es positiu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Demanar un numero a l'usuari i indicar si el número és positiu o negatiu.</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">if</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;es positiu&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;es negatiu&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Indicar la situació administrativa d'una persona (estudiant, treballador o jubilat) depenent de la seua edat.</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">edat</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m l&#39;edat de la persona: &quot;</span><span class="p">))</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">if</span> <span class="n">edat</span><span class="o">&lt;</span><span class="mi">16</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eres estudiant&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">elif</span> <span class="n">edat</span><span class="o">&lt;</span><span class="mi">65</span><span class="p">:</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eres treballador&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eres jubilat&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="322-condicions-compostes">3.2.2. Condicions compostes</h3>
+<p>Com s'ha anomentat, desprès del <code>if</code> o del <code>elif</code> ha d'aparèixer una condició, la qual ha d'avaluar-se a <code>True</code> o <code>False</code>. La condició pot ser simple, però també la podem fer composta i més complexa mitjançant els operadors <code>and</code>, <code>or</code> i <code>not</code>, seguint les taules de la veritat que vegerem als temes anteriors.</p>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Demanar un numero a l'usuari i indicar si parell i està entre 10 i 20 (incloses)</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;=</span><span class="mi">10</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">):</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Si que es parell entre 10 i 20&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No compleix la condició&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="323-condicions-niuades">3.2.3. Condicions niuades</h3>
+<p>Si tenim diverses condicions que complir, com hem vist abans les podem composar amb els operadors lògics. El tema és que, sinó es compleix la condició no sabrem si és per la primera condició o per la segona (mirar l'exemple anterior). Llavors en aquests cassos el que podem fer és posar condicions simples niuades (una dins de l'altra).</p>
+<details class="example" open="open">
+<summary>Programa alternatiu a la solució anterior:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="k">if</span> <span class="n">n</span><span class="o">&gt;=</span><span class="mi">10</span> <span class="ow">and</span> <span class="n">n</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">:</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Si que es parell entre 10 i 20&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="k">elif</span><span class="p">:</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número ès parell però no està entre 10 i 20&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número és imparell&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="33-bucles">3.3. Bucles</h2>
+<p>De vegades a un programa ens interessarà pel motiu que siga repetir un conjunt d'instruccions. El nombre de repeticions pot saber-se a priori o no. Cas de saber-ho, direm que estem en bucles incondicional, i cas de no saber-ho en bucles condicionals, ja que la repetició es farà fins que s'acomplisca una condició.</p>
+<h3 id="331-bucles-condicionals-while">3.3.1. Bucles condicionals. <code>while</code></h3>
+<p>Imaginem la següent situació. A un programa volem calcular l'àrea i el cercle d'una circumferència, per la qual cosa hem de demanar el radi de la mateixa. </p>
+<details class="example" open="open">
+<summary><strong>Primera solució</strong></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">math</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">radi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m el radi de la circumferencia: &quot;</span><span class="p">))</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">area</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radi</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area de la cirumferència és </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">area</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Aquest programa semble correcte a priori, perà que passa si a l'executar li donem al radi un valor de <code>-4</code>, per exemple:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>L&#39;area de la cirumferència és 50.265
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>El cercle de cirumferència és -25.133
+</code></pre></div></td></tr></table></div>
+<p>Quin rang de valors és acceptable per al radi? La resposta és <em>nombres majors que zero</em>. Anem a intentar solucionar-ho amb el que sabem. </p>
+<details class="example" open="open">
+<summary><strong>Segona solució</strong>:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">import</span> <span class="nn">math</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">radi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m el radi de la circumferencia: &quot;</span><span class="p">))</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="k">if</span> <span class="n">radi</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="n">area</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radi</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="n">cercle</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radi</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area de la cirumferència és </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">area</span><span class="p">)</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El cercle de cirumferència és </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">cercle</span><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podem fer càlculs amb radis negatius o zero&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Com vegem ara sols fem el càlcul quan el radi és positiu. El problema és que quan és negatiu el programa acaba. Llavors el que podem fer quan l'usuari pose un radi negatiu és tornar-lo a demanar. Què pot passar? que el tornen a posar negatiu 😞... </p>
+<p>La gran pregunta és <strong>quants cops caldrà demanar el radi fins assegurar-nos que el radi siga positiu?</strong>. Resposta: <strong>No ho sabem</strong>. Llavors haurem de demanar el radi fins tenir un valor positiu, </p>
+<details class="example" open="open">
+<summary><strong>Tercera solució</strong></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">import</span> <span class="nn">math</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">radi</span><span class="o">=</span><span class="mi">0</span>              <span class="c1"># Li assignem al radi un valor dels considerats com a incorrectes</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">while</span> <span class="n">radi</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span>      <span class="c1"># mentre la variable radi tingui un valor incorrecte → repetim     </span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="n">radi</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m el radi de la circumferencia: &quot;</span><span class="p">))</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">radi</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">):</span>   <span class="c1"># Informem a l&#39;usuari que ha posata valor incorrecte</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No podem fer càlculs amb radis negatius o zero&quot;</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1">#   si hem aconseguit eixir del bucle, és per que la condició és falsa</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="c1">#   per tant el radi&gt;0. Ja podem fer els càlculs</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="n">area</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radi</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">cercle</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">radi</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area de la cirumferència és </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">area</span><span class="p">)</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El cercle de cirumferència és </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">cercle</span><span class="p">)</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fi del programa&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Vist aquest exemple, les conclussions són:</p>
+<ul>
+<li>Farem servir un bucle condicional o <code>while</code> quan el número de repeticions no depenguen del programador ni del problema, sinó de l'usuari o de les condicions d'execució, que cada cop son distintes.</li>
+<li>Abans d'escriure la condició haurem d'inicialitzar la varible(s) que apareixen a la condició. En aquesta inicialització la condició ha de ser <code>True</code>, de manera que puguem entrar al bucle. </li>
+<li>Dins del bucle haurem de modificar d'alguna manera eixa variable, de manera que en algun moment la condició sigui <code>False</code>, per poder eixir del bucle.</li>
+<li>Mai sabrem a priori quantes vegades s'executarà</li>
+</ul>
+<details class="example" open="open">
+<summary>Sintaxi de bucle <code>while</code>en <code>Python</code>:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">while</span> <span class="n">condició</span><span class="p">:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">accio1</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">accio2</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="o">...</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">accion</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">acció_fora_del_bucle</span>  
+</code></pre></div></td></tr></table></div>
+</details>
+<p>S'avalua la condició, ocòrre que:</p>
+<ul>
+<li>La condició és <code>True</code> → entrem al bucle, s'executen totes les accions, des de la <code>1</code> fins la <code>n</code>. En acabar es torna a avaluar la condició.</li>
+<li>La condició és <code>False</code> → s'acaba el bucle, i llavors s'executa <code>acció_fora_del_bucle</code>.</li>
+</ul>
+<h4 id="convergencia">Convergencia</h4>
+<p>Com s'ha comentat abans, l'execució del bucle acaba quan la condició és <code>False</code>. Observa els següents exemples i intenta pensar que passa quan s'executen:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+La sortida del programa anterior mostra <code>0</code> per sempre:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>0
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>0
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>...
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>0
+</code></pre></div></td></tr></table></div>
+<p>Això ocorre perquè no hem escrit cap ordre que modifica la <code>n</code> (no hem modificat la condició). Això ens provoca un <strong>bucle infinit</strong>. Modifiquem-ho:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<p>Ja hem modificat la <code>n</code>, i per tant la condició, però la sortida ara és:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>0
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>-1
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>-2
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>...
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>-9999999999
+</code></pre></div></td></tr></table></div>
+<p>En aquest cas la condició és que <code>n&lt;100</code>, sent <code>n=0</code>. Nosaltres (per error 🙃) modifiquem la <code>n</code> restant-li un en cada iteració. Llavors és impossible que mai arribe a ser igual o superior a <code>100</code>. Tornem a estar en bucle infinit. Solucionem-ho</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">:</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>    <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<p>Finalment s'imprimeix:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>0
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>1
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>2
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>...
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>99
+</code></pre></div></td></tr></table></div>
+<p>El que tenim que observar és que la variable que controla la condició (<code>n</code>) ha de convergir al valor final (<code>100</code>). Observar també que el numero 100 no s'imprimeix, ja que quan <code>n==100</code> la condició és <code>False</code>, i ja s'ix del bucle.</p>
+<h3 id="332-bucle-incondicional-bucle-for">3.3.2. Bucle incondicional. Bucle <code>for</code></h3>
+<p>Aquest tipus de bucles es fa servir quan sabem a priori el numero de vegades que volem repetir les instruccions que formen part del bucle. En aquest tipus de bucles hi ha una variable índex que ens permet portar un compte del nombre de repeticions que portem. En <code>Python</code> aquest bucle ha canviat bastant respecte a altre llenguatges com <code>Java</code>, llavor anem a explicar-ho en els dos llenguatges.</p>
+<h3 id="333-for-en-java">3.3.3. <code>for</code> en <code>Java</code></h3>
+<p>En <code>Java</code> el <code>for</code> te 3 apartats. Es fa servir una variable que s'inicia a un valor inicial. Desprès es posa una condició, com si fos un <code>while</code> i finalment es posa un increment que es farà cada cop que s'executen les accions. El bucle anirà repetint-se fins que la condició siqui <code>false</code></p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>aquest bucle imprimeix del 0 al 9 (recorda que el 10 ja no forma part, ja que no acompleix la condició)</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">){</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>aquest bucle imprimeix del 0,2,4,6 i 8. L'increment en aquest cas es fa de 2 en 2</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">30</span><span class="p">;</span><span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">5</span><span class="p">){</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+aquest bucle mostrarà 30,25,20,15,10,5,0. Comença de 30 i va baixant de 5 en 5 fins a 0 (inclòs)</p>
+<p>En <code>Python</code> existeix també una variable que controla el bucle. La diferència és que hem d'indicar la seqüencia de valors que volem que prenga dita variable en forma de llistat o <em>tupla</em>. Parlarem de les tuples o llistats més endavant. Tot això s'aconsegueix amb la funció <code>range()</code>, que és molt completa i admet molts argument, per la qual cosa anem a fer un miniapartat per a explicar-la.</p>
+<h4 id="range"><code>range()</code></h4>
+<p>La seua sintaxi és <code>range([start,] stop[, step])</code>:</p>
+<ul>
+<li><code>start</code> → indica des de quin número comença la seqüencia. Si no s'indica s'escomença desde <code>0</code>.</li>
+<li><code>stop</code> → indica fins a quin límit arribarem. La seqüencia acaba en <strong>l'anterior a</strong> <code>stop</code>.</li>
+<li><code>step</code> → indica de quant en quan es modifica la seqüencia. Si no es posa res va de 1 en 1 de manera ascendent. Aquest atribut no pot ser zero</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span>
+<span class="normal"><a href="#__codelineno-24-15">15</a></span>
+<span class="normal"><a href="#__codelineno-24-16">16</a></span>
+<span class="normal"><a href="#__codelineno-24-17">17</a></span>
+<span class="normal"><a href="#__codelineno-24-18">18</a></span>
+<span class="normal"><a href="#__codelineno-24-19">19</a></span>
+<span class="normal"><a href="#__codelineno-24-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>                       <span class="c1"># 10 números</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>      <span class="c1"># Del 0 al 9</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>                      <span class="c1"># 5 numeros</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>                     <span class="c1"># Del 0 al 4</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>           
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>         <span class="c1"># Està mal, no puc anar del 10 al 0</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="p">[]</span>                        <span class="c1"># anant de 2 en 2      </span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>              <span class="c1"># Ara sí</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="c1"># Si volem del 1 al 100</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">)</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a>
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-24-19" name="__codelineno-24-19"></a><span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-24-20" name="__codelineno-24-20"></a><span class="ne">ValueError</span><span class="p">:</span> <span class="nb">range</span><span class="p">()</span> <span class="n">step</span> <span class="n">argument</span> <span class="n">must</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">zero</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<h3 id="334-for-en-python">3.3.4. <code>for</code> en <code>Python</code></h3>
+<p>Vista la funció <code>range()</code> podem veure el bucle for en <code>Python</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span>
+<span class="normal"><a href="#__codelineno-25-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">llista</span><span class="p">:</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>  <span class="n">accio1</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>  <span class="n">accio2</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>  <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<p>Es repeteix el bucle executant-se les accions on la varaible pren com a valor cada element de la llista. Si volem que la llista sigui una serie de números, ho substituirem per la funció <code>range()</code> vista anteriorment. Vegem els següents exemples, comparant-ho amb <code>Java</code>.</p>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Imprimir un llistat del 1 al 10:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">for</span> <span class="n">i</span> <span class="n">un</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Imprimir la taula de multiplicar de 3</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">for</span> <span class="n">i</span> <span class="n">un</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3*&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot;=&quot;</span><span class="p">,</span><span class="mi">3</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="success" open="open">
+<summary><strong>Exercici resolt</strong> Imprimir els numeros parells des del 40 fins al 0 (no inclòs)</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">for</span> <span class="n">i</span> <span class="n">un</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Veurem més avantages del <code>for</code> quan estudiem els vectors o tuples.</p>
+<h3 id="335-bucles-infinits">3.3.5. Bucles infinits</h3>
+<p>Com hem vist abans, moltes vegades per error podem escriure bucles infinits, cosa que pot portar el sistema informàtic a inestabilitats. Però, moltes vegades ens interessarà programa un bucle infinit i, de fet, és fan servir moltíssim. Pensem per exemple en un caixer automàtic. El programa està en una espera infinita a que algun usuari vaja a executar algun procediment. Quan un usuari va i posa la targeta el programa propiment dit l'aten. Quan l'usuari acaba d'operar, el caixer es torna a posar en dita espera infinita. Vejam l'algorsime:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span>
+<span class="normal"><a href="#__codelineno-29-16">16</a></span>
+<span class="normal"><a href="#__codelineno-29-17">17</a></span>
+<span class="normal"><a href="#__codelineno-29-18">18</a></span>
+<span class="normal"><a href="#__codelineno-29-19">19</a></span>
+<span class="normal"><a href="#__codelineno-29-20">20</a></span>
+<span class="normal"><a href="#__codelineno-29-21">21</a></span>
+<span class="normal"><a href="#__codelineno-29-22">22</a></span>
+<span class="normal"><a href="#__codelineno-29-23">23</a></span>
+<span class="normal"><a href="#__codelineno-29-24">24</a></span>
+<span class="normal"><a href="#__codelineno-29-25">25</a></span>
+<span class="normal"><a href="#__codelineno-29-26">26</a></span>
+<span class="normal"><a href="#__codelineno-29-27">27</a></span>
+<span class="normal"><a href="#__codelineno-29-28">28</a></span>
+<span class="normal"><a href="#__codelineno-29-29">29</a></span>
+<span class="normal"><a href="#__codelineno-29-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>// ALGORISME CAIXER
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>// Algú encen el caixer automàtic
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>per sempre:
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>    esperar_introduccio_targeta()
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a>    intent_pin=1
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a>    seguir=false
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>    mentre (intents_pin&lt;=3)
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>        PIN==llegir(&quot;Posa el PIN de la targeta&quot;)
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>        si  (PIN_OK(PIN))   // comprovar el PIN
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a>            seguir=true
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a>        sino
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a>            intents_pin=intents_pin+1
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a>        fi_si
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a>    fi_mentre
+<a id="__codelineno-29-16" name="__codelineno-29-16"></a>    si (not seguir)  // pin incorrecte
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a>        tragar targeta
+<a id="__codelineno-29-18" name="__codelineno-29-18"></a>        mostrar missatge
+<a id="__codelineno-29-19" name="__codelineno-29-19"></a>    sino
+<a id="__codelineno-29-20" name="__codelineno-29-20"></a>        operacio=llegir(&quot;Que vols fer&quot;)
+<a id="__codelineno-29-21" name="__codelineno-29-21"></a>        si (operacio==1)
+<a id="__codelineno-29-22" name="__codelineno-29-22"></a>            // consultar saldo
+<a id="__codelineno-29-23" name="__codelineno-29-23"></a>        sino si (operacio==2)
+<a id="__codelineno-29-24" name="__codelineno-29-24"></a>            // treure diners
+<a id="__codelineno-29-25" name="__codelineno-29-25"></a>        ...
+<a id="__codelineno-29-26" name="__codelineno-29-26"></a>        ...
+<a id="__codelineno-29-27" name="__codelineno-29-27"></a>    fi_si
+<a id="__codelineno-29-28" name="__codelineno-29-28"></a>fi_per_sempre 
+<a id="__codelineno-29-29" name="__codelineno-29-29"></a>
+<a id="__codelineno-29-30" name="__codelineno-29-30"></a>// algú apaga el caixer automàtic
+</code></pre></div></td></tr></table></div>
+<p>Com aconseguim programar un <code>per_sempre</code> que hem indicat. La resposta es senzilla però no evident. Posar una condició que sempre siga certa i que sigui inmutable (que no es modifique)</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span>
+<span class="normal"><a href="#__codelineno-30-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>    <span class="n">accio1</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>    <span class="n">accio2</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>    <span class="o">...</span>
+</code></pre></div></td></tr></table></div>
+<p>D'aquesta manera entrem al bucle i passe el que passe dins de les accions, el <code>True</code> com és una constant no serà mai modificat, i llavors no eixirem del bucle.</p>
+<p>NOTA: No te sentit fer en algun lloc <code>while False:</code>, ja que en eixe bucle no s'entra mai (millor no escriure res).</p>
+<h4 id="ruptura-de-bucles-break-continue-i-else-als-bucles">Ruptura de bucles. <code>break</code>, <code>continue</code> i <code>else</code> als bucles</h4>
+<p>Tot això dels bucles infinits està molt be, però com podem eixir d'un bucle infinit? La resposta ens la dona la sentència <code>break</code>, que ens permet eixir d'un bucle (independentment de la condició, siga infinit o no):</p>
+<ul>
+<li><code>break</code> interromp l’execució del bucle i seguim per la instrucció seguent fora del bucle.</li>
+<li><code>continue</code> fa que el programa comence altra iteració, encara que no s’haja acabat l’actual. Per tant les línies que hi han dins d’un bucle per davall del continue no s’executen. Cas d’estar dins d’un <code>for</code>, anirem a l’increment de la variable comptadora o al següent element de la llista.</li>
+<li><code>else</code> s'afig un bloc adicional a un bucle <code>while</code> que s'executarà quan hem eixit del bucle debut a la falsetat de la condició del mateix, i no quan hem eixit per un <code>break</code>. No és gaire intuitiu. </li>
+</ul>
+<p>!!! Example <strong>Exemple</strong>
+    <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-31-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-31-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-31-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-31-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-31-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-31-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-31-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-31-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-31-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>         <span class="c1"># Això recorre del 0 al 19</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>    <span class="k">if</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">:</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>        <span class="k">continue</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Es parell&quot;</span><span class="p">)</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a>    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">15</span><span class="p">:</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a>        <span class="k">break</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a>
+<a id="__codelineno-31-10" name="__codelineno-31-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Final del bucle&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Aquest programa sols te sentit acadèmic, per entendre que farà cada cosa:</p>
+<ul>
+<li>Imprimim el numero.</li>
+<li>Si els numeros son inferiors a 10 passem al següent nuúmeo (<code>continue</code>). Fixa't que ens botem tot el que queda dins del bucle</li>
+<li>Si es parell ho mostrem</li>
+<li>En arribar al 15 acabem el bucle (<code>break</code>), de manera que del 16 al 19 ja no es fa res més.</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-32-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-32-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-32-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-32-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-32-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-32-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-32-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-32-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-32-10">10</a></span>
+<span class="normal"><a href="#__codelineno-32-11">11</a></span>
+<span class="normal"><a href="#__codelineno-32-12">12</a></span>
+<span class="normal"><a href="#__codelineno-32-13">13</a></span>
+<span class="normal"><a href="#__codelineno-32-14">14</a></span>
+<span class="normal"><a href="#__codelineno-32-15">15</a></span>
+<span class="normal"><a href="#__codelineno-32-16">16</a></span>
+<span class="normal"><a href="#__codelineno-32-17">17</a></span>
+<span class="normal"><a href="#__codelineno-32-18">18</a></span>
+<span class="normal"><a href="#__codelineno-32-19">19</a></span>
+<span class="normal"><a href="#__codelineno-32-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>0
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>1
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>2
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>3
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>4
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>5
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a>6
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a>7
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a>8
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a>9
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a>10
+<a id="__codelineno-32-12" name="__codelineno-32-12"></a>Es parell
+<a id="__codelineno-32-13" name="__codelineno-32-13"></a>11
+<a id="__codelineno-32-14" name="__codelineno-32-14"></a>12
+<a id="__codelineno-32-15" name="__codelineno-32-15"></a>Es parell
+<a id="__codelineno-32-16" name="__codelineno-32-16"></a>13
+<a id="__codelineno-32-17" name="__codelineno-32-17"></a>14
+<a id="__codelineno-32-18" name="__codelineno-32-18"></a>Es parell
+<a id="__codelineno-32-19" name="__codelineno-32-19"></a>15
+<a id="__codelineno-32-20" name="__codelineno-32-20"></a>Final del bucle
+</code></pre></div></td></tr></table></div>
+<p>!!! notes NOTES: </p>
+<ul>
+<li>Les sentències <code>break</code> i <code>continue</code> <strong>sempre</strong> es posaran dins d'un <code>if</code>, ja que sinó s'executaran sempre dins del cos del bucle.</li>
+<li>El <code>break</code> permet eixir del bucle més niuat que hi ha. Si per exemple estem dins de un bucle niuat i volem acabar en tots els bucles, necessitarem dos <code>break</code> (un per cada bucle)</li>
+</ul>
+<h3 id="336-bucle-de-demanar-dades">3.3.6. Bucle de demanar dades</h3>
+<p>Una de les parts més importants a l'hora de programar és demanar dades a l'usuari, i penseu que l'usuari serà una gran font d'errors del nostre programa. Penseu que dins del sistema informàtic, qui més errors provoca és l'usuari, ja que fa clic on no toca, posa lletres quan correspon números i mai llig la documentació ni els misstges d'error dels programes. És per això que deguem de ser molt cautelosos a l'hora de validar la informació que ens dona. Par a practicar-ho anem a fer un exemple complet i ens servirà també per a introduir el concepte d'excepcions.</p>
+<p><strong>Exercici resolt</strong> Volem fer un programa que demana un número i calcula el doble del mateix. Volem forçar que el número sigui <strong>positiu</strong>. En acabar preguntarà a l'usuari si vol eixir o no, tinguent com a possibles respostes <code>s</code>o <code>n</code>. Cas de no voler sortir repetirem el mateix procés.</p>
+<details class="success" open="open">
+<summary><strong>Solució 1</strong> Fem el programa que demana un número i calcula el doble del mateix</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero es&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;i el seu doble&quot;</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Mirem que passa a l'executar:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
+<span class="normal"><a href="#__codelineno-34-2">2</a></span>
+<span class="normal"><a href="#__codelineno-34-3">3</a></span>
+<span class="normal"><a href="#__codelineno-34-4">4</a></span>
+<span class="normal"><a href="#__codelineno-34-5">5</a></span>
+<span class="normal"><a href="#__codelineno-34-6">6</a></span>
+<span class="normal"><a href="#__codelineno-34-7">7</a></span>
+<span class="normal"><a href="#__codelineno-34-8">8</a></span>
+<span class="normal"><a href="#__codelineno-34-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>Dona&#39;m un numero: 4
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a>El numero es 4 i el seu doble 8
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a>Dona&#39;m un numero: -5
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a>El numero es -5 i el seu doble -10
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a>Dona&#39;m un numero: Hola
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a>Traceback (most recent call last):
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a>  File &quot;proves.py&quot;, line 1, in &lt;module&gt;
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a>    n=int(input(&quot;Dona&#39;m un numero: &quot;))
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a>ValueError: invalid literal for int() with base 10: &#39;Hola&#39;
+</code></pre></div></td></tr></table></div>
+<p>Ocórre que:</p>
+<ul>
+<li>si podem tenir números negatius, </li>
+<li>el programa demana un número, fa l'operació i acaba.</li>
+</ul>
+<details class="success" open="open">
+<summary><strong>Millora 1</strong> Preguntem a l'usuari si vol acabar</summary>
+<p>Per a fer aquesta millora anem a fer un bucle infinit, on posarem al cos del bucle el que hem programat anteriorment, afegint la pregunta a l'usuari si vol acabar o no, i en cas de voler acabar, trencarem el bucle.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-35-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-35-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-35-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-35-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-35-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-35-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-35-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-35-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-35-10">10</a></span>
+<span class="normal"><a href="#__codelineno-35-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a>    <span class="c1"># Demanem el numero i calculem el doble</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a>    <span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero es&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;i el seu doble&quot;</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a>    <span class="c1"># Preguntem a l&#39;usuari si vol continuar</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a>    <span class="n">resposta</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Vols eixir del programa (s/n): &quot;</span><span class="p">)</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a>    <span class="k">if</span> <span class="n">resposta</span><span class="o">==</span><span class="s1">&#39;s&#39;</span> <span class="ow">or</span> <span class="n">resposta</span><span class="o">==</span><span class="s1">&#39;S&#39;</span><span class="p">:</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a>        <span class="k">break</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a>
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acabant el programa. Adeu&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>A l'executar apareix:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<span class="normal"><a href="#__codelineno-36-2">2</a></span>
+<span class="normal"><a href="#__codelineno-36-3">3</a></span>
+<span class="normal"><a href="#__codelineno-36-4">4</a></span>
+<span class="normal"><a href="#__codelineno-36-5">5</a></span>
+<span class="normal"><a href="#__codelineno-36-6">6</a></span>
+<span class="normal"><a href="#__codelineno-36-7">7</a></span>
+<span class="normal"><a href="#__codelineno-36-8">8</a></span>
+<span class="normal"><a href="#__codelineno-36-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a>Dona&#39;m un numero: 3
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>El numero es 3 i el seu doble 6
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a>Vols eixir del programa (s/n): n
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a>Dona&#39;m un numero: 12
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a>El numero es 12 i el seu doble 24
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a>Vols eixir del programa (s/n): k        &lt;ATENCIÓ&gt;
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a>Dona&#39;m un numero: -3                    &lt;ATENCIÓ&gt;
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a>El numero es -3 i el seu doble -6
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a>Vols eixir del programa (s/n): s
+</code></pre></div></td></tr></table></div>
+<p>Ocórre que:</p>
+<ul>
+<li>Encara permet números negatius</li>
+<li>Permet tot tipus de lletres com a resposta. Amb la 's' eixim, però seguim amb la <code>n</code>, la <code>k</code> i altres.</li>
+</ul>
+<details class="success" open="open">
+<summary><strong>Millora 2. Validació dels inputs</strong> Per a fer aquesta millora anem a fer un bucle per a cada entrada de dades, fins permetre valors vàlids: números positius en la primera entrada i unas <code>s</code> o <code>n</code> en la segona.</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-37-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-37-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-37-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-37-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-37-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-37-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-37-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-37-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-37-10">10</a></span>
+<span class="normal"><a href="#__codelineno-37-11">11</a></span>
+<span class="normal"><a href="#__codelineno-37-12">12</a></span>
+<span class="normal"><a href="#__codelineno-37-13">13</a></span>
+<span class="normal"><a href="#__codelineno-37-14">14</a></span>
+<span class="normal"><a href="#__codelineno-37-15">15</a></span>
+<span class="normal"><a href="#__codelineno-37-16">16</a></span>
+<span class="normal"><a href="#__codelineno-37-17">17</a></span>
+<span class="normal"><a href="#__codelineno-37-18">18</a></span>
+<span class="normal"><a href="#__codelineno-37-19">19</a></span>
+<span class="normal"><a href="#__codelineno-37-20">20</a></span>
+<span class="normal"><a href="#__codelineno-37-21">21</a></span>
+<span class="normal"><a href="#__codelineno-37-22">22</a></span>
+<span class="normal"><a href="#__codelineno-37-23">23</a></span>
+<span class="normal"><a href="#__codelineno-37-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a>    <span class="c1"># Demanem el numero i calculem el doble</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a>    <span class="c1"># iniciem el número a un valor incorrecte</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>    <span class="n">n</span><span class="o">=-</span><span class="mi">1</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5"></a>    <span class="k">while</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>      <span class="c1"># mentre el numero siga incorrecte</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6"></a>        <span class="n">n</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dona&#39;m un numero: &quot;</span><span class="p">))</span>      <span class="c1"># Demanem el numero</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>                               <span class="c1"># Si està fora de rang li recordem a l&#39;usuari</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número ha de ser positiu. &quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>   <span class="c1"># end=&#39;&#39; per a no botar de linia</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9"></a>
+<a id="__codelineno-37-10" name="__codelineno-37-10"></a>    <span class="c1"># Ja fora del bucle. Vol dir que el número és ja positiu</span>
+<a id="__codelineno-37-11" name="__codelineno-37-11"></a>    <span class="c1"># Fem els calcul</span>
+<a id="__codelineno-37-12" name="__codelineno-37-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El numero es&quot;</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="s2">&quot;i el seu doble&quot;</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<a id="__codelineno-37-13" name="__codelineno-37-13"></a>
+<a id="__codelineno-37-14" name="__codelineno-37-14"></a>    <span class="c1"># Preguntem a l&#39;usuari si vol continuar</span>
+<a id="__codelineno-37-15" name="__codelineno-37-15"></a>    <span class="n">resposta</span><span class="o">=</span><span class="s1">&#39;z&#39;</span>    <span class="c1"># iniciem a un valor incorrecte</span>
+<a id="__codelineno-37-16" name="__codelineno-37-16"></a>    <span class="k">while</span> <span class="n">resposta</span><span class="o">!=</span><span class="s1">&#39;s&#39;</span> <span class="ow">and</span> <span class="n">resposta</span> <span class="o">!=</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span>
+<a id="__codelineno-37-17" name="__codelineno-37-17"></a>        <span class="n">resposta</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Vols eixir del programa (s/n): &quot;</span><span class="p">)</span>
+<a id="__codelineno-37-18" name="__codelineno-37-18"></a>        <span class="k">if</span> <span class="n">resposta</span><span class="o">!=</span><span class="s1">&#39;s&#39;</span> <span class="ow">and</span> <span class="n">resposta</span> <span class="o">!=</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span>
+<a id="__codelineno-37-19" name="__codelineno-37-19"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Selecciona una de les lletres correctes. &quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-37-20" name="__codelineno-37-20"></a>
+<a id="__codelineno-37-21" name="__codelineno-37-21"></a>    <span class="k">if</span> <span class="n">resposta</span><span class="o">==</span><span class="s1">&#39;s&#39;</span> <span class="ow">or</span> <span class="n">resposta</span><span class="o">==</span><span class="s1">&#39;S&#39;</span><span class="p">:</span>
+<a id="__codelineno-37-22" name="__codelineno-37-22"></a>        <span class="k">break</span>
+<a id="__codelineno-37-23" name="__codelineno-37-23"></a>
+<a id="__codelineno-37-24" name="__codelineno-37-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acabant el programa. Adeu&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>A l'executar comprovem que tot està funcionant de manera correcta:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-38-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-38-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-38-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-38-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-38-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-38-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-38-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-38-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-38-10">10</a></span>
+<span class="normal"><a href="#__codelineno-38-11">11</a></span>
+<span class="normal"><a href="#__codelineno-38-12">12</a></span>
+<span class="normal"><a href="#__codelineno-38-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a>Dona&#39;m un numero: 6
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>El numero es 6 i el seu doble 12
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>Vols eixir del programa (s/n): n
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a>Dona&#39;m un numero: 2
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a>El numero es 2 i el seu doble 4
+<a id="__codelineno-38-6" name="__codelineno-38-6"></a>Vols eixir del programa (s/n): k
+<a id="__codelineno-38-7" name="__codelineno-38-7"></a>Selecciona una de les lletres correctes. Vols eixir del programa (s/n): n
+<a id="__codelineno-38-8" name="__codelineno-38-8"></a>Dona&#39;m un numero: -4
+<a id="__codelineno-38-9" name="__codelineno-38-9"></a>El número ha de ser positiu. Dona&#39;m un numero: -17
+<a id="__codelineno-38-10" name="__codelineno-38-10"></a>El número ha de ser positiu. Dona&#39;m un numero: 90
+<a id="__codelineno-38-11" name="__codelineno-38-11"></a>El numero es 90 i el seu doble 180
+<a id="__codelineno-38-12" name="__codelineno-38-12"></a>Vols eixir del programa (s/n): s
+<a id="__codelineno-38-13" name="__codelineno-38-13"></a>Acabant el programa. Adeu
+</code></pre></div></td></tr></table></div>
+<h3 id="337-else-en-bucles">3.3.7. <code>else</code> en bucles</h3>
+<p>La sentència <code>else</code> normalment va precedida d'un <code>if</code> com hem vist al seu moment, però en <code>Python</code> pot anat precedida d'un bucle. Quan es fa servir amb bucles les ordres que posem al <code>else</code> s'executaran sempre que no s'haja executat un <code>break</code>. És una manera de controlar si el bucle ha acabat per ell mateix o per un <code>break</code></p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span>
+<span class="normal"><a href="#__codelineno-39-2">2</a></span>
+<span class="normal"><a href="#__codelineno-39-3">3</a></span>
+<span class="normal"><a href="#__codelineno-39-4">4</a></span>
+<span class="normal"><a href="#__codelineno-39-5">5</a></span>
+<span class="normal"><a href="#__codelineno-39-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a>bucle:
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>    sentencies
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a>    if condicio:
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a>        break
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>else:
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>    # coses a posar quan el bucle acaba per ell mateix. Sense break 
+</code></pre></div></td></tr></table></div>
+<p>La part del <code>else</code> s'executarà sols quan el bucle ha acabat de manera normal:</p>
+<ul>
+<li>En un <code>while</code> per que la condició és <code>False</code></li>
+<li>En un <code>for</code> per que s'han recorregut els elements de la llista</li>
+<li>Sols te sentit posar <code>else</code> en bucles que tinguen <code>break</code>. Sinó tenen <code>break</code> eixe codi s'executa sempre</li>
+</ul>
+<h3 id="338-la-sentencia-pass">3.3.8. La sentència <code>pass</code></h3>
+<p>La sentència <code>pass</code> és fa servir quan volem deixar alguna zona del programa sense codi, be perquè estem a les fases inicials del programa i ho deixem per a desprès, be per millorar la llegibilitat. Simplement és una sentència que no fa res. Exemples:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span>
+<span class="normal"><a href="#__codelineno-40-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">:</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;numero massa gran&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a>    <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+Encara no sabem que farem al <code>else</code>, però de moment l'escric i més endavant veurem. </p>
+<p><code>pass</code> es fa servir allí on cal posar una sentència de manera obligatòria però no volem posar res. Apareix molt en la POO (Programació Orientada a Objectes),  per a crear classes i/o mètodes buits:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
+<span class="normal"><a href="#__codelineno-41-2">2</a></span>
+<span class="normal"><a href="#__codelineno-41-3">3</a></span>
+<span class="normal"><a href="#__codelineno-41-4">4</a></span>
+<span class="normal"><a href="#__codelineno-41-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="k">class</span> <span class="nc">prova</span><span class="p">:</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a>    <span class="k">pass</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="k">def</span> <span class="nf">metodeQueSeQueFarePeroEncaraNoVullFer</span><span class="p">:</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5"></a>    <span class="k">pass</span>        <span class="c1"># Pendent d&#39;implementar</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

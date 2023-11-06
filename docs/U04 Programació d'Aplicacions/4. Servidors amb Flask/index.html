@@ -1,0 +1,1291 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>4. Servidors amb Flask - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#primer-programa-en-flask" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Servidors amb Flask
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#primer-programa-en-flask" class="md-nav__link">
+    Primer programa en Flask
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mapejant-noves-rutes-i-metodes" class="md-nav__link">
+    Mapejant noves rutes i mètodes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recuperant-dades-dels-parametres-o-de-la-ruta" class="md-nav__link">
+    Recuperant dades dels paràmetres o de la ruta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creant-apis-amb-flask" class="md-nav__link">
+    Creant API's amb flask
+  </a>
+  
+    <nav class="md-nav" aria-label="Creant API's amb flask">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#projecte" class="md-nav__link">
+    Projecte
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>4. Servidors amb Flask</h1>
+
+<h2 id="primer-programa-en-flask">Primer programa en <code>Flask</code></h2>
+<p>Per començar crearem un nou entorn per a tota la programació en <code>flask</code></p>
+<details open="open">
+<summary>Preparant l'entorn</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>conda create -n flask python=3.10
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>conda list env
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>conda activate flask
+</code></pre></div></td></tr></table></div>
+<p>a continuació:</p>
+<ol>
+<li>Instal·lem flask amb <code>conda install flask</code></li>
+<li>Creem el programa principal, amb nom <code>app.py</code> (per exemple)</li>
+<li>(Linux) Exportem el nom de l'aplicació <code>export FLASK_APP=app.py</code></li>
+<li>(Windows) <code>set FLASK_APP=app.py</code></li>
+<li>S'executa amb <code>flask run</code></li>
+</ol>
+</details>
+<p>Un cop executat, ens apareixerà una cosa com:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a> * Serving Flask app &#39;app.py&#39;
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a> * Debug mode: off
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a> * Running on http://127.0.0.1:5000
+</code></pre></div></td></tr></table></div></p>
+<p>El que ens diu que tenim un servidor escoltant al port 5000, i podem obrir-lo al navegador. Vegem el primer programa com quedarà</p>
+<details open="open">
+<summary>Hola món amb <code>Flask</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span>
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">app</span><span class="o">=</span><span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">def</span> <span class="nf">hola_mon</span><span class="p">():</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="k">return</span> <span class="s2">&quot;Hola món&quot;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>   <span class="c1"># localhost at 5000   </span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>A comentar:</p>
+<ul>
+<li>A la primera línia importem el framework, creant a continuació amb el constructor el nostre servidor.</li>
+<li>Es defineix un primer recurs a oferir (la <code>/</code> o també el recurs arrel) dins dels nostre servidor, que ens retornarà un string amb la salutació <code>Hola món</code>.</li>
+<li>La ruta s'indica amb l'anotació <code>@app.route(ruta)</code>, i si no es posa res més s'enten que la petició és <code>GET</code> </li>
+<li>Aquesta servidor serà llançat desde el programa principal (aquell que s'anomena main)</li>
+</ul>
+<p>Llavors ja podem accedit des del navegador a dit recurs:
+<img alt="Primer programa amb Flask" src="../img/Flask.png" /></p>
+<h2 id="mapejant-noves-rutes-i-metodes">Mapejant noves rutes i mètodes</h2>
+<p>Si volem podeer mapejar altre tipus de peticions, hem d'indicar quin mètode és. Podem fer-ho indicant-ho com a paràmetre del <code>app.route()</code>. Ademés hem d'extreure el JSON que ens ha enviat el client dins del cos, cosa que podem fer amb el mètode <code>request.get_json()</code>, que ens retorna el json del body de la petició dins d'un diccionari python.</p>
+<details open="open">
+<summary>Primer exemple de POST</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/saluda&quot;</span><span class="p">,</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">def</span> <span class="nf">saluda</span><span class="p">():</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>    <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">();</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>    <span class="n">resp</span><span class="o">=</span><span class="s2">&quot;Hola &lt;b&gt;&quot;</span> <span class="o">+</span> <span class="n">body</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;&lt;/b&gt;&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>    <span class="n">ret</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>        <span class="s2">&quot;resposta&quot;</span><span class="p">:</span><span class="n">resp</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="p">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ret</span><span class="p">),</span><span class="mi">201</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<ul>
+<li>Comentar que hem d'afegir noves importacions, amb la línia <code>from flask import Flask, jsonify,request</code>.</li>
+<li>Ademés podem afegir a la resposta, el codi HTTP per a que el client sàpiga quin és l'estat de la seua petició.</li>
+</ul>
+<details open="open">
+<summary>Un <strong>POST</strong> més complexe i amb control d'errors</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/suma&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">def</span> <span class="nf">suma</span><span class="p">():</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">param</span> <span class="ow">in</span> <span class="n">body</span> <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">)):</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>        <span class="k">return</span> <span class="s2">&quot;Error de format al body&quot;</span><span class="p">,</span> <span class="mi">400</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="n">x</span><span class="o">=</span><span class="n">body</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">y</span><span class="o">=</span><span class="n">body</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">suma</span><span class="o">=</span><span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">ret</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>        <span class="s2">&quot;suma&quot;</span><span class="p">:</span><span class="n">suma</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="p">}</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">ret</span><span class="p">),</span><span class="mi">200</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Ací observem que:</p>
+<ul>
+<li>dins de l'anotació <code>@app</code>, en compte de la combinació <code>route</code> i <code>method</code> podem programar directament <code>app.post</code>, <code>app.get</code> (per defecte), <code>app.delete</code>, etc. Això facilita la lectura del nostre programa</li>
+<li>Un cop recuperat el json que ens envia el client, podem comprovar els elements necessaris, a la condició de la línia 4. Cas de faltar-ne algun retornem un error 400 (petició mal formada)</li>
+</ul>
+<h2 id="recuperant-dades-dels-parametres-o-de-la-ruta">Recuperant dades dels paràmetres o de la ruta</h2>
+<p>Com sabem hi han 3 maneres bàsiques de passar dades a la nostra API, que son mitjançant paràmetres, variables de ruta i al cos de la petició:</p>
+<ul>
+<li><strong>Paràmetres</strong> → un cop escrita la ruta, s'afig un símbol d'interrogació (<code>?</code>) i es confecciona una llista de paràmetres amb <code>nom=valor</code>. Per exemple <code>localhost:5000/cliente?username=Pepe&amp;password=1234</code>. Per a aconseguir-ho els valors del paràmetres farem servir els mètode <code>request.args.get(nom_paràmetre)</code></li>
+</ul>
+<details open="open">
+<summary>Recuperació de paràmetres</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># /cliente?username=Pepe&amp;password=1234</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/cliente&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">def</span> <span class="nf">get_cliente</span><span class="p">():</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>    <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;He demanat el client </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s1"> &amp; </span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s1">&#39;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<ul>
+<li><strong>Variables de ruta</strong> → dins de la propia ruta apareix un codi o valor que simbolitza una dada. Per exemple <code>localhost:5000/cliente/12</code> on s'arreplegaria les dades del client de codi 12. Per a aconseguir-ho caldrà afegir a la funció que mapeja la ruta un paràmetre amb el mateix nom que podem dins de ladefinició de la ruta.</li>
+</ul>
+<details open="open">
+<summary>Recuperació de paràmetres</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># /cliente/12</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/cliente/&lt;id_Cliente&gt;&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">def</span> <span class="nf">get_cliente_by_Id</span><span class="p">(</span><span class="n">id_Cliente</span><span class="p">):</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;He demanat el client </span><span class="si">{</span><span class="n">id_Cliente</span><span class="si">}</span><span class="s1">&#39;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<ul>
+<li><strong>Cos de la petició</strong> → les dades es passen al cos de la petició dins d'un JSON. Ja ho hem vist anteriorment, amb el mètode <code>body=request.get_json()</code></li>
+</ul>
+<h2 id="creant-apis-amb-flask">Creant API's amb flask</h2>
+<p>Flask incopora unes llibreries a traves del paquet flask-restful per a facilitar la construcció de API. Per això necessitem:</p>
+<ul>
+<li><code>conda install flask-restful</code></li>
+<li><code>from flask_restful import Api,Resource</code></li>
+<li><code>Api</code> definirà una Api dins de la nostra app</li>
+<li><code>Resource</code> definirà cadascun dels recursos o rutes dins de la nostra API</li>
+</ul>
+<p>La classe <code>Resource</code> és una interfície, que conté els mètodes post(),get(), delete(), etc... Si volem crear una API que atenga a dits mètodes, deurem crear una classe que implemente dita interfície, i implementar cadascun dels mètodes.</p>
+<p>Per afegir desprès la ruta a cadascun dels mètodes anteriors, ho podem fer amb el màtode <code>api.add_resource(classe, ruta)</code>.</p>
+<details open="open">
+<summary>Exemple de implementació de <code>Resource</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">class</span> <span class="nc">Sumar</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>        <span class="k">return</span> <span class="s2">&quot;He fet un POST a add&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>        <span class="k">return</span> <span class="s2">&quot;He fet un GET a add&quot;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>        <span class="k">return</span> <span class="s2">&quot;He fet un DELETE a add&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>        <span class="k">return</span> <span class="s2">&quot;He fet un PUT a add&quot;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">api</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">Sumar</span><span class="p">,</span> <span class="s2">&quot;/add&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Amb això hem definit els 4 mètodes (post, get, delete i put) per a la ruta <code>/add</code> </p>
+<h3 id="projecte">Projecte</h3>
+<p>Crear una xicoteta api en Flask que:</p>
+<ul>
+<li>Tinga una petició de benvinguda a l´'index que retorne <code>Hola</code> seguit de la data actual</li>
+<li>Una petició de <code>/register</code> que reb al cos un username, password i icono, i ho emmagatzeme en una BBDD mongoDB que haurem creat per a l'ocasió. El icono servirà per a l'avatar. Recorda de guardar el password encriptat (llibreria <code>bcrypt</code>). Hi haurà un contador de tokens, iniciat a 10, que son les consultes que pot fer-nos l'usuari. Retornarà un missatge "Hola nom, et queden 10 tokens"</li>
+<li>Una petició de <code>/login</code>, que reb al cos el username i password. Cas d'estar tot be, retornarà un <code>200 OK</code> i el avatar de l'usuari.</li>
+<li>Una petició de <code>/consulta</code>, amb un <code>username i password</code>. </li>
+<li>Cas d'estar tot be retorna un missatge de <code>Consulta efectuada. Et qeden X tokens</code>.</li>
+<li>Cas de no quedar tokens un codi d'error i un missatge de <code>Efectua recàrrega</code></li>
+<li>Una petició de <code>/refill</code>, amb un <code>username</code>, <code>admin_pw</code> (un password de administrador) i <code>amount</code>, que augmentarà la quantitat de tokens. Retornarà:</li>
+<li>Un <code>200 ok</code> i un missatge amb la quantitat de tokens actualitzada</li>
+<li>Un codi i missatge d'error si l'usuari no existeix o que el password d'administrador és incorrecte. Aquest password serà fixe (<code>S3g1r0</code>)</li>
+<li>A mode de administració, implementar un <code>GET /login</code> que retorne tots els usuaris de la BBDD, passant-li com a paràmetre el password de l'adminstrador</li>
+</ul>
+<div class="admonition warning atenció">
+<p class="admonition-title">Warning<ul>
+<li>Discutirem més endavant com protegir algunes rutes amb privilegis, ja que el refill no pot fer-ho tot el mon, sinò sols un usuari adminstrador.</li>
+<li>La part dels iconos deixa-la per al final, com ampliació de l'exercici, un cop ho tingues tota la funcionalitat bàsica implementada.</li>
+</ul>
+</p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

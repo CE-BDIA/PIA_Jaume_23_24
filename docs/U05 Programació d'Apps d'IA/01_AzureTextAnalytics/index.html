@@ -1,0 +1,1842 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>01 AzureTextAnalytics - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-el-portal-dazure" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 AzureTextAnalytics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-el-portal-dazure" class="md-nav__link">
+    1. El portal d'Azure
+  </a>
+  
+    <nav class="md-nav" aria-label="1. El portal d'Azure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-alta-amb-azure-amb-compte-educatiu" class="md-nav__link">
+    1.1. Alta amb Azure amb compte educatiu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-alta-amb-compte-gratuit" class="md-nav__link">
+    1.2. Alta amb compte gratuït
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-configuracio-general-de-les-api-dazure" class="md-nav__link">
+    1.3. Configuració general de les API d'azure
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-llenguatge-analisi-de-sentiments" class="md-nav__link">
+    2. Llenguatge - Anàlisi de sentiments
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Llenguatge - Anàlisi de sentiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-deteccio-de-sentiments-amb-azure" class="md-nav__link">
+    2.1. Detecció de sentiments amb Azure
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Detecció de sentiments amb Azure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-creacio-del-client" class="md-nav__link">
+    2.1.1. Creació del client
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-avaluant-el-sentiment" class="md-nav__link">
+    2.1.2. Avaluant el sentiment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-llenguatge-deteccio-didioma" class="md-nav__link">
+    3. Llenguatge. Detecció d'idioma
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-llenguatge-deteccio-dentitats" class="md-nav__link">
+    4. Llenguatge - Detecció d'entitats
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Llenguatge - Detecció d'entitats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-entitats-enllacades" class="md-nav__link">
+    4.1. Entitats enllaçades
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-llenguatge-traduccio-de-texts" class="md-nav__link">
+    5. Llenguatge -  Traducció de texts
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Llenguatge - Traducció de texts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ampliacio" class="md-nav__link">
+    5.1. Ampliació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-traduccio-de-documents" class="md-nav__link">
+    5.2. Traducció de documents
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-llenguatge-text-a-veu-i-vice-versa" class="md-nav__link">
+    6. Llenguatge - Text a veu i vice-versa
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Llenguatge - Text a veu i vice-versa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-desenvolupant-el-programa-de-veu-a-text" class="md-nav__link">
+    6.1. Desenvolupant el programa, de veu a text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-desenvolupant-el-programa-de-text-a-veu" class="md-nav__link">
+    6.2. Desenvolupant el programa, de text a veu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-exercici" class="md-nav__link">
+    6.3. Exercici
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>01 AzureTextAnalytics</h1>
+
+<h2 id="1-el-portal-dazure">1. El portal d'<a href="https://portal.azure.com/">Azure</a></h2>
+<p>Anem a treballar un concepte interessant en aquesta unitat, i és el que s'anomena <strong>AIaaS</strong> (<em>Intel·ligència artificial as a service</em>). Consistirà en fer servir plataformes amb models i eines ja entrenades, preparades per a utilitzar-les.</p>
+<p>Començarem a treballar amb Azure, i podem veure la justificació <a href="../docs/PresentacionAzure.pdf">ací</a>.</p>
+<blockquote>
+<p>Aquests materials complementaris són de <strong>Javier Catalá Jiménez</strong>.</p>
+</blockquote>
+<h3 id="11-alta-amb-azure-amb-compte-educatiu">1.1. Alta amb Azure amb compte educatiu</h3>
+<p>Actualment la Conselleria d'Educació  disposa d'un contracte amb Microsoft on disposem d'un compte corporatiu, dins del domini <code>@alu.edu.gva.es</code> i <code>@edu.gva.es</code> per a alumnes i professors, respectivament. Amb aquest compte disposem de 100$ de saldo per a les recursos que utilitzem, i accès a la capa gratuïta dels serveis durant un any.</p>
+<p>Aquests  serveis tenen certes limitacions, con per exemple 5000 transaccions mensuals, suficients per a la nostra feina dins del curs.</p>
+<p>Podem seguir el procediment d'alta <a href="../docs/00_Configurar_Azure.pdf">en aquesta presentació</a></p>
+<h3 id="12-alta-amb-compte-gratuit">1.2. Alta amb compte gratuït</h3>
+<p>Suposadament amb aquesta capa gratuïta tindrem prou per a les tasques del nostre curs. Aquesta funcionarà sempre que ens quede <em>algo</em> de saldo.  La solució és crear-te un nou compte, amb un correu distint, obviament on tindràs 200$ i la capa gratuita de nou durant un any. </p>
+<p>El problema d'aquest recurs és que hem de posar el numero de la targeta de crèdit, amb la qual cosa hem de tenir molta cura de aturar els serveis que puguem arrancar, si no volem tindre sorpreses a final de més. Per sort, sembla que Microsoft abans de carregar-nos res ens enviarà un correu electrònic</p>
+<p><img alt="capa gratuita" src="../img/capa_gratis.jpeg" /></p>
+<h3 id="13-configuracio-general-de-les-api-dazure">1.3. Configuració general de les API d'azure</h3>
+<p>Anem a veure com és funcionament general d'aquest serveis d'IA:</p>
+<ol>
+<li>Haurem de crear des de la plataforma el recurs que desitjem; veu, imatge, so, etc.</li>
+<li>Un cop creat, haurem de veure a la seua configuració els paràmetres:<ol>
+<li><em>entrypoint</em> → és la url del recurs, on farem les peticions del mateix</li>
+<li><em>key</em> o <em>token</em> → és el identificador que ens ha assignat Azure per a fer ús del recurs.</li>
+</ol>
+</li>
+<li>Des del nostre programa carregarem la llibreria per a connectar-nos</li>
+<li>Farem la petició</li>
+<li>Processarem els resultats</li>
+</ol>
+<p>Pots veure el procés de creació als següents passos. En auqest cas veurem el de text, que és el primer que treballarem:</p>
+<ol>
+<li>
+<p>Li creem un nou recurs de Anàlisi de text:
+<img alt="peticions a la API" src="../img/ServeiTextAzure01.png" /></p>
+</li>
+<li>
+<p>Li diguem crear:
+<img alt="peticions a la API" src="../img/ServeiTextAzure02.png" /></p>
+</li>
+<li>
+<p>Es deixen les característiques per defecte, sense afegir-ne cap altra:
+<img alt="peticions a la API" src="../img/ServeiTextAzure03.png" /></p>
+</li>
+<li>
+<p>Indiquem que el grup de recursos, o el creem si és el primer cop (com a nom, <code>UDCognitiveServices</code> o simimlar) i un nou recurs d'Anàlisi de Text, per exemple <code>TextAnalyticsDemoJoange</code>
+<img alt="peticions a la API" src="../img/ServeiTextAzure04.png" /></p>
+</li>
+<li>
+<p>Li indiquem el pla de pagament, gratuït. Revisem i llavors acceptem els termes de licència:
+<img alt="peticions a la API" src="../img/ServeiTextAzure05.png" /></p>
+</li>
+<li>
+<p>Finalment creem:
+<img alt="peticions a la API" src="../img/ServeiTextAzure06.png" /></p>
+</li>
+<li>
+<p>I ja tenim el servei a punt.
+<img alt="peticions a la API" src="../img/ServeiTextAzure07.png" /></p>
+</li>
+</ol>
+<p>Podem fer les peticions mitjançant <em>request</em>, postman o curl, però ens serà més complicat, sobretot per temes de seguretat:</p>
+<p><img alt="peticions a la API" src="../img/AzureRequest.png" /></p>
+<p>La millor alternativa és fer servir les llibreries del SDK de Azure, disponibles per als llenguatges de programació més utilitzats:</p>
+<p><img alt="peticions a la SDK" src="../img/AzureSDK.png" /></p>
+<p>Aquest eines, a banda d'oferir objectes estructurats per a enviar i arreplegar la informació, encripten automàticament les peticions (i la informació que viatja amb elles), donant-li una major capa de protecció.</p>
+<h2 id="2-llenguatge-analisi-de-sentiments">2. Llenguatge - Anàlisi de sentiments</h2>
+<p>Anem a estudiar com podem analitzar els sentiments d'un text. L'anàlisi de sentiments és com <strong>fer un exàmen d'emocions en textos per determinar si el contingut expressa opinions positives, negatives o neutres</strong>. Els algorismes d'anàlisi de sentiments utilitzen <strong>processament del llenguatge natural</strong> (PLN) per analitzar les paraules i frases en un text i determinar la seva <em>tonalitat emocional</em>.</p>
+<p>Això implica:</p>
+<ul>
+<li>identificar paraules clau, </li>
+<li>frases o contextos que indiquin sentiments</li>
+</ul>
+<p>Per exemple, si algú diu <em>estic molt content amb aquest producte</em>, el sistema hauria de reconèixer la paraula <em>content</em> i interpretar-la com una expressió positiva.</p>
+<p>Aquesta tecnologia és molt utilitzada en:</p>
+<ul>
+<li>monitorització de xarxes socials </li>
+<li>ressenyes de productes</li>
+<li>opinions dels clients i </li>
+<li>altres àmbits on es vol entendre la resposta emocional dels usuaris. </li>
+</ul>
+<p>Hi ha diverses eines i plataformes que ofereixen serveis d'anàlisi de sentiments utilitzant tecnologies de <strong>processament del llenguatge natural</strong> (PLN). Algunes d'aquestes inclouen:</p>
+<ol>
+<li>
+<p><strong>IBM Watson Natural Language Understanding:</strong> Proporciona anàlisi de sentiments entre altres funcionalitats PLN.</p>
+</li>
+<li>
+<p><strong>Google Cloud Natural Language API:</strong> Ofereix anàlisi de sentiments i altres funcions de PLN.</p>
+</li>
+<li>
+<p><strong>Microsoft Azure Text Analytics:</strong> Proporciona anàlisi de sentiments, detecció d'idiomes i altres funcionalitats basades en text.</p>
+</li>
+<li>
+<p><strong>AWS (Amazon Web Services)</strong> ofereix una eina anomenada <strong>Amazon Comprehend</strong> que inclou funcionalitats d'anàlisi de sentiments, que pot detectar i analitzar les emocions expressades en text. A través de l'API d'Amazon Comprehend, pots enviar text i rebre informació sobre les emocions associades, com ara positiu, negatiu, neutre o mixt.</p>
+</li>
+<li>
+<p><strong>Aylien:</strong> Una plataforma de processament del llenguatge natural que ofereix anàlisi de sentiments i altres eines d'anàlisi de text.</p>
+</li>
+<li>
+<p><strong>VADER (Valence Aware Dictionary and sEntiment Reasoner):</strong> Una eina específica per a l'anàlisi de sentiments en anglès, molt utilitzada i senzilla.</p>
+</li>
+<li>
+<p><strong>NLTK (Natural Language Toolkit):</strong> Una llibreria de Python que inclou mòduls per a l'anàlisi de sentiments i altres tasques de PLN.</p>
+</li>
+<li>
+<p><strong>TextBlob:</strong> Una llibreria de Python que facilita l'anàlisi de sentiments i altres tasques relacionades amb el processament del llenguatge natural.</p>
+</li>
+<li>
+<p><strong>Hugging Face Transformers:</strong> Una llibreria que proporciona models preentrenats per a diverses tasques, inclosa l'anàlisi de sentiments.</p>
+</li>
+</ol>
+<h3 id="21-deteccio-de-sentiments-amb-azure">2.1. Detecció de sentiments amb Azure</h3>
+<p>Anem a estudiar les eines que ens ofereix el SDK de Python per a Azure</p>
+<h4 id="211-creacio-del-client">2.1.1. Creació del client</h4>
+<p>L'objecte clau per fer la crida és el client, i aquest és els <a href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/5.3.0/azure.ai.textanalytics.html?highlight=textanalyticsclient#azure.ai.textanalytics.TextAnalyticsClient"><code>class azure.ai.textanalytics.TextAnalyticsClient</code></a></p>
+<p>Aquest classe presenta dos arguments:</p>
+<ul>
+<li><code>endpoint (str)</code> → sent la <strong>url</strong> al nostre recurs del servei del llenguatge supportat per Azure. Es del tipus <code>https://&lt;resource-name&gt;.cognitiveservices.azure.com</code>.</li>
+<li><code>credential (AzureKeyCredential or TokenCredential)</code> → La credencial necessaria per a validar el client al servei d'Azure. Pot ser de dos tipus:<ul>
+<li><code>AzureKeyCredential</code> si fem servir un token del serveis de <em>Cognitive Services/Language API</em></li>
+<li>Un token credential de <code>azure.identity</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Aquesta informació la pots extreure del servei que haurem creat prèviament. Des de les opcions del recurs: 
+<img alt="Buscar les claus" src="../img/AzureKey01.png" /></p>
+<p>I les podem veure o inclòs directament copiar-les:
+<img alt="Seleccionar" src="../img/AzureKey02.png" /></p>
+<details class="example" open="open">
+<summary>Example de configuració del client</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">AzureKeyCredential</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">azure.ai.textanalytics</span> <span class="kn">import</span> <span class="n">TextAnalyticsClient</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="sd">&quot;&quot;&quot;&quot;  </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="sd">Si guardem les credencials com a variables d&#39;entorn del SO</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="sd">les podem carregar amb aquestes instruccions</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="sd">endpoint = os.environ[&quot;AZURE_LANGUAGE_ENDPOINT&quot;]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="sd">key = os.environ[&quot;AZURE_LANGUAGE_KEY&quot;]</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">key</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">endpoint</span><span class="o">=</span> <span class="s2">&quot;https://nom_del_teu_recurs.cognitiveservices.azure.com/&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="n">text_analytics_client</span> <span class="o">=</span> <span class="n">TextAnalyticsClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">AzureKeyCredential</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h4 id="212-avaluant-el-sentiment">2.1.2. Avaluant el sentiment</h4>
+<p>El mètode per a fer la petició és <code>analyze_sentiment</code>, amb aquesta sintaxi retallada:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">analyze_sentiment</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>        <span class="n">documents</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> 
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>        <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>         <span class="err">→</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">AnalyzeSentimentResult</span><span class="p">,</span> <span class="n">DocumentError</span><span class="p">]]</span>
+</code></pre></div></td></tr></table></div>
+<p>Per simplificar:</p>
+<ul>
+<li>
+<p>A aquest mètode li passarem un o més textos, anomentats com a documents. Ha de ser una llista: </p>
+<ul>
+<li>Poden ser un llistat de textos, com a str:</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Hola m&#39;encanta aquest modul&quot;</span><span class="p">,</span><span class="s2">&quot;Estic una mica cansat&quot;</span><span class="p">,</span><span class="s2">&quot;I&#39;m very bored&quot;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Un llistat del anomentat <code>TextDocumentInput</code>, en el qual podem donar-li més detalls:</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>  <span class="n">documents</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;ca&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Hola m&#39;encanta aquest modul&quot;</span><span class="p">},</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>            <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Me encuentro cansado&quot;</span><span class="p">},</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>            <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I&#39;m very bored&quot;</span><span class="p">}]</span>
+</code></pre></div></td></tr></table></div>
+</li>
+<li>
+<p>El retorn de la funció és una llista combinada (de tuples)  de <a href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/5.3.0/azure.ai.textanalytics.html?highlight=textanalyticsclient#azure.ai.textanalytics.AnalyzeSentimentResult"><code>AnalyzeSentimentResult</code></a> o <code>DocumentError</code>, amb tants elements com documents s'han passat.</p>
+</li>
+</ul>
+<details class="example" open="open">
+<summary>Valor real retornat</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">AnalyzeSentimentResult</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sentiment</span><span class="o">=</span><span class="n">negative</span><span class="p">,</span> <span class="n">warnings</span><span class="o">=</span><span class="p">[],</span> <span class="n">statistics</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">confidence_scores</span><span class="o">=</span><span class="n">SentimentConfidenceScores</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">neutral</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="mf">0.98</span><span class="p">),</span> 
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">sentences</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  <span class="n">SentenceSentiment</span><span class="p">(</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="n">text</span><span class="o">=</span><span class="n">I</span><span class="s1">&#39;m very bored, </span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="n">sentiment</span><span class="o">=</span><span class="n">negative</span><span class="p">,</span> 
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="n">confidence_scores</span><span class="o">=</span><span class="n">SentimentConfidenceScores</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">neutral</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">negative</span><span class="o">=</span><span class="mf">0.98</span><span class="p">),</span> 
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="n">length</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> 
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="n">mined_opinions</span><span class="o">=</span><span class="p">[])],</span> 
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>  <span class="n">is_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  <span class="n">kind</span><span class="o">=</span><span class="n">SentimentAnalysis</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Com podem veure, les opcions importants del <code>AnalyzeSentimentResult</code> son:</p>
+<ul>
+<li><code>sentiment</code> → ens classifica el text avaluat en <strong>positiu, neutral o negatiu</strong>. Pot apareixer un <strong>mixed</strong>.</li>
+<li><code>confidence_scores</code> → ens informa de la probabilitat de cada un dels tres nivells.</li>
+<li><code>sentences</code> → per a cada unitat del text individual (fixa't que divideix el text en sentències) ens torna a donar la informació per separat.</li>
+</ul>
+<details class="example" open="open">
+<summary>Procés dels resultats</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># ens quedem en aqulles que no donen error, en un llistat</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="n">doc</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">result</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">doc</span><span class="o">.</span><span class="n">is_error</span><span class="p">]</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># processem els documents</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">doc</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">docs</span><span class="p">):</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opinión general del document </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">doc</span><span class="o">.</span><span class="n">sentiment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">);</span> 
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>  <span class="k">for</span> <span class="n">sentencia</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Opinio de la frase </span><span class="si">{</span><span class="n">sentencia</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2"> és &lt;</span><span class="si">{</span><span class="n">sentencia</span><span class="o">.</span><span class="n">sentiment</span><span class="si">}</span><span class="s2">&gt;&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="3-llenguatge-deteccio-didioma">3. Llenguatge. Detecció d'idioma</h2>
+<p>Per a anàlisi de llenguatge necessitem crear un recurs de traducció, de manera similar de com l'hem creat anteriorment.</p>
+<p><img alt="Azure Text Analytics" src="../img/AzureTranslate.png" /></p>
+<p>Per fer una primera detecció del llenguatge, haurem de procedir invocant al recurs d'Azure i cridar al mètode <code>detect_language</code> de l'analitzador de text:</p>
+<details class="example" open="open">
+<summary>Accès al recurs i identificació del llenguatge</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">AzureKeyCredential</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span> <span class="nn">azure.ai.textanalytics</span> <span class="kn">import</span> <span class="n">TextAnalyticsClient</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">key</span><span class="o">=</span><span class="s2">&quot;XXXXXX&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">endpoint</span><span class="o">=</span> <span class="s2">&quot;https://textanalyticsdemojoange.cognitiveservices.azure.com/&quot;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">text_analytics_client</span> <span class="o">=</span> <span class="n">TextAnalyticsClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">AzureKeyCredential</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">TEXT1</span><span class="o">=</span><span class="s2">&quot;En un lugar de la mancha de cuyo nombre&quot;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">TEXT2</span><span class="o">=</span><span class="s2">&quot;Once upon a time&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">TEXT3</span><span class="o">=</span><span class="s2">&quot;Dans la deuxième partie (Cosette), on voit Jean Valjean s&#39;évader, arracher Cosette aux Thénardier, et tenter de s&#39;installer à Paris&quot;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">documents</span><span class="o">=</span><span class="p">[</span><span class="n">TEXT1</span><span class="p">,</span><span class="n">TEXT2</span><span class="p">,</span><span class="n">TEXT3</span><span class="p">]</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">resultats</span><span class="o">=</span><span class="n">text_analytics_client</span><span class="o">.</span><span class="n">detect_language</span><span class="p">(</span><span class="n">documents</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Els resultat és un llistat (un per text enviat) de <code>DetectLanguageResult</code>, un objecte que el podem veure detallat com segueix:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">{</span><span class="w"> </span><span class="err">&#39;id&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mi">0</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span><span class="err">&#39;primary_la</span><span class="kc">n</span><span class="err">guage&#39;</span><span class="p">:</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span><span class="err">De</span><span class="kc">te</span><span class="err">c</span><span class="kc">te</span><span class="err">dLa</span><span class="kc">n</span><span class="err">guage(</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="kc">na</span><span class="err">me=Spa</span><span class="kc">n</span><span class="err">ish</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="err">iso</span><span class="mi">6391</span><span class="err">_</span><span class="kc">na</span><span class="err">me=es</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">    </span><span class="err">co</span><span class="kc">nf</span><span class="err">ide</span><span class="kc">n</span><span class="err">ce_score=</span><span class="mf">1.0</span><span class="err">)</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">  </span><span class="err">&#39;war</span><span class="kc">n</span><span class="err">i</span><span class="kc">n</span><span class="err">gs&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="err">&#39;s</span><span class="kc">tat</span><span class="err">is</span><span class="kc">t</span><span class="err">ics&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">No</span><span class="kc">ne</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;is_error&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w"> </span><span class="err">&#39;ki</span><span class="kc">n</span><span class="err">d&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;La</span><span class="kc">n</span><span class="err">guageDe</span><span class="kc">te</span><span class="err">c</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">&#39;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>on l'element més important és el <code>DetectedLanguage</code>, contenint com podem veure el nom del llenguatge i el grau de confiança de la detecció.</p>
+<h2 id="4-llenguatge-deteccio-dentitats">4. Llenguatge - Detecció d'entitats</h2>
+<p>La detecció d'entitats en text d'Azure és una funció que utilitza tecnologies de <strong>processament de llenguatge natural</strong> per identificar i extraure informació rellevant o entitats d'un text. Les <strong>entitats</strong> es refereixen a elements específics o conceptes dins del text, com ara <strong>noms de persones</strong>, <strong>llocs</strong>, <strong>dates</strong>, <strong>quantitats</strong>, etc.</p>
+<p>Això pot ser molt útil en diverses aplicacions, com ara l'anàlisi de sentiments (vist), la categorització de contingut, l'extracció d'informació clau i altres tasques de processament de llenguatge natural.</p>
+<p>Per fer-lo servir, haurem de fer referència a un <code>TextAnalyticsClient</code> com el que hem fet servir abans. A l'igual que abans, prepararem el text o texts dins d'un llistat de docuents, i cridarem el mètode <code>recognize_entities</code>. Pots trobar més informació <a href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/5.3.0/index.html#recognize-entities">ací</a></p>
+<details class="example" open="open">
+<summary>Reconeixemnet d'entitats</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">azure.core.credentials</span> <span class="kn">import</span> <span class="n">AzureKeyCredential</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">azure.ai.textanalytics</span> <span class="kn">import</span> <span class="n">TextAnalyticsClient</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">key</span><span class="o">=</span><span class="s2">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">endpoint</span><span class="o">=</span> <span class="s2">&quot;https://nom_del_teu_recurs.cognitiveservices.azure.com/&quot;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">text_analytics_client</span> <span class="o">=</span> <span class="n">TextAnalyticsClient</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">AzureKeyCredential</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># iniciem els 3 text</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">reviews</span> <span class="o">=</span> <span class="p">[</span><span class="n">TEXT1</span><span class="p">,</span><span class="n">TEXT2</span><span class="p">,</span><span class="n">TEXT3</span><span class="p">]</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">result</span> <span class="o">=</span> <span class="n">text_analytics_client</span><span class="o">.</span><span class="n">recognize_entities</span><span class="p">(</span><span class="n">reviews</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>El resultat és un llistat d'objectes de tipus <code>RecognizeEntitiesResult</code>, que ja deuriem de recòrrer per treure una col·lecció, anomenada <code>CategorizedEntity</code>, on tenim la informació de les entitats detectades. Ací podem veure un exemple de valor retornat:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>RecognizeEntitiesResult(
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>  id=0, 
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  entities=[
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    CategorizedEntity(text=Francia, category=Location, subcategory=GPE, length=7, offset=13, confidence_score=1.0), 
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    CategorizedEntity(text=verano, category=DateTime, subcategory=DateRange, length=6, offset=25, confidence_score=0.8), 
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    CategorizedEntity(text=Provenza, category=Location, subcategory=GPE, length=8, offset=105, confidence_score=0.78), 
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    CategorizedEntity(text=Normandía, category=Location, subcategory=GPE, length=9, offset=194, confidence_score=0.96), 
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    CategorizedEntity(text=guía, category=PersonType, subcategory=None, length=4, offset=231, confidence_score=0.92), 
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>    CategorizedEntity(text=Pierre Martin, category=Person, subcategory=None, length=13, offset=237, confidence_score=1.0)], 
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>    warnings=[], statistics=None, is_error=False, kind=EntityRecognition)
+</code></pre></div></td></tr></table></div>
+<h3 id="41-entitats-enllacades">4.1. Entitats enllaçades</h3>
+<p>Investiga al voltant de les <a href="https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/5.3.0/index.html#recognize-linked-entities"><code>Entitats enllaçades</code></a>, on a banda de trobar les entitats, podem trobar enllaços per aprofundir en les entitas trobades.</p>
+<h2 id="5-llenguatge-traduccio-de-texts">5. Llenguatge -  Traducció de texts</h2>
+<p>Per a la traducció anem a fer una crida que no requereix d'un recurs propiament dit però si d'una credencial d'Azure. Com a novetat anem a fer-ho amb un request simple en compte d'eines concretes del SDK.
+Hem de preparar per tant la petició del request, amb aquestes característiques:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">constructed_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<details class="example" open="open">
+<summary>Preparació de la url</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">endpoint_textTranslation</span><span class="o">=</span><span class="s2">&quot;https://api.cognitive.microsofttranslator.com/&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/translate&#39;</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">constructed_url</span> <span class="o">=</span> <span class="n">endpoint_textTranslation</span> <span class="o">+</span> <span class="n">path</span>
+</code></pre></div></td></tr></table></div>
+<p>Amb això ja tenim el punt de conexió de la nosta API</p>
+</details>
+<details class="example" open="open">
+<summary>Paràmetres de la crida</summary>
+<p>En aquest apartat indicarem la versió de la api, així com l'idioma del text que anem a passar i una llista dels idiomes als quals volem traduir. Tenim a continuació un exemple:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="s1">&#39;api-version&#39;</span><span class="p">:</span> <span class="s1">&#39;3.0&#39;</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="s1">&#39;from&#39;</span><span class="p">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span class="s1">&#39;to&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ca&#39;</span><span class="p">,</span> <span class="s1">&#39;es&#39;</span><span class="p">]</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example" open="open">
+<summary>Capçalera de la petició</summary>
+<p>Ací hem de indicar la metainformació de la petició, en el format esperat per la API. En la primera opció posarem la nostra clau del recurs <code>TextAnalytic</code> que hem creat.</p>
+<p>L'altra opció important és la localització del servei, al nostre cas europa de l'oest</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">key</span><span class="o">=</span><span class="s2">&quot;la_nostra_clau_de_azure&quot;</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;westeurope&quot;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a>    <span class="s1">&#39;Ocp-Apim-Subscription-Key&#39;</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># location required if you&#39;re using a multi-service or regional (not global) resource.</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="s1">&#39;Ocp-Apim-Subscription-Region&#39;</span><span class="p">:</span> <span class="n">location</span><span class="p">,</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="s1">&#39;Content-type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="s1">&#39;X-ClientTraceId&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example" open="open">
+<summary>Text a traduir</summary>
+<p>Ens resta completar el cos de la petició, indicant els text o textos a traduir. Serà una llista amb tants elements json com desitjem, encapsultas dins d'una etiqueta <code>text</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">body</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>  <span class="p">{</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello, friend! What did you do today?&#39;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>  <span class="p">},</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>  <span class="p">{</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>  <span class="s1">&#39;text&#39;</span><span class="p">:</span> <span class="s1">&#39;A long time ago in a galaxy far, far away....&#39;</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>  <span class="p">}</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example" open="open">
+<summary>Crida i arreplegant el resultat</summary>
+<p>Finalment farem la crida i arreplegarem el resultat en un JSON. Aquest JSON conte una llista amb una col·lecció d'objectes, tants com texts passats:</p>
+<ul>
+<li>Objectes amb clau <code>translations</code>, que tindra tindrà un llistat amb les traduccions als distints idiomes que hem indicat.</li>
+<li>Cada objecte dins del llistat contindrà:</li>
+<li>Una clau <code>to</code> on d'indica a quin idioma s'ha traduit</li>
+<li>Una clau <code>text</code> amb el text traduit a l'idioma indicat</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># crida</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">constructed_url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># extracció de resultats</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>i el contingut de la resposta és pot veure a continuació:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span>
+<span class="normal"><a href="#__codelineno-16-23">23</a></span>
+<span class="normal"><a href="#__codelineno-16-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="p">[{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hola amic! Què has fet avui?&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="w">            </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ca&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;¡Hola! ¿Qué has hecho hoy?&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">            </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es&quot;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="p">},</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="p">{</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="w">    </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Fa molt de temps en una galàxia llunyana, llunyana....&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="w">            </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ca&quot;</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="w">            </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hace mucho tiempo en una galaxia muy, muy lejana...&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="w">            </span><span class="nt">&quot;to&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;es&quot;</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="w">    </span><span class="p">]</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="p">}]</span>
+</code></pre></div></td></tr></table></div></p>
+</details>
+<h3 id="51-ampliacio">5.1. Ampliació</h3>
+<p>Investiga per la teua part i intenta fer la implementació anterior amb eines pròpies del SDK d'Azure. Ens referim a <code>TextTranslationClient</code></p>
+<h3 id="52-traduccio-de-documents">5.2. Traducció de documents</h3>
+<p>Respecte a la traducció de documents sencers, la deixarem com a opcional, ja que requereix de la creació d'un recurs especial, que pots suposar un cost afegit. Tot i ser relativament barat, anar en compte per no acabar el saldo que disposem d'Azure</p>
+<p>La forma de treballar seria la següent:</p>
+<ol>
+<li>Crear un <a href="https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/quickstarts/document-translation-rest-api?tabs=csharp&amp;pivots=programming-language-csharp#create-azure-blob-storage-containers">Azure Blob Storage containers</a>, que és un contenidor (espai) per a emmagatzemar els nostres documents a traduir.</li>
+<li>Crear un <a href="https://learn.microsoft.com/en-us/azure/ai-services/translator/document-translation/quickstarts/document-translation-sdk?tabs=dotnet&amp;pivots=programming-language-python">DocumentTranslationClient</a>, en el qual especificarem:</li>
+<li>Entrades: que seràn documents guardats al nostre contenidor</li>
+<li>Eixides: que es guardaran també al nostre contenidos</li>
+</ol>
+<p>Queda proposat com a exercici opcional</p>
+<h2 id="6-llenguatge-text-a-veu-i-vice-versa">6. Llenguatge - Text a veu i vice-versa</h2>
+<p>En primer lloc hem de crear un recurs de veu, dins del nostre contenidor de recursos.</p>
+<p><img alt="AzureVeu" src="../img/AzureVeu1.png" /></p>
+<p>Recorda de posar el pla gratuït. Als noms no poden fer-se servir barres baixes.</p>
+<p><img alt="AzureVeu" src="../img/AzureVeu2.png" /></p>
+<p><img alt="AzureVeu" src="../img/AzureVeu3.png" /></p>
+<p><img alt="AzureVeu" src="../img/AzureVeu4.png" /></p>
+<p>Per últim fixar-se que el recurs no és nostre propi, sinò és un <em>entrypoint</em> genèric. Serà amb el token com s'accedirà al nostre recurs.</p>
+<p><img alt="AzureVeu" src="../img/AzureVeu5.png" /></p>
+<p>Al nostre programa ens caldrà per tant la regió i el token d'accès</p>
+<h3 id="61-desenvolupant-el-programa-de-veu-a-text">6.1. Desenvolupant el programa, de veu a text</h3>
+<p>Necessitarem crear un objecte de tipus <code>SpeechConfig</code>, al qual li indicarem el token i la regio creada</p>
+<details class="example" open="open">
+<summary>Creació del recurs de veu</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span>
+<span class="normal"><a href="#__codelineno-17-7">7</a></span>
+<span class="normal"><a href="#__codelineno-17-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">import</span> <span class="nn">azure.cognitiveservices.speech</span> <span class="k">as</span> <span class="nn">speechsdk</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">speech_key</span><span class="o">=</span><span class="s2">&quot;XXXXXX&quot;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">speech_region</span><span class="o">=</span><span class="s2">&quot;westeurope&quot;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">speech_endpoint</span><span class="o">=</span><span class="s2">&quot;https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issuetoken&quot;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">speech_config</span> <span class="o">=</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">SpeechConfig</span><span class="p">(</span><span class="n">subscription</span><span class="o">=</span><span class="n">speech_key</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">speech_region</span><span class="p">)</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="n">speech_config</span><span class="o">.</span><span class="n">speech_recognition_language</span><span class="o">=</span><span class="s2">&quot;es-ES&quot;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>A continuació necessitarem crear la configuració del audio i del reconeixedor de veu, tot a partir del sdk de veu:</p>
+<details class="example" open="open">
+<summary>Audio i reconeixedor</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">audio_config</span> <span class="o">=</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">AudioConfig</span><span class="p">(</span><span class="n">use_default_microphone</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">speech_recognizer</span> <span class="o">=</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">SpeechRecognizer</span><span class="p">(</span><span class="n">speech_config</span><span class="o">=</span><span class="n">speech_config</span><span class="p">,</span> <span class="n">audio_config</span><span class="o">=</span><span class="n">audio_config</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Ahí indiquem:</p>
+<ul>
+<li>Que farem servir el micròfon per defecte a la classe <code>AudioConfig</code>. Podeu trobar més informació <a href="https://learn.microsoft.com/es-es/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest">ací</a></li>
+<li>Enllacem el microfon amb la configuració creada anteriorment</li>
+</ul>
+<p>Finalmen farem servir el mètode <code>recognize_once_async</code> per a transcriure blocs de fins a 30 segons  o fins detectar un silenci. Podeu trobar més informació per a més coses dins de la documentació de <a href="https://learn.microsoft.com/es-es/azure/ai-services/speech-service/how-to-recognize-speech?pivots=programming-language-python">Reconeiximent de veu</a></p>
+<details class="example" open="open">
+<summary>Crida i processament del resultat</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">speech_recognition_result</span> <span class="o">=</span> <span class="n">speech_recognizer</span><span class="o">.</span><span class="n">recognize_once_async</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">speech_recognition_result</span><span class="p">))</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="k">if</span> <span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">ResultReason</span><span class="o">.</span><span class="n">RecognizedSpeech</span><span class="p">:</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text reconegut: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">text</span><span class="p">))</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="k">elif</span> <span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">ResultReason</span><span class="o">.</span><span class="n">NoMatch</span><span class="p">:</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No s&#39;ha detectat text parlat: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">no_match_details</span><span class="p">))</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="k">elif</span> <span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">ResultReason</span><span class="o">.</span><span class="n">Canceled</span><span class="p">:</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>    <span class="n">cancellation_details</span> <span class="o">=</span> <span class="n">speech_recognition_result</span><span class="o">.</span><span class="n">cancellation_details</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;S&#39;ha cancelat la parla: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancellation_details</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a>    <span class="k">if</span> <span class="n">cancellation_details</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">CancellationReason</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detall dels errors: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancellation_details</span><span class="o">.</span><span class="n">error_details</span><span class="p">))</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tens ben posat la clau i la zona de la parla?&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>El resultat obtigut desprès de <code>speech_recognizer.recognize_once_async().get()</code> és algo un <code>SpeechRecognitionResult</code></p>
+<p>que te com a contingut:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="err">resul</span><span class="kc">t</span><span class="err">_id=</span><span class="mi">920</span><span class="err">a</span><span class="mi">7</span><span class="err">d</span><span class="mf">085e</span><span class="kc">f</span><span class="err">b</span><span class="mi">4</span><span class="err">c</span><span class="mi">23</span><span class="err">ad</span><span class="kc">f</span><span class="mf">056e37</span><span class="err">d</span><span class="kc">f</span><span class="mi">82986</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kc">te</span><span class="err">x</span><span class="kc">t</span><span class="err">=</span><span class="s2">&quot;Bon día com va tot?&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="err">reaso</span><span class="kc">n</span><span class="err">=Resul</span><span class="kc">t</span><span class="err">Reaso</span><span class="kc">n</span><span class="err">.Recog</span><span class="kc">n</span><span class="err">izedSpeech</span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="62-desenvolupant-el-programa-de-text-a-veu">6.2. Desenvolupant el programa, de text a veu</h3>
+<p>Indiquem sols el programa d'exemple, el qual deuries de provar i analitzar.</p>
+<details class="example">
+<summary>Problema resolt de text a veu. Analitza'l</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span>
+<span class="normal"><a href="#__codelineno-21-25">25</a></span>
+<span class="normal"><a href="#__codelineno-21-26">26</a></span>
+<span class="normal"><a href="#__codelineno-21-27">27</a></span>
+<span class="normal"><a href="#__codelineno-21-28">28</a></span>
+<span class="normal"><a href="#__codelineno-21-29">29</a></span>
+<span class="normal"><a href="#__codelineno-21-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">import</span> <span class="nn">azure.cognitiveservices.speech</span> <span class="k">as</span> <span class="nn">speechsdk</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="c1"># Creem la instancia del recurs de veu</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">speech_key</span><span class="p">,</span> <span class="n">service_region</span> <span class="o">=</span> <span class="s2">&quot;XXXX&quot;</span><span class="p">,</span> <span class="s2">&quot;westeurope&quot;</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">speech_config</span> <span class="o">=</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">SpeechConfig</span><span class="p">(</span><span class="n">subscription</span><span class="o">=</span><span class="n">speech_key</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">service_region</span><span class="p">)</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1"># Establim la veu, a https://aka.ms/speech/voices/neural tens la llista completa. Espai que les neutres ja no funcionen.</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">speech_config</span><span class="o">.</span><span class="n">speech_synthesis_voice_name</span> <span class="o">=</span> <span class="s2">&quot;es-ES-ElviraNeural&quot;</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1"># Creem el sintetitzador de veu</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="n">speech_synthesizer</span> <span class="o">=</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">SpeechSynthesizer</span><span class="p">(</span><span class="n">speech_config</span><span class="o">=</span><span class="n">speech_config</span><span class="p">)</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="c1"># Llegim el text de l&#39;usuari</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Escriu el text que vols narrar...&quot;</span><span class="p">)</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="c1"># Fem la crida asíncrona</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="n">result</span> <span class="o">=</span> <span class="n">speech_synthesizer</span><span class="o">.</span><span class="n">speak_text_async</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="c1"># Checks result.</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">ResultReason</span><span class="o">.</span><span class="n">SynthesizingAudioCompleted</span><span class="p">:</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Text a reproduir [</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="k">elif</span> <span class="n">result</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">ResultReason</span><span class="o">.</span><span class="n">Canceled</span><span class="p">:</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a>    <span class="n">cancellation_details</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cancellation_details</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Parla cancelada: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancellation_details</span><span class="o">.</span><span class="n">reason</span><span class="p">))</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27"></a>    <span class="k">if</span> <span class="n">cancellation_details</span><span class="o">.</span><span class="n">reason</span> <span class="o">==</span> <span class="n">speechsdk</span><span class="o">.</span><span class="n">CancellationReason</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28"></a>        <span class="k">if</span> <span class="n">cancellation_details</span><span class="o">.</span><span class="n">error_details</span><span class="p">:</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Detalls dels errors: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cancellation_details</span><span class="o">.</span><span class="n">error_details</span><span class="p">))</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tens be la informació de la subscripció?&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="63-exercici">6.3. Exercici</h3>
+<p>Intenta fer un programa que et demana textos, els transforma en veu i els guarda en arxiu de àudio (wav o mp3)</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

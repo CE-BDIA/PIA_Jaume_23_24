@@ -1,0 +1,1595 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/">
+      
+      
+        <link rel="next" href="../02_Tipus_Variables_Operadors/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>1. Preparació de l'entorn - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-preparant-lentorn-en-python" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Preparació de l'entorn
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-preparant-lentorn-en-python" class="md-nav__link">
+    1. Preparant l'Entorn en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-python-anaconda-vs-miniconda" class="md-nav__link">
+    2. Python Anaconda vs Miniconda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jupyter-notebooks" class="md-nav__link">
+    3. Jupyter notebooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jupyter-i-visual-studio-code" class="md-nav__link">
+    4. Jupyter i visual studio code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-google-colab" class="md-nav__link">
+    5. Google Colab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-estructura-dun-programa-en-python" class="md-nav__link">
+    6. Estructura d’un programa en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-noms-i-paraules-reservades-en-python" class="md-nav__link">
+    7. Noms i paraules reservades en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comentaris" class="md-nav__link">
+    8. Comentaris
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Comentaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-tipus-de-comentaris" class="md-nav__link">
+    8.1. Tipus de comentaris
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-delimitadors" class="md-nav__link">
+    9. Delimitadors
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-preparant-lentorn-en-python" class="md-nav__link">
+    1. Preparant l'Entorn en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-python-anaconda-vs-miniconda" class="md-nav__link">
+    2. Python Anaconda vs Miniconda
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-jupyter-notebooks" class="md-nav__link">
+    3. Jupyter notebooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-jupyter-i-visual-studio-code" class="md-nav__link">
+    4. Jupyter i visual studio code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-google-colab" class="md-nav__link">
+    5. Google Colab
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-estructura-dun-programa-en-python" class="md-nav__link">
+    6. Estructura d’un programa en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-noms-i-paraules-reservades-en-python" class="md-nav__link">
+    7. Noms i paraules reservades en Python
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-comentaris" class="md-nav__link">
+    8. Comentaris
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Comentaris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-tipus-de-comentaris" class="md-nav__link">
+    8.1. Tipus de comentaris
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-delimitadors" class="md-nav__link">
+    9. Delimitadors
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>1. Preparació de l'entorn</h1>
+
+<h2 id="1-preparant-lentorn-en-python">1. Preparant l'Entorn en Python</h2>
+<p>Abans de començar a programar en Python hem de preparar la nostra màquina per a tal tasca. Està clar que podem tenir un superordenador i instal·lar tot al complet, però al poc de temps ens adoanrem que perdrem el control del que tenim. Varies versions dels intèrprets de Python (2 o 3) i dins de la 3, 3.7, 3.9, etc... Ademés tenim tota la col·lecció de llibreries que podem instal·lar amb <code>pip</code> per a fer-les servir al nostre programa. Espai i més espai.. versions i més versions.</p>
+<p>Per a evitar aquestes instal·lacions massives de incloure-ho tot, ens ajuden els gestors de dependències, com els que ja coneixereu <code>Maven</code>, <code>Ant</code>, <code>Gradle</code> per a <code>Java</code>, per exemple el <em>Node Package Manager</em> de <code>node.js</code>. Els gestors de dependencies ens permeten crear una mena d'entorns aïllats on podem indicar quines llibreries i dependències ens calen per al nostre projecte. Aquestes llibreries no depenen del sistema anfitrió, i a més a més, permeten una exportació fàcil, ja que no hem de copiar ni d'exportar les llibreries, ja que al destí s'agafaran de nou.</p>
+<p>Dins de python, cada entorn de treball aïllat és coneix com a <em>entorn virtual</em>, i els sistema que ens permet gestionar-lo s'anomena <code>conda</code>.</p>
+<blockquote>
+<p>No confondre amb <code>pip</code> (package installer for Python). <code>pip</code> ens permet instal·lar nous paquets (llibreries) de python, i aquestes s'instal·len de manera global (a la nostra màquina). Si estem dins d'un entorn virtual, i instal·lem qualssevol llibreria, aquesta s'instal·la dins de l'entorn.</p>
+</blockquote>
+<p>En resum, els entorns virtuals ens permeten:</p>
+<ul>
+<li>Organitzar i tindre millor controlades totes les llibreries</li>
+<li>Estabilitat, ja que sempre tenim la llibreria exacta del nostre entorn i no la de la màquina real</li>
+<li>Version distintes </li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Atenció</p>
+<p>Recomanem per tant, crear un entorn virtual per a cadascun dels projectes que desenvoluparem.</p>
+</div>
+<h2 id="2-python-anaconda-vs-miniconda">2. Python Anaconda vs Miniconda</h2>
+<p>Un  paquet que gestiona tant les dependències com l'entorn és conda. Podem instalar <code>miniconda</code> per a una instal·lació mínima o <code>Anaconda</code> per a una més completa, al voltant de 3GB de llibreries. Podeu seguir la discussió ací <a href="https://conda.io/projects/conda/en/latest/user-guide/install/download.html#anaconda-or-miniconda">miniconda vs anaconda</a></p>
+<div class="admonition tip">
+<p class="admonition-title">Consell</p>
+<p>Recomanem <code>miniconda</code> per tindre sols el que necessitem i no arrastrar tantes llibreries al nostre sistema. En cada projecte afegirem el que necessitem.</p>
+</div>
+<p>Un cop instal·lat al teu sistema amfitrió seguint els passos que pots trobar <a href="https://conda.io/projects/conda/en/stable/user-guide/install/index.html">ací</a>.</p>
+<p>Per defefcte a partir d'ara, al obrir una terminal, estarem dins d'un entor, anomenat <code>base</code>. Si volem eixir d'ell hem d'executar <code>conda deactivate</code></p>
+<p>Si vols habilitar estar o no dins d'un entorn quan obrim una terminal, has de fer:</p>
+<ul>
+<li><code>conda config --set auto_activate_base false</code></li>
+<li><code>conda config --set auto_activate_base true</code></li>
+</ul>
+<p>Per a crear un entorn , has d'executar:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>entorn<span class="w"> </span><span class="nv">python</span><span class="o">=</span>x.x
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La primera vegada descarregarrà els paquets bàsics de python, que encara no els tindria</p>
+</div>
+<p>amb <code>conda env list</code> podrem veure els entorns que tenim, i entrar al nou que hem creat amb <code>conda activate entorn</code>.</p>
+<p>Per afegir nous paquets al entorn, <code>conda install nom_paquet</code>.</p>
+<h2 id="3-jupyter-notebooks">3. Jupyter notebooks</h2>
+<p>Els Jupyter Notebooks són una eina fonamental en el món de la programació i la ciència de dades que ha revolucionat la manera en què els professionals treballen i col·laboren en l'anàlisi de dades, el desenvolupament de programari i la recerca científica. Aquesta plataforma, que es va originar com a derivació del projecte <code>IPython</code>, ofereix un entorn interactiu que combina codi, text, imatges i gràfics en un únic document web, permetent als usuaris crear i compartir continguts dinàmics i ben documentats.</p>
+<p>Un dels elements més destacats dels Jupyter Notebooks és la seva capacitat d'integrar codi executable (Python) amb text explicatiu (Markdown), la qual cosa facilita la creació de documents que expliquen i demostren pas a pas els processos analítics i els resultats obtinguts. Aquesta funcionalitat fa que sigui una eina ideal per a científics de dades, enginyers, estudiants i professionals que volen comunicar les seves idees i resultats de manera clara i efectiva.</p>
+<p>A més de ser utilitzats per a l'exploració de dades i l'anàlisi estadística, els Jupyter Notebooks també són àmpliament emprats en l'aprenentatge de programació i la docència, ja que permeten als estudiants escriure, provar i comprendre el codi en un entorn interactiu i amigable.</p>
+<p>Per començar a desenvolupar amb Jupyter Notebooks, hauràs d'instal·lar algunes eines i dependències al teu sistema. Aquí tens els passos bàsics per a la instal·lació:</p>
+<ol>
+<li>
+<p><strong>Python</strong>: Els Jupyter Notebooks són més comunsment utilitzats amb Python. Assegura't de tenir Python instal·lat al teu sistema. És recomanable utilitzar Python 3, ja que Python 2 ja no rep suport.</p>
+</li>
+<li>
+<p><strong>Gestor de paquets de Python</strong>: Si no ho tens ja instal·lat, és aconsellable utilitzar un gestor de paquets de Python com <code>pip</code> o <code>conda</code>. Aquestes eines et permetran instal·lar i gestionar les llibreries i paquets necessaris.</p>
+</li>
+<li>
+<p><strong>Jupyter Notebook</strong>: Pots instal·lar Jupyter Notebook executant la següent comanda a la terminal utilitzant <code>pip</code>:</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>pip install notebook
+</code></pre></div></td></tr></table></div>
+<p>Si utilitzes l'entorn de conda, també pots instal·lar-lo amb:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>conda install notebook
+</code></pre></div></td></tr></table></div>
+<p>Un cop hagis instal·lat tots aquests components, ja estàs llest per començar a treballar amb Jupyter Notebooks. Pots iniciar un servidor de Jupyter Notebook amb la comanda:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>jupyter notebook
+</code></pre></div></td></tr></table></div>
+<p>Aquesta comanda obrirà el teu navegador web amb l'entorn de Jupyter Notebook, on podràs crear nous fitxers de notebook, obrir-ne de existents i començar a escriure codi i text interactius.</p>
+<p>Recordeu que potser també voldràs utilitzar un entorn virtual (com <code>virtualenv</code> o <code>conda</code>) per gestionar les dependències i els paquets específics del teu projecte, especialment si treballes en diversos projectes amb versions diferents de les llibreries.</p>
+<h2 id="4-jupyter-i-visual-studio-code">4. Jupyter i visual studio code</h2>
+<p>Si prefereixes utilitzar Visual Studio Code (VS Code) per desenvolupar amb Jupyter Notebooks, també pots fer-ho. VS Code és una excel·lent opció per als desenvolupadors de Python i ofereix una integració nativa amb Jupyter que facilita la creació i l'execució de notebooks. Aquí tens com fer-ho:</p>
+<ol>
+<li>
+<p><strong>Instal·la Visual Studio Code</strong>: Si encara no tens VS Code instal·lat, descarrega'l i instal·la'l des del lloc web oficial: <a href="https://code.visualstudio.com/">Visual Studio Code</a>.</p>
+</li>
+<li>
+<p><strong>Instal·la l'extensió de Jupyter</strong>: Un cop hagis obert VS Code, ves a l'Explorador d'Extensions (Extensions Marketplace) fent clic a l'ícona d'extensions a la barra lateral esquerra o amb <code>Ctrl+Shift+X</code>. Cerca "Jupyter" i instal·la l'extensió "Python" que ofereix Microsoft. Aquesta extensió proporciona suport complet per als Jupyter Notebooks.</p>
+</li>
+<li>
+<p><strong>Crea o obre un Jupyter Notebook</strong>: Des de VS Code, pots crear un nou Jupyter Notebook fent clic a l'opció "Create new Jupyter Notebook" a la vista d'Explorer. També pots obrir notebooks existents fent clic amb el botó dret sobre ells i seleccionant "Open with Jupyter Notebook."</p>
+</li>
+<li>
+<p><strong>Selecciona l'entorn de Python</strong>: VS Code permet gestionar entorns virtuals amb l'extensió "Python" i pots seleccionar l'entorn que vulguis utilitzar per al teu notebook.</p>
+</li>
+<li>
+<p><strong>Desenvolupa amb Jupyter Notebooks</strong>: Un cop hagis creat o obert un notebook, podràs escriure codi, text i afegir cel·les de manera similar a com ho faries amb l'entorn de Jupyter Notebook independent. Pots executar les cel·les mitjançant les opcions a la barra d'eines o amb atajos de teclat.</p>
+</li>
+<li>
+<p><strong>Gestiona les extensions</strong>: VS Code ofereix moltes extensions útils per a la ciència de dades i l'anàlisi de dades. Pots explorar i instal·lar extensions addicionals des de l'Explorador d'Extensions.</p>
+</li>
+</ol>
+<p>Aquesta integració de Jupyter a Visual Studio Code ofereix una experiència de desenvolupament completa i molt potent per als usuaris de Python que vulguin treballar amb notebooks i codi en un mateix entorn.</p>
+<h2 id="5-google-colab">5. Google Colab</h2>
+<p>Google Colab (abreviació de Colaboratory) és una plataforma en línia que permet executar Jupyter Notebooks directament al núvol, sense necessitat de configurar res al teu propi sistema. És una excel·lent opció si vols treballar amb Jupyter Notebooks sense preocupar-te de la instal·lació d'entorns i llibreries al teu propi dispositiu. Aquí tens com fer servir Google Colab:</p>
+<ol>
+<li>
+<p><strong>Accedeix a Google Colab</strong>: Obre el teu navegador web i accedeix a <a href="https://colab.research.google.com/">Google Colab</a>. Hauràs d'iniciar sessió amb el teu compte de Google si encara no ho has fet.</p>
+</li>
+<li>
+<p><strong>Crea un nou notebook o importa-ne un</strong>: Pots crear un nou notebook fent clic a "File" &gt; "New notebook" o importar un notebook existent des del teu Google Drive o des d'un enllaç a GitHub fent servir les opcions disponibles a la vista "File".</p>
+</li>
+<li>
+<p><strong>Treballa amb el teu notebook</strong>: Un cop hagis creat o importat un notebook, pots escriure codi, text, i executar cel·les com ho faries amb un Jupyter Notebook convencional. Utilitza les cel·les de codi i text per a la teva anàlisi o projecte.</p>
+</li>
+<li>
+<p><strong>Entorns i llibreries</strong>: Google Colab ofereix un entorn de Python prèviament configurat que inclou moltes llibreries comunes per a la ciència de dades (com NumPy, pandas, Matplotlib, etc.). Si necessites instal·lar altres llibreries, pots fer-ho executant comandes pip directament en una cel·la (per exemple, <code>!pip install numpy</code>).</p>
+</li>
+<li>
+<p><strong>Guarda el teu treball</strong>: Pots desar el teu notebook a Google Drive o descarregar-lo localment mitjançant l'opció "File" &gt; "Save" o "File" &gt; "Download .ipynb."</p>
+</li>
+<li>
+<p><strong>Comparteix i col·labora</strong>: Google Colab et permet compartir els teus notebooks amb altres persones perquè puguin veure i editar el teu treball en temps real. Pots compartir mitjançant enllaços o afegir col·laboradors directament a través de les opcions de compartició.</p>
+</li>
+</ol>
+<p>Google Colab és una eina excel·lent per als projectes de ciència de dades i l'aprenentatge automàtic que es volen executar en un entorn de computació més potent que el teu dispositiu local o per a la col·laboració en línia amb altres persones. És una opció molt popular a la comunitat de la ciència de dades i és gratuït per a ús personal.</p>
+<h2 id="6-estructura-dun-programa-en-python">6. Estructura d’un programa en <code>Python</code></h2>
+<p>Un programa en <code>Python</code> te una estructura molt simple, si ho comparm en altres llenguatges de programació; simplement hem d'escriure les nostres linies de codi i ja està, però pot tenir més coses</p>
+<p>Qualsevol programa escrit en <code>Python</code> té la següent estructura:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>[Descripció del programa]
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>[Directives]
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>[Importació de Libreria]
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>[Definició de classes]
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>[Funcions]
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>Entrada de dades
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>Processament de dades
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>Sortidad de dades
+</code></pre></div></td></tr></table></div></p>
+<p>Els claudàtors indiquen que eixos apartats són opcionals. Per tant, veiem que l’única part necessària en un programa és l'entrada, el processament i la sortida de dades, com en qualssevol algorisme. Notar que en <code>Python</code> tots aquests poden canviar la posició. Vejam uns exemples i els analitzem.</p>
+<p>El més simple, mostra un missatge per pantalla:</p>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola món&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+Altre una mica més complet:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Programa que calcula el area de un rectangle</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1"># Autor: Joan Gerard Camarena</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Data : 2019/07/11</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="k">def</span> <span class="nf">areaRectangle</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="k">return</span> <span class="n">base</span><span class="o">*</span><span class="n">altura</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">base</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me la base del rectangle: &quot;</span><span class="p">))</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">altura</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me l&#39;altura del rectangle: &quot;</span><span class="p">))</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># Espera dos segons</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">area</span><span class="o">=</span><span class="n">areaRectangle</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">altura</span><span class="p">)</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area del rectangle és &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">area</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p>Comentaris:</p>
+<ul>
+<li>Les 3 primeres línies sob una descripció del que fa el programa. Son comentaris, que no s'executen</li>
+<li>Al <code>import</code> indiquem que necessitem una llibreria. Això es veurà més endavant, però les llibreries són un conjunt de funcions que ja venen implementades i les podem fer servir als nostres programes. La funció que farem servir és <code>time.sleep()</code> que fa que el programa es pause durant una quantitat de segons.</li>
+<li>Desprès tenin la definició d'una funció, que comença amb la paraula reservada <code>def</code>. Notar que tot el que pertany a la funció està indentat una tabulació (al nostre cas sols la instrucció del <code>return</code>).</li>
+<li>Desprès ja tenim el nostre programa pròpiament dit:</li>
+<li>Les línies no tenen cap indentació (pegades a l'esquerre)</li>
+<li>La primera part és la que l'algorisme ha d'aconseguir la informació. En aquest cas a preguntem a l'usuari mitjançant <code>input</code>. </li>
+<li>La segona part  és el fer el càlcul. Pot veure's que es crida a la funció que hem definit anteriorment</li>
+<li>Finalment mostrem a l'usuari el resultat (<code>print</code>).</li>
+</ul>
+<h2 id="7-noms-i-paraules-reservades-en-python">7. Noms i paraules reservades en <code>Python</code></h2>
+<p>Nosaltres per a programar, com hem vist abans, li hem posat nom a les variables i funcions. Per a posar nom a les variables hem de complir unes regles, que tenen tots els llenguatges de programació:</p>
+<ol>
+<li>Són una combinació de lletres minúscules [a..z], majúscules [A..Z], dígits [0..9] i el caràcter subratllat[_]. </li>
+<li>No poden començar amb dígit.</li>
+<li>Poden contenir accents i altes caràcters (ñ,ç,...)</li>
+<li>No poden ser paraules reservades o <code>keywords</code> del sistema (veure taula a continuació)</li>
+<li>No poden haver símbols especials ni operadors [!, @, #, $, %, ...] etc. </li>
+<li>Poden tenir qualssevol longitud</li>
+</ol>
+<p>Paraules reservades:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">False</td>
+<td style="text-align: center;">class</td>
+<td style="text-align: center;">finally</td>
+<td style="text-align: center;">is</td>
+<td style="text-align: center;">return</td>
+</tr>
+<tr>
+<td style="text-align: center;">None</td>
+<td style="text-align: center;">continue</td>
+<td style="text-align: center;">for</td>
+<td style="text-align: center;">lambda</td>
+<td style="text-align: center;">try</td>
+</tr>
+<tr>
+<td style="text-align: center;">True</td>
+<td style="text-align: center;">def</td>
+<td style="text-align: center;">from</td>
+<td style="text-align: center;">nonlocal</td>
+<td style="text-align: center;">while</td>
+</tr>
+<tr>
+<td style="text-align: center;">and</td>
+<td style="text-align: center;">del</td>
+<td style="text-align: center;">global</td>
+<td style="text-align: center;">not</td>
+<td style="text-align: center;">with</td>
+</tr>
+<tr>
+<td style="text-align: center;">as</td>
+<td style="text-align: center;">elif</td>
+<td style="text-align: center;">if</td>
+<td style="text-align: center;">or</td>
+<td style="text-align: center;">yield</td>
+</tr>
+<tr>
+<td style="text-align: center;">assert</td>
+<td style="text-align: center;">else</td>
+<td style="text-align: center;">import</td>
+<td style="text-align: center;">pass</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">break</td>
+<td style="text-align: center;">except</td>
+<td style="text-align: center;">in</td>
+<td style="text-align: center;">raise</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Existeixen algunes més, com els tipus de dades (<code>int</code>, <code>float</code>, <code>str</code>, <code>complex</code>, etc). La facilitat és que els editors ens colorejen les paraules reservades, llavors sabrem que no les podem utilitzar per als nostres identificadors.</p>
+<p>Les variables són els llocs on es guarda la informació. Poden ser de distints tipus, segons el lloc on es fan servir i des d'on es poden accedir. Una primera distinció és entre globals i locals:</p>
+<ul>
+<li>Les globals són aquelles que es creen fora de qualssevol funció i, per tant, són accessibles des de qualsevol punt del fitxer o programa.</li>
+<li>Les locals són les que es creen dins d’alguna funció i, per tant, només són accessibles des de les instruccions de dins d’eixa funció. Dins de una funció es pot accedir a les variables locals seues, així com a les variables globals</li>
+<li>Les variables de classe són com les variables locals a les funcions. S'estudiaràn dins de la POO</li>
+</ul>
+<h2 id="8-comentaris">8. Comentaris</h2>
+<p>Els comentaris, com ja s'ha dit abans, són sentències les quals no s'executen, però serveixen per a poder entrendre i recordar què voliem fer dins del nostre codi. Si escrivim un codi, i el tornem a revisar al cap d'unes setmanes, segur que no recordem certes coses. L'ús de comentaris ens ajudarà a recordar.</p>
+<p>També servieix quan altre programador ens revisa el nostre codi poder entrendre el que voliem fer.</p>
+<h3 id="81-tipus-de-comentaris">8.1. Tipus de comentaris</h3>
+<ul>
+<li>D'una línia, venen precedits pel caràcter coixinet <code>#</code></li>
+<li>De més d'una línia, quan tanquem diverses línies entre dos parelles de tres cometes simples <code>'''</code></li>
+<li>
+<p>De documentació <em>docstring</em>, són una línia o línies de text intercalades  al principi d'un mòdul, mètode, classe o funció. Pot ser:</p>
+<ul>
+<li>Línia simple: com per exemple <code>'Documentació.'</code></li>
+<li>Línia múltiple: tancada entre tres parelles de cometes dobles <code>"""</code></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="sd">Programa que calcula el area de un rectangle</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="sd">Autor: Joan Gerard Camarena</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="sd">Data : 2019/07/11</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="sd">&#39;&#39;&#39;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c1"># declarem una funció</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">def</span> <span class="nf">areaRectangle</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">altura</span><span class="p">):</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="sd">    Aquest funció calcula el àrea d&#39;un rectangle</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="sd">    Paràmetres:</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="sd">        base -&gt; La base del rectangle</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="sd">        altura -&gt; La altura del rectangel</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="sd">    Errors: </span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="sd">        No implentat</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="k">return</span> <span class="n">base</span><span class="o">*</span><span class="n">altura</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="k">def</span> <span class="nf">areaQuadrat</span><span class="p">(</span><span class="n">base</span><span class="p">):</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="s1">&#39;Calcula el area  de un quadrat de costat pasat.&#39;</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    <span class="k">return</span> <span class="n">base</span><span class="o">**</span><span class="mi">2</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="c1">#demanem les dades a l&#39;usuari</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="n">base</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me la base del rectangle: &quot;</span><span class="p">))</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="n">altura</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me l&#39;altura del rectangle: &quot;</span><span class="p">))</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>   <span class="c1"># Espera dos segons</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="n">area</span><span class="o">=</span><span class="n">areaRectangle</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">altura</span><span class="p">)</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="c1">#mostrem el resultat</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area del rectangle és &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">area</span><span class="p">))</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a><span class="n">area</span><span class="o">=</span><span class="n">areaQuadrat</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a><span class="c1">#mostrem el resultat</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;area del quadrat és &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">area</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="9-delimitadors">9. Delimitadors</h2>
+<p>Són símbols especials que permeten al compilador separar i reconéixer les diferents unitats sintàctiques del llenguatge. En molts llenguatges de programació es fa servir un <code>;</code> (<code>C</code> i  en <code>Java</code> ) com  a finalitzador, però <code>Python</code> fa servir el bot de línia. De tota manera indiquem els més habituals per a tots els llenguatges.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">DELIMITADOR</th>
+<th style="text-align: center;">NOM</th>
+<th style="text-align: center;">UTILITAT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">,</td>
+<td style="text-align: center;">Separador</td>
+<td style="text-align: center;">Separar els elements d’una llista</td>
+</tr>
+<tr>
+<td style="text-align: center;">( )</td>
+<td style="text-align: center;">Parèntesis</td>
+<td style="text-align: center;">Agrupar operacions i per als paràmetres de les funcions</td>
+</tr>
+<tr>
+<td style="text-align: center;">[ ]</td>
+<td style="text-align: center;">Claudàtors</td>
+<td style="text-align: center;">Per als vectors. llistes i demés</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

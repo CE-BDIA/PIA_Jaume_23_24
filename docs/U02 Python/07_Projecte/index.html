@@ -1,0 +1,1454 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../06_POO/">
+      
+      
+        <link rel="next" href="../08_ExerciciPreProjecte/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>7. Projecte - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#les-figures" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Projecte
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-figures" class="md-nav__link">
+    Les figures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparem-les-estructures-necessaries" class="md-nav__link">
+    Preparem les estructures necessàries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-dibuix" class="md-nav__link">
+    El dibuix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-principal" class="md-nav__link">
+    Menu principal
+  </a>
+  
+    <nav class="md-nav" aria-label="Menu principal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-afegint-figures-al-nostre-dibuix" class="md-nav__link">
+    1. Afegint figures al nostre dibuix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-carregant-la-informacio-desde-fitxers" class="md-nav__link">
+    2. Carregant la informació desde fitxers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-exportant-la-informacio-a-inkscape" class="md-nav__link">
+    3. Exportant la informació a Inkscape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pintant-i-eixint" class="md-nav__link">
+    4. Pintant i eixint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#les-figures" class="md-nav__link">
+    Les figures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparem-les-estructures-necessaries" class="md-nav__link">
+    Preparem les estructures necessàries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-dibuix" class="md-nav__link">
+    El dibuix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#menu-principal" class="md-nav__link">
+    Menu principal
+  </a>
+  
+    <nav class="md-nav" aria-label="Menu principal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-afegint-figures-al-nostre-dibuix" class="md-nav__link">
+    1. Afegint figures al nostre dibuix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-carregant-la-informacio-desde-fitxers" class="md-nav__link">
+    2. Carregant la informació desde fitxers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-exportant-la-informacio-a-inkscape" class="md-nav__link">
+    3. Exportant la informació a Inkscape
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-pintant-i-eixint" class="md-nav__link">
+    4. Pintant i eixint
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>7. Projecte</h1>
+
+<h2 id="les-figures">Les figures</h2>
+<p><img alt="Les figures" src="../img/Figures.png" /></p>
+<h2 id="preparem-les-estructures-necessaries">Preparem les estructures necessàries</h2>
+<p>Com a projecte final anem a implementar el clàssic exercici de les figures, on:</p>
+<ul>
+<li>Crea una classe <code>Punt</code> amb dos coordenades <code>(x,y)</code>, constructor i getters, setters, str. Implementar:</li>
+<li>Un mètode <em>dist</em> a altre punt passat com argument, que retorna la distància euclidea entre dos punts.</li>
+<li>Un mètode <em>dist_x</em> i <em>dist_y</em> que retornen la distancia en horizontal i en vertical entre dos punts.</li>
+<li>Comprova que el punt el tens ben implementat, executant:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">p1</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">p2</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La distancia entre&quot;</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="s2">&quot; es &quot;</span><span class="p">,</span><span class="n">p1</span><span class="o">.</span><span class="n">dist</span><span class="p">(</span><span class="n">p2</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div></li>
+<li>Crea una classe <code>Figura</code>, que conte un <code>Punt</code> (la posició on està ubicat) i un color (que serà un String de 7 caracters en hexadecimal). A banda dels mètodes habituals, també contindrà dos mètodes <em>area()</em> i <em>perimetre()</em>, sense implementar. Comprova aquest codi:</li>
+</ul>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>  <span class="n">p1</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  <span class="n">p2</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#34FFDF&quot;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;El color </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s1"> valid=</span><span class="si">{</span><span class="n">comprovaHEX</span><span class="p">(</span><span class="n">color</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>  <span class="n">f</span><span class="o">=</span><span class="n">Figura</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+- Crea tres classes que hereten de <code>Figura</code>:</p>
+<ul>
+<li><code>Rectangle</code>, afegint altre <code>Punt</code>. El <code>Punt</code> propi de <code>Figura</code> serà el superior esquerre, i el que afegeix <code>Rectangle</code> serà l'inferior dret (per convenció el cridarem <code>altre</code>). Reimplementar els mètodes conforme calen.</li>
+<li><code>Cercle</code>, afegint un radi. El <code>Punt</code> de <code>Figura</code> suposarem serà el centre del cercle. Reimplementar els mètodes conforme calen.</li>
+<li><code>Linia</code>, afegint altre <code>Punt</code>. Reimplementar els mètodes conforme calen, tenint en compte que l'area és 0, i considerarem com a perímetre la longitud de la línia.</li>
+</ul>
+<p>Comprova que el codi:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>  <span class="n">p1</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span class="n">p2</span><span class="o">=</span><span class="n">Punt</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#34FFDF&quot;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>  <span class="n">f</span><span class="o">=</span><span class="n">Figura</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>  <span class="n">l</span><span class="o">=</span><span class="n">Linia</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La longitud es&quot;</span><span class="p">,</span><span class="n">l</span><span class="o">.</span><span class="n">perimetre</span><span class="p">())</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>  <span class="n">r</span><span class="o">=</span><span class="n">Rectangle</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El perímetre es&quot;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">perimetre</span><span class="p">())</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El area es&quot;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>  <span class="n">c</span><span class="o">=</span><span class="n">Cercle</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">color</span><span class="p">)</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El perímetre es&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">perimetre</span><span class="p">())</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El area es&quot;</span><span class="p">,</span><span class="n">c</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+</code></pre></div></td></tr></table></div></p>
+<p>retorna:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Figura situada en (2,3) de color #34FFDF
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Linia situada de (2,3) a (3,7) de color #34FFDF
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>La longitud es 4.123105625617661
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>Rectangle situada de (2,3) a (3,7) de color #34FFDF
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>El perímetre es 10
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>El area es 4.0
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>Cercle situada en centre (2,3) i radi 4 de color #34FFDF
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>El perímetre es 25.132741228718345
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>El area es 50.26548245743669
+</code></pre></div></td></tr></table></div></p>
+<h2 id="el-dibuix">El dibuix</h2>
+<p>A banda de les estructures creades, hem de emmagatzemar totes les figures que creem en algun lloc. Eixe lloc serà el nostre dibuix, i per a no complicar les coses ho farem amb una variable global amb la següent estructura:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Dibuix</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>  <span class="s2">&quot;ample&quot;</span><span class="p">:</span><span class="mi">800</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>  <span class="s2">&quot;alt&quot;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>  <span class="s2">&quot;Figures&quot;</span><span class="p">:[]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+<p>Com pot veure's, 800x600 són les dimensions per defecte i inicialment no tenim cap figura. És en aquest array on anirem guardant-les, tal i com es descriu a continuació.</p>
+<h2 id="menu-principal">Menu principal</h2>
+<p>Un cop dissenyades i preparades les nostres estructures, anem a crear el programa per a poder dibuixar. El programa presentarà un menú com segueix:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>Indica el que vols fer:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>  1 - Afegir figura al dibuix
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  2 - Carregar dibuix des de fitxer
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>  3 - Exportar  dibuix a SVG
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>  4 - Dibuixar i exir
+</code></pre></div></td></tr></table></div></p>
+<p>L'usuari escollirà l'opció que desitje, com es veu a continuació. Desprès  d'executar totes les opcions es retornarà de nou a aquest menú, exepcte en la opció 4, com es veurà a continuació</p>
+<h3 id="1-afegint-figures-al-nostre-dibuix">1. Afegint figures al nostre dibuix</h3>
+<p>El programa mostrarà un nou submenú, i segons el que triem:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span>
+<span class="normal"><a href="#__codelineno-6-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Indica la figura que vols afegir:
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>1 - Linia
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  Introdueix les dades de la linia (x1 y1 x2 y2 #color):
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>2 - Rectangle
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>  Introdueix les dades de la Rectangle (x1 y1 x2 y2 #color): 
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>3 - Cercle
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>  Introdueix les dades de la Cercle (x1 y1 r #color): 
+</code></pre></div></td></tr></table></div></p>
+<p>L'usari indicarà els paràmetres de la figura en qüestió, en el format indicat. Un cop llegida la linea que descriu la figura es crearà la figura corresponent (<code>Linia</code>, <code>Rectangle</code> o <code>Cercle</code>) i s'afegira al llistat de figures de <code>Dibuix</code>. Aquesta opció d'afegir figures la podrem executar tantes vegades com vullguem, com s'ha comentat en la descripció del menú.</p>
+<details class="warning" open="open">
+<summary>Atencio</summary>
+<p>Fer el control d'errors que cadascú considere. Per a verificar el color en hexadecimal, es disposa implementada de la següent funció
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span> <span class="nn">re</span>   <span class="c1">#regular expression</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">def</span> <span class="nf">comprovaHEX</span><span class="p">(</span><span class="n">hex_string</span><span class="p">):</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>  <span class="n">match</span> <span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^#(?:[0-9a-fA-F]</span><span class="si">{3}</span><span class="s1">){1,2}$&#39;</span><span class="p">,</span> <span class="n">hex_string</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>  <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>  <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div></td></tr></table></div></p>
+</details>
+<h3 id="2-carregant-la-informacio-desde-fitxers">2. Carregant la informació desde fitxers</h3>
+<p>Tenim un format de fitxer de text com es veu a continuació.
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>dimensions 320 300
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>cercle 166 105 26 #94c147
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>rectangle 137 108 58 58 #ffffff
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>cercle 173 96 3 #ffffff
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>rectangle 126 115 11 31 #94c147
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>linia 186 75 164 93 #94c147
+</code></pre></div></td></tr></table></div></p>
+<p>Deurem de:</p>
+<ul>
+<li>Demanar a l'usuari el nom del fitxer de text</li>
+<li>Llegir linia a linia d'aquest fitxer de text i avaluar la primera paraula del mateix:</li>
+<li><code>dimensions</code> --&gt; modificarà les dimensions de la variable <code>Dibuix</code></li>
+<li>per a la resta de figures, crearà la figura corresponent i l'afegirà a la llista de figures de <code>Dibuix</code></li>
+</ul>
+<h3 id="3-exportant-la-informacio-a-inkscape">3. Exportant la informació a Inkscape</h3>
+<p>En aquest apartat, anem a exportar les figures que tenim a la variable <code>Dibuix</code> a un format estàndar de dibuix vectorial, el format <code>SVG</code>. Aquest format és text formatat com a XML, com podeu consultar an aquest enllaç <a href="https://es.wikipedia.org/wiki/Gráficos_vectoriales_escalables">format svg</a>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">XML</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="nt">&lt;svg</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;300&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;320&quot;</span><span class="nt">&gt;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span><span class="nt">&lt;circle</span><span class="w"> </span><span class="na">cx=</span><span class="s">&quot;166&quot;</span><span class="w"> </span><span class="na">cy=</span><span class="s">&quot;166&quot;</span><span class="w"> </span><span class="na">fill=</span><span class="s">&quot;#94c147&quot;</span><span class="w"> </span><span class="na">r=</span><span class="s">&quot;26&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span><span class="nt">&lt;rect</span><span class="w"> </span><span class="na">fill=</span><span class="s">&quot;#ffffff&quot;</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;58&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;58&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;137&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;108&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">  </span><span class="nt">&lt;rect</span><span class="w"> </span><span class="na">fill=</span><span class="s">&quot;#94c147&quot;</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;31&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;11&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;146&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;150&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">  </span><span class="nt">&lt;circle</span><span class="w"> </span><span class="na">cx=</span><span class="s">&quot;151&quot;</span><span class="w"> </span><span class="na">cy=</span><span class="s">&quot;151&quot;</span><span class="w"> </span><span class="na">fill=</span><span class="s">&quot;#94c147&quot;</span><span class="w"> </span><span class="na">r=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">  </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">stroke=</span><span class="s">&quot;#94c147&quot;</span><span class="w"> </span><span class="na">stroke-width=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">x1=</span><span class="s">&quot;142 &quot;</span><span class="w"> </span><span class="na">x2=</span><span class="s">&quot;164&quot;</span><span class="w"> </span><span class="na">y1=</span><span class="s">&quot;75&quot;</span><span class="w"> </span><span class="na">y2=</span><span class="s">&quot;93&quot;</span><span class="nt">/&gt;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="nt">&lt;/svg&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Haurem de:</p>
+<ul>
+<li>Crear a la clase <code>Figura</code> un mètode <code>toXML</code> abstracte.</li>
+<li>Implementar-lo en les classes hereves, definint-lo i transformat el contingut de cada <code>Figura</code> com es veu a l'exemple</li>
+<li>Recorrer tot el contigut de la variable <code>Dibuix</code> i guardar-lo a un fitxer de text, amb l'extensió SVG. </li>
+<li>El nom del fitxer es preguntarà a l'usuari.</li>
+</ul>
+<h3 id="4-pintant-i-eixint">4. Pintant i eixint</h3>
+<p>Per a acabar, es subministra un mètode ja totalment implementat per a representar gràficament el nostre <code>Dibuix</code> i acabar el programa. Aquest programa fa servir la llibreria <code>Flet</code>, que estudiarem més endavant per a crear interfícies d'usuari, i concretament la llibreria <code>canvas</code> (llençol o lienzo en castellà) per a dibuixar figures. Presetem la estructura del codi, sense entrar massa en detalls. Al programa de partida que se us passa la podeu consultar tota.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">import</span> <span class="nn">flet</span> <span class="k">as</span> <span class="nn">ft</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">import</span> <span class="nn">flet.canvas</span> <span class="k">as</span> <span class="nn">cv</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># creem el dibuix per defecte</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">Dibuix</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>  <span class="s2">&quot;ample&quot;</span><span class="p">:</span><span class="mi">800</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>  <span class="s2">&quot;alt&quot;</span><span class="p">:</span><span class="mi">600</span><span class="p">,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>  <span class="s2">&quot;Figures&quot;</span><span class="p">:[]</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="p">}</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="c1"># funció que dibuixa totes les figures. </span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="k">def</span> <span class="nf">dibuixar</span><span class="p">(</span><span class="n">page</span><span class="p">:</span> <span class="n">ft</span><span class="o">.</span><span class="n">Page</span><span class="p">):</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>  <span class="k">pass</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="c1"># Al programa principal, dins de la opció de menú 4</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a> <span class="k">elif</span> <span class="n">opcio</span><span class="o">==</span><span class="mi">4</span><span class="p">:</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dibuixem i eixim&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>      <span class="n">ft</span><span class="o">.</span><span class="n">app</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">dibuixar</span><span class="p">)</span>   <span class="c1"># Es crea una finestra flet amb la funció Dibuixar</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>      <span class="n">eixir</span><span class="o">=</span><span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<details class="warning" open="open">
+<summary><strong>Important</strong> per a que tot funcione adequadament</summary>
+<ul>
+<li>Les classes han de dir-se exactament <code>Linia</code>, <code>Rectangle</code> i <code>Cercle</code></li>
+<li>La classe auxiliar <code>Punt</code>, ha de tindre els mètodes <code>getX()</code>, <code>getY()</code>, <code>__str__</code>, <code>dist()</code>, <code>dist_x()</code> i <code>dist_y()</code></li>
+<li><code>Figura</code> ha de tindre els mètodes <code>getPos()</code>, <code>getColor()</code>, <code>__str__</code>, <code>toXML()</code>, <code>area()</code> i <code>perimetre()</code></li>
+<li><code>Rectangle</code>, ademés, ha de tindre els mètode <code>getAltre()</code>, per a retornar el punt inferior dret.</li>
+<li><code>Linia</code>, ademés, ha de tindre els mètode <code>getAltre()</code>, per a retornar l'altre punt de la linia.</li>
+<li><code>Cercle</code>, ademés, ha de tindre els mètodes <code>getRadi()</code>, per a retornar el radi.</li>
+</ul>
+</details>
+<p>Als recursos i exercicis tens l'arxius <a href="../exercicis/U02_Projecte_0/"><strong><em>U02_Projecte_0.py</em></strong></a>  com a punt de partida per a programar, així com els esquelets i funcions ja implementades.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

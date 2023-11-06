@@ -1,0 +1,1818 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>2. Contenidors de BBDD amb Docker - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#que-es-docker" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Contenidors de BBDD amb Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U02%20Python/09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-docker" class="md-nav__link">
+    Què és Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Què és Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installacio" class="md-nav__link">
+    Instal·lació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidors-individuals" class="md-nav__link">
+    Contenidors Individuals
+  </a>
+  
+    <nav class="md-nav" aria-label="Contenidors Individuals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creant-contenidors" class="md-nav__link">
+    Creant contenidors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crear-els-nostres-contenidors-dockerfile-i-docker-compose" class="md-nav__link">
+    Crear els nostres contenidors Dockerfile i docker-compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Crear els nostres contenidors Dockerfile i docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dockerfile" class="md-nav__link">
+    Dockerfile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    docker-compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidors-de-bbdd-amb-mongodb" class="md-nav__link">
+    Contenidors de BBDD amb mongoDB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    mongoDB
+  </a>
+  
+    <nav class="md-nav" aria-label="mongoDB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-i-bson" class="md-nav__link">
+    JSON i BSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importar-i-exportar-colleccions" class="md-nav__link">
+    Importar i exportar col·leccions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inserir-documents" class="md-nav__link">
+    Inserir documents
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consultes-de-documents" class="md-nav__link">
+    Consultes de documents
+  </a>
+  
+    <nav class="md-nav" aria-label="Consultes de documents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordenacio" class="md-nav__link">
+    Ordenació
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actualitzacions" class="md-nav__link">
+    Actualitzacións
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eliminar-bases-de-dades" class="md-nav__link">
+    Eliminar bases de dades
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mongodb-i-python" class="md-nav__link">
+    mongoDB i Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusio" class="md-nav__link">
+    Conclusió
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>2. Contenidors de BBDD amb Docker</h1>
+
+<h2 id="que-es-docker">Què és <code>Docker</code></h2>
+<p><img alt="Docker" src="../img/Docker_logo.png" /></p>
+<p><code>Docker</code> (segons la wikipèdia) és un projecte de codi obert que automatitza el desplegment d’aplicacions dins de contenidors de programari, i proporciona una capa addicional d’abstracció i automatització de virtualització d’aplicacions en múltiples sistemes operatius. Docker fa ús de les característiques d’aïllament de recursos del nucli de Linux, tals com els cgroups i els namespaces que permeten que contenidors independents s’executen dins una mateixa instància de Linux, evitant la sobrecàrrega d’iniciar i mantenir màquines virtuals.</p>
+<p>Els principals avantatges de l’ús de contenidors són:</p>
+<ul>
+<li>Laflexibilitat,ja que fins i tot les aplicacions més complexes podeni ncloure’s als contenidors.</li>
+<li>La poca càrrega que suposen per al sistema,al compartir el mateix kernel que l’amfitrió.</li>
+<li>La possibilitat de desplegar actualitzacions en calent.</li>
+<li>La portabilitat, ja que es poden desenvolupar localment, desplegar al núvol i llançar-los en qualsevol lloc.</li>
+<li>L’escalabilitat, ja que permet incrementar automàticament rèpliques dels contenidors,</li>
+<li>Els serveis en contenidors poden apilar-se <code>on the fly</code></li>
+</ul>
+<p>Al llarg del document parlarem sobre imatges i contenidors, pel que convé aclarir aquests conceptes.</p>
+<ul>
+<li>Una <strong>imatge</strong> és un paquet executable que inclou tot allò necessari per executar una aplicació: el codi, l’entorn d’execució, llibreríes, variables d’entorn i fitxers de configuració.</li>
+<li>Un <strong>contenidor</strong>, per la seua banda és una instància d’una imatge en execució: allò que es crea quan posem en marxa una imatge. Podríem dir que un contenidor és a una imatge el que un procés a un programa </li>
+</ul>
+<details class="tip" open="open">
+<summary>Recordatori</summary>
+<p>Si <code>procés==programa en execució</code> llavors <code>contenidor=imatge en execució</code></p>
+</details>
+<h3 id="installacio">Instal·lació</h3>
+<p>No anem a entrar en detall però cal tenir instal·la el subsistema Docker a la nosta màquina nativa (anomenat <em>Docker engine</em>) i podeu trobar tota la documentació ací <a href="https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>. Consideracions:</p>
+<ul>
+<li>Hem de configurar el sistema per a que el dimoni o servei de Docker arranque amb el sistema, o l'hem d'arrancar cada cop que ho necessitem.</li>
+<li>Podem afegir eines gràfiques per a la gestió de contenidors ja creats.</li>
+</ul>
+<h2 id="contenidors-individuals">Contenidors Individuals</h2>
+<p>Les imatges precreades de Docker estan emmagatzemades al que es coneix com el <code>Docker-hub</code> accessible desde <a href="https://hub.docker.com">https://hub.docker.com</a>. Les imatges estan alli emmagatzemades, i per a fer-les servir, òbviament hem de descarregar-les.</p>
+<p>Un cop descarregades (el que es coneix com fer un <code>pull</code>) les imatges es guardaran a la cache del nostre equip, per si es necessiten més endavant per a fer nous contenidors.</p>
+<details class="note" open="open">
+<summary>Quan i com baixar les imatges</summary>
+<p>Realment no car baixar les imatges per a desprès fer un contenidor, ja que <code>docker</code>, si no troba la imatge en local, automàticament farà el pull i la descarregarà.</p>
+</details>
+<h3 id="creant-contenidors">Creant contenidors</h3>
+<p>Per a crear i arrancar un contenidor a partir d'una imatge el comandament és <code>docker run nom_imatge</code>.</p>
+<p><img alt="Docker" src="../img/Docker_run.png" /></p>
+<p>Pot observar-se que primer es descarrega i desprès l'executa. Si ho executem varies vegades, podem observar que està creant-se cada cop un contenidor distint.</p>
+<p><img alt="Docker" src="../img/Docker_run_1.png" /></p>
+<p>Això si és per a algo solt no és problema, però pensem en un contenidor que el posem en marxa, guardem certa informació (com un SGBD) i l'aturem. Si el tornem a arrancar es perdrà tot el que teniem, ja que es crea de nou.</p>
+<p>La millor solució és assignar-li un nom:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>docker run --name nom_contenidor [opcions] -d nom_imatge
+</code></pre></div></td></tr></table></div>
+<p>i per a següents vegades que l'executem, simplement arrancar-lo, amb start:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>docker start nom_contenidor
+</code></pre></div></td></tr></table></div>
+<p>Podem veure els contenidors que tenim en marxa amb <code>docker ps</code>. Quan vullguem aturar-lo podem fer-ho amb.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>docker stop nom_contenidor
+</code></pre></div></td></tr></table></div>
+<p>Podeu trobar més informació a la documentació oficial, així com a la documentació adjunta que us facilitem.</p>
+<p>Per acabar amb aquest apartat, podem veure una crida més complexa:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>docker run --name mysql-srv
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>  -p 3308:3306
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>  -v /srv/mysql:/var/lib/mysql
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>  -e MYSQL_ROOT_PASSWORD=&quot;root&quot;
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>  -d mysql
+</code></pre></div></td></tr></table></div>
+<p>Que realitza:
+- un servei en segon pla (<code>-d</code>) de la imatge de <code>mysql</code>. Si no es diu res, agafarà la última versió (<code>mysql:lately</code>)
+- Un contenidor de nom  <code>mysql-srv</code>
+- Amb una redirecció de ports  (<code>-p</code>) del port 3308 de la màquina amfitriona al port 3306 del contenidor, on escoltarà mysql.
+- Munta un volum (<code>-v</code>) on la ruta <code>/srv/mysql</code> es muntarà en <code>/var/lib/mysql</code>.
+- S'assigna una variable d'entorn (<code>-e</code>), amb el password del administrador de mysql.</p>
+<h2 id="crear-els-nostres-contenidors-dockerfile-i-docker-compose">Crear els nostres contenidors <code>Dockerfile</code> i <code>docker-compose</code></h2>
+<p>Per a crear un contenidor personalitzat, hi han diverses maneres de fer-ho. La complicada és: creem un contenidor amb la imatge buida, l'arranquem, transferim dins d'ell els arxius que necessitem, actualitzem els paquets que calgeuen, ja el tenim a punt. Com podeu intuir, podem fer-ho millor.</p>
+<h3 id="dockerfile"><code>Dockerfile</code></h3>
+<p>L'opció és automatitzar tota aquesta tasca en el que es coneix com un <code>Dockerfile</code>. Un <code>Dockerfile</code> és un fitxer de text que conté un script amb una sintaxi concreta per a indicar totes les seqüencies per a muntar un contenidor. Ahí per exemple és on podrem muntar un contenidor "net" i afegir-li tot el contingut que necessitem per a desplegar-lo on calga.</p>
+<p>Anem a estudiar-ho amb un exemple bàsic. Suposem que volem crear un contenidor amb una distribució d'Ubuntu, a la qual li instalarem l'editor nano (que no ve per defecte)</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>FROM ubuntu:latest          # base
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>RUN apt update              # RUN s&#39;executa en la màquina
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>RUN apt install -y nano     # RUN s&#39;executa en la màquina
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>WORKDIR /usr/src/app        # Carpeta de treball al contenidor
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>CMD /bin/bash               # Programa que s&#39;executa a l&#39;arrancar
+</code></pre></div></td></tr></table></div>
+<p>Ara per crear la imatge i llançar el contenidor</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>docker build -t ubuntunano 
+</code></pre></div></td></tr></table></div>
+<p>Això crea una imatge i llança el contenidor.</p>
+<h3 id="docker-compose"><code>docker-compose</code></h3>
+<p>Cas de necessitar llençar diversos contenidor per a treballar junt, com per exemple un per a una aplicació i altre per a la BBDD, donat que s'han de comunicar, podem recòrrer a docker-compose, que ens permet, junt a els Dockerfile, crear i orquestar contenidors.</p>
+<p>Aquesta orquestació s'indicarà en un fitxer anomenat <code>docker-compose.yml</code>. </p>
+<details class="note" open="open">
+<summary>Note</summary>
+<p>El format aquest, anomenat <code>YAML</code> és un nou estàndar o variant de formats del tipus atribut-valor com poden ser els fitxers de properties o formats json</p>
+</details>
+<p>La manera habitual de treball és crear aquest fitxer a l'arrel de la carpeta de treball. En ell a banda de informació de versió i demés, s'especificaran els serveis que anem a muntar, deixant i/o creant una subcarpeta per cada servei que anem a fer. En l'arrel de cada carpeta dels serveis, crearem un <code>Dockerfile</code> amb la configuració personalitzada i pròpia de cada servei. Al <code>docker-compose.yml</code> indicarem els mecanismes de comunicació entre contenidors.</p>
+<p><img alt="Docker" src="../img/Docker_run.png" /></p>
+<details class="example" open="open">
+<summary>Dockerfile per a la BBDD</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>FROM mysql_latest
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>ENV MYSQL_ROOT_PASSWORD toor
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Carrega la última versió de mysql i li assigna el password a l'administrador</p>
+<details class="example" open="open">
+<summary>Dockerfile per aplicació web Python</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>FROM python:3
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>WORKDIR /usr/src/app
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>COPY requirements.txt ./
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>RUN pip install --no-cache-dir -r requirements.txt
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>COPY . .
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>CMD [ &quot;python&quot;, &quot;app.py&quot; ]
+</code></pre></div></td></tr></table></div>
+</details>
+<p>On l'anterior:</p>
+<ul>
+<li>Carrega la versió 3 de python</li>
+<li>Establix la carpeta de treball dins del contenidor</li>
+<li>Copia el fitxer de text <code>requirements.txt</code>. Aquest fitxer conté les dependències de l'aplicació python.</li>
+<li>Instal·la dits requeriments</li>
+<li>Aquest copy copia TOT el de l'arrel de la carpeta de treball (el projecte) a la carpeta de treball dins del contenidor (<code>/usr/src/app</code>)</li>
+<li>Per últim, arranca l'aplicació</li>
+</ul>
+<details class="example" open="open">
+<summary>docker-compose.yml que munta els dos anteriors</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>version: &#39;3&#39;
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>services:
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>  web:
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    build: ./web
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    ports:
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>      - &quot;5000:5000&quot;
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    links:
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>      - db
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>  db:
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>    build: ./db
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Respecte a l'anterior:</p>
+<ul>
+<li>La versió és opcional</li>
+<li>Es defineixen dos serveis:</li>
+<li><code>web</code>:<ul>
+<li>S'indica que dins de la subcarpeta <code>/web</code> estarà el dockerfile</li>
+<li>Aquest contenidor deixarà exposat el port 5000</li>
+<li>Aquest contenidor tindrà un enllaç per a comunicarse directament amb el contenidor <code>db</code>. Això vol dir que, dins del contenidor <code>web</code>, on posem <code>db</code> està referint-se a l'adreça interna del contenidor de la base de dades </li>
+</ul>
+</li>
+<li><code>db</code><ul>
+<li>S'indica que dins de la subcarpeta <code>/web</code> estarà el dockerfile</li>
+</ul>
+</li>
+</ul>
+<p>Per a llançar el pack de contenidors, farem un <code>docker-compose up</code></p>
+<h2 id="contenidors-de-bbdd-amb-mongodb">Contenidors de BBDD amb <code>mongoDB</code></h2>
+<p>Per a treballar amb la base de dades, ens la instal·larem dins d'un contenidor, deixant exposat el seu port per defecte 27017. De mongo podriem estar treballant molt de temps, però estudiarem el més bàsic per treballar, com és connectar-se, importar/exportar col·leccions de documents i les operacions CRUD (Create, Read, Update i Delete).</p>
+<p>Per crear el nostre servidor de BBDD mongo ho farem amb el comandament:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>mongodb-srv<span class="w"> </span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">MONGO_INITDB_ROOT_USERNAME</span><span class="o">=</span><span class="s2">&quot;root&quot;</span><span class="w"> </span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span>-e<span class="w"> </span><span class="nv">MONGO_INITDB_ROOT_PASSWORD</span><span class="o">=</span><span class="s2">&quot;toor&quot;</span><span class="w"> </span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">27017</span>:27017<span class="w"> </span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">    </span>-d<span class="w"> </span>mongo
+</code></pre></div></td></tr></table></div>
+<details class="warning" open="open">
+<summary>Atenció</summary>
+<ul>
+<li>Les dades de connexió son <code>root</code> amb password <code>toor</code></li>
+<li>El port 27017 de la màquina amfitriona es redirigeix al port per defecte dins del contenidor</li>
+<li>Per a aturar i arrancar de nou el mateix contenidor ho farem amb <code>docker start|stop mongodb-srv</code></li>
+</ul>
+</details>
+<h2 id="mongodb">mongoDB</h2>
+<p>MongoDB és una base de dades orientada a documents, basada en l'emmagatzemament de les seues estructures de dades en documents de tipus <code>JSON</code> amb un esquema dinàmic. Tot i que començà el desenvolupament per l'empresa <em>10gen</em>, avui en dia és un projecte de codi obert, amb una gran comunitat d'usuaris.</p>
+<p>Un servidor MongoDB pot tindre <strong>diverses bases de dades</strong>, i cadascuna d'elles té un conjunt de <strong>col·lecions</strong>, que podríem equiparar a les taules d'una BD relacional. Cada col·lecció emmagatzema un conjunt de documents JSON, format per atributs clau-valor, que vindríen a ser els registres d'una base de dades relacional.</p>
+<p>A grans trets, podríem establir les següents relacions:</p>
+<table>
+<thead>
+<tr>
+<th>Model relacional</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BD Relacional</td>
+<td>BD Orientada a documents</td>
+</tr>
+<tr>
+<td>Taula</td>
+<td>Col·lecció</td>
+</tr>
+<tr>
+<td>Registre/Fila</td>
+<td>Document JSON</td>
+</tr>
+<tr>
+<td>Atributs/Columnes</td>
+<td>Claus del document JSON</td>
+</tr>
+</tbody>
+</table>
+<p>Veiem un xicotet exemple de la col·leció <strong><em>Pelis</em></strong> amb dos documents:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JSON</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="p">[</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="err">episodi</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;IV&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="kc">t</span><span class="err">i</span><span class="kc">t</span><span class="err">ol</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A new Hope&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">    </span><span class="err">year</span><span class="p">:</span><span class="w"> </span><span class="mi">1977</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="err">direc</span><span class="kc">t</span><span class="err">or</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="kc">n</span><span class="err">om</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;George&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="err">cog</span><span class="kc">n</span><span class="err">oms</span><span class="p">:</span><span class="w">  </span><span class="s2">&quot;Lucas&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="err">a</span><span class="kc">n</span><span class="err">y_</span><span class="kc">na</span><span class="err">ixeme</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1944</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="p">},</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="p">{</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">     </span><span class="err">_id</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="kc">t</span><span class="err">i</span><span class="kc">t</span><span class="err">ol</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Rogue One. A Star Wars Story.&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="err">year</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">    </span><span class="err">direc</span><span class="kc">t</span><span class="err">or</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">        </span><span class="kc">n</span><span class="err">om</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Gareth&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">        </span><span class="err">cog</span><span class="kc">n</span><span class="err">oms</span><span class="p">:</span><span class="w">  </span><span class="s2">&quot;Edwards&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">        </span><span class="err">a</span><span class="kc">n</span><span class="err">y_</span><span class="kc">na</span><span class="err">ixeme</span><span class="kc">nt</span><span class="p">:</span><span class="w"> </span><span class="mi">1975</span><span class="p">,</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">        </span><span class="kc">na</span><span class="err">cio</span><span class="kc">nal</span><span class="err">i</span><span class="kc">tat</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;britànica&quot;</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="p">}]</span>
+</code></pre></div></td></tr></table></div>
+<p>Com veiem, cada document, de tipus pel·lícula té els seus propis atributs, els quals no tenen per què coincidir entre ells. Una altra característica, es que, com podem vore, tenim la informació sobre el director dins el propi document, i no en un altre document i relacionada amb aquest, com sería el cas de les taules.</p>
+<h3 id="json-i-bson">JSON i BSON</h3>
+<p>Com ja sabem, la unitat bàsica d'informació amb què treballa MongoDB és el <strong>document</strong>, que seria l'equivalent a un <em>registre</em> en un model relacional. Es tracta de <strong>documents JSON</strong>, formats per parells <strong>clau-valor</strong> i que representen la informació d'una manera força intuïtiva. Els servidors MongoDB, per la seva banda, emmagatzemaran aquestes dades en format <strong>BSON</strong> (JSON binari), un format de serialització binari.</p>
+<p>Pel que fa als documents JSON per a MongoDB, cal tenir en compte alguns aspectes:</p>
+<ul>
+<li>Pel que fa a les claus:</li>
+<li>No poden ser nules.</li>
+<li>Poden contenir en qualsevol caràcter UTF-8, excepte els caràcters <code>.</code> o <code>$</code>.</li>
+<li>Distingeixen entre majúscules i minúscules.</li>
+<li>Han de ser <strong>únics</strong> dins del mateix document.</li>
+<li>Pel que fa als teus valors:</li>
+<li>Poden ser de qualsevol tipus permesos: enter, real, text, booleà, NULL, Objecte o Array</li>
+<li>Pel que fa al document:</li>
+<li>Ha de tenir un camp <code>_id</code>, amb un valor únic, que actuarà com a identificador del document.</li>
+<li>Si no especifiquem aquesta clau, MongoDB la generarà automàticament, amb un objecte de tipus <code>ObjectId</code>.</li>
+</ul>
+<p><img alt="Resum del tipus de dades" src="../img/Tipus_Dades_Mongo.png" /></p>
+<p>i respecte als identificadors que insereix mongo automàticament:</p>
+<p><img alt="ObjectID" src="../img/ObjectID.png" /></p>
+<h3 id="importar-i-exportar-colleccions">Importar i exportar col·leccions</h3>
+<p>Un cop tenim instal·lat el servidor, necessitem accedir a ell per a crear, manipular i consultar informació. Per poder fer-ho necessite un client per a la base de dades. Mongo ens ofereix ferramentes per a connectar-se per consola, que les <code>database-tools</code> i podeu trobar documentació ací <a href="https://www.mongodb.com/docs/database-tools/">https://www.mongodb.com/docs/database-tools/</a> de com fer-les servir. Bàsicament aquestes eines ens permeten el importar col·leccions a la BBDD (mongoimport), extreure les cole·leccions (mongoexport) i connectar-se al servidor amb un shell interactio (mongo).</p>
+<p>Per a importar una col·lecció de documents, farem servir el comandament <code>mongoimport</code>, amb la sintaxis
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>mongoimport &lt;options&gt; &lt;connection-string&gt; &lt;file&gt;
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>#     més detallat
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>mongoimport --uri &#39;mongodb://servidor:port&#39; \
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>  --username=&#39;XXX&#39; --password=&#39;YYY&#39; --authenticationDatabase=admin \
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>  --db nom_db --collection nom_col --file restaurants.json [--drop]
+</code></pre></div></td></tr></table></div></p>
+<p>Tenir en compte:</p>
+<ul>
+<li>Si la BBDD no existeix, es crearà.</li>
+<li>Si la col·lecció no existeix la crearà</li>
+<li>Si la col·lexió existeix, afegira els elements del fitxer, a menys que posem l'opció  <code>--drop</code>, que elimina la col·lecció abans de refer-la</li>
+</ul>
+<p>Si volem exportar una col·lecció, l'equivalen seria:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>mongoexport<span class="w"> </span>--uri<span class="w"> </span><span class="s1">&#39;mongodb://servidor:port&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">  </span>--username<span class="o">=</span><span class="s1">&#39;XXX&#39;</span><span class="w"> </span>--password<span class="o">=</span><span class="s1">&#39;YYY&#39;</span><span class="w"> </span>--authenticationDatabase<span class="o">=</span>admin<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">  </span>--db<span class="w"> </span>nom_db<span class="w"> </span>--collection<span class="w"> </span>nom_col<span class="w"> </span>--out<span class="w"> </span>nou_arxiu.json<span class="w"> </span>
+</code></pre></div></td></tr></table></div></p>
+<h3 id="inserir-documents">Inserir documents</h3>
+<p>El comandament per a inserir un document pot ser:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertOne</span><span class="p">({</span><span class="nb">document</span><span class="p">})</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">insertMany</span><span class="p">([{</span><span class="nx">doc1</span><span class="p">},{</span><span class="nx">doc2</span><span class="p">}])</span>
+</code></pre></div></td></tr></table></div>
+<p>Es retornen els ObjectID dels elements inserits. Espai que com mongo no te estructura es permet qualssevol inserció com a vàlida.</p>
+<h3 id="consultes-de-documents">Consultes de documents</h3>
+<p>Per a fer consultes farem servir la sintaxi:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">colleccio</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">criteri_en_format_JSON</span><span class="p">}[{</span><span class="nx">camps_a_mostrar</span><span class="p">}]);</span>
+</code></pre></div></td></tr></table></div></p>
+<p>on:</p>
+<ul>
+<li>El criteri és un json on especifiquem els valors de la búsqueda, com un json</li>
+<li>Els camps a mostrar indiquem tots aquells camps que volem mostrar com <code>camp:1</code> o <code>camp:0</code>. Aquest camp és opcional, i es mostren tots cas de no posar-ho</li>
+</ul>
+<details class="example" open="open">
+<summary>Exemples autoexplicats de consultes</summary>
+<p>Imaginem que tenim una col·lecció de pel·lícules amb l'estructura vista anteriorment
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1">// Ho mostra tot de totes les pelis</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span><span class="w">   </span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1">// pelis de l&#39;any 1977</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">year</span><span class="o">:</span><span class="mf">1977</span><span class="p">})</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="c1">// pelis de l&#39;any 1977, sols el nom de la peli</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">year</span><span class="o">:</span><span class="mf">1977</span><span class="p">},{</span><span class="nx">name</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9"></a>
+<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="c1">// pelis de l&#39;any 1977, sols el nom de la peli (sense el _id)</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">year</span><span class="o">:</span><span class="mf">1977</span><span class="p">},{</span><span class="nx">name</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="nx">_id</span><span class="o">:</span><span class="mf">0</span><span class="p">})</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="c1">// pelis de l&#39;any 1977, dirigides per directors de nom &quot;George&quot;</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="c1">// atributs dins d&#39;objectes entre cometes</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">year</span><span class="o">:</span><span class="mf">1977</span><span class="p">,</span><span class="s2">&quot;director.nom&quot;</span><span class="o">:</span><span class="s2">&quot;George&quot;</span><span class="p">}})</span>
+</code></pre></div></td></tr></table></div></p>
+</details>
+<p>Per a fer consultes més complexes podem fer servir els operadors de comparació:</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$eq</code></td>
+<td>Igual</td>
+</tr>
+<tr>
+<td><code>$neq</code></td>
+<td>Distint</td>
+</tr>
+<tr>
+<td><code>$lt</code></td>
+<td>Menor que</td>
+</tr>
+<tr>
+<td><code>$lte</code></td>
+<td>Menor o igual que</td>
+</tr>
+<tr>
+<td><code>$gt</code></td>
+<td>Major que</td>
+</tr>
+<tr>
+<td><code>$gte</code></td>
+<td>Major o igual que</td>
+</tr>
+</tbody>
+</table>
+<p>i llavors</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span>
+<span class="normal"><a href="#__codelineno-16-7">7</a></span>
+<span class="normal"><a href="#__codelineno-16-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1">// per a fer clar operador valor s&#39;escriurà</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">colleccio</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">clau</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">$operador</span><span class="o">:</span><span class="nx">valor</span><span class="p">}</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="c1">// pelis anterios al  1980, sols el nom de la peli</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">year</span><span class="o">:</span><span class="p">{</span><span class="nx">$leq</span><span class="o">:</span><span class="mf">1980</span><span class="p">}},{</span><span class="nx">name</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1">// pelis que no son de &quot;George&quot;</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;director.nom&quot;</span><span class="o">:</span><span class="p">{</span><span class="nx">$neq</span><span class="o">:</span><span class="s2">&quot;George&quot;</span><span class="p">}})</span>
+</code></pre></div></td></tr></table></div>
+<p>No entrarem en més detall en consultes més complexes, ja que no correspon al curs.</p>
+<h4 id="ordenacio">Ordenació</h4>
+<p>El resultat d'una consulta sempre serà un array de documents, o un sol en cas de que sol se'n retorne un. Moltes vegades voldrem ordenar-ho per veure els resultat d'alguna manera. Per a fer-ho, no existeixen ferramentes dins de la consulta, però podem recòrrer al llenguatge <code>javascript</code>, que és el que enten mongoDB, i invocar al mètode <code>sort()</code> que tenen les col·leccions. </p>
+<p>La funció <code>llista.sort({criteri_ordenació})</code> aplica el criteri d'ordenació a la llista. Aquest criteri és un objecte amb la estructura <code>{clau_ord:[1|-1]}</code>. El que fa es ordenar la llista per l'atribut <code>clau_ord</code>, sent ascendent si posem un 1 o descendent si posem un -1. Si posem més d'un atribut, s'ordenarà pel primer, i en cas d'empat pel segon, i així.</p>
+<details class="example" open="open">
+<summary>Examples d'ordenació</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span>
+<span class="normal"><a href="#__codelineno-17-7">7</a></span>
+<span class="normal"><a href="#__codelineno-17-8">8</a></span>
+<span class="normal"><a href="#__codelineno-17-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1">// totes les películes, primer la més recent</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="nx">year</span><span class="o">:-</span><span class="mf">1</span><span class="p">})</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="c1">// les películes ordenades per director. Per al mateix director les mostra</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="c1">// en ordre ascendent</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="nx">db</span><span class="p">.</span><span class="nx">pelis</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="nx">director</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="nx">year</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="c1">// comandes ordenades de menys a més preu</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nx">db</span><span class="p">.</span><span class="nx">comandes</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="nx">preu</span><span class="o">:</span><span class="mf">1</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="actualitzacions">Actualitzacións</h3>
+<p>Per a modificar algun registre que existeix prèviament en la BBDD, es farà amb el <code>update</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">colection</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="nx">criteri_busqueda</span><span class="p">},{</span><span class="nx">operació</span><span class="w"> </span><span class="nx">actualització</span><span class="p">})</span>
+</code></pre></div></td></tr></table></div>
+<p>Cosideracions:</p>
+<ul>
+<li>Si no posem el criteri de búsqueda, deixant-lo en blanc (<code>{}</code>) s'actualitzaràn tots els documents.</li>
+<li>
+<p>La operació d'actualització pot ser de varios tipus: </p>
+</li>
+<li>
+<p><code>$set</code> estableix un valor a un atribut. Si existeix el modifica, i si no existeix l'afig</p>
+</li>
+<li><code>$unset</code> slimina un atribut del document</li>
+<li><code>$inc</code> incrementa l'atribut tant com indiquem. Sols per a números</li>
+<li><code>$push</code> afig un element a l'atribut, cas de ser un vector</li>
+<li><code>$pull</code> elimina un element(s) de l'atribut, cas de ser un vector</li>
+</ul>
+<details class="example" open="open">
+<summary>Exemple de modificacions</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1">// incrementa en 1 la edat d&#39;una persona</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="nx">db</span><span class="p">.</span><span class="nx">persona</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Pepe&quot;</span><span class="p">},{</span><span class="nx">$inc</span><span class="o">:</span><span class="p">{</span><span class="nx">edad</span><span class="o">:</span><span class="mf">1</span><span class="p">}})</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="c1">// Modifica el sou</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="nx">db</span><span class="p">.</span><span class="nx">empleat</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Pepe&quot;</span><span class="p">},{</span><span class="nx">$set</span><span class="o">:</span><span class="p">{</span><span class="nx">salari</span><span class="o">:</span><span class="mf">1500</span><span class="p">}})</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="c1">// El puja un 10% (a tots els Pepe)</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="nx">db</span><span class="p">.</span><span class="nx">empleat</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Pepe&quot;</span><span class="p">},{</span><span class="nx">$set</span><span class="o">:</span><span class="p">{</span><span class="nx">salari</span><span class="o">:</span><span class="nx">salari</span><span class="o">+</span><span class="nx">salari</span><span class="o">*</span><span class="mf">0.1</span><span class="p">}})</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="c1">// afig un actor a una peli</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="nx">db</span><span class="p">.</span><span class="nx">peli</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;title&quot;</span><span class="o">:</span><span class="s2">&quot;Rogue one&quot;</span><span class="p">},{</span><span class="nx">$push</span><span class="o">:</span><span class="p">{</span><span class="nx">actors</span><span class="o">:</span><span class="s2">&quot;Diego Luna&quot;</span><span class="p">}})</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Com hem comentat, podriem aporfondir molt més, però per al curs és suficient. En els mòdus de dades (BD i BDA) segur que aprofundiu molt més</p>
+<h3 id="eliminar-bases-de-dades">Eliminar bases de dades</h3>
+<p>Si volem eliminar elements d'una col·lecció, disposem del comandament <code>deleteXXX</code>:</p>
+<details class="example" open="open">
+<summary>Exemples d'esborrats</summary>
+<p>```js
+// esborra el primer usuari de 39 anys
+db.usuaris.deleteOne({edat:39})</p>
+<p>// esborra tots els usuaris de 39 anys
+db.usuaris.deleteMany({edat:39})</p>
+<p>// esborra tots els usuaris
+db.usuaris.deleteMany({})</p>
+<p>// elimina tota la col·lecció (documents i estructura)
+db.usuaris.drop()</p>
+</details>
+<p>Si per a lgun motiu volem eliminar una BBDD sencera amb totes les col·leccions que conté, podem fer-ho amb el comandament:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">JavaScript</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="nx">db</span><span class="p">.</span><span class="nx">dropDatabase</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Recordar que si no has seleccionat cap base de dades, eliminarà la base de dades de test (la que està seleccionada per defecte).</p>
+<h3 id="mongodb-i-python"><code>mongoDB</code> i <code>Python</code></h3>
+<p>Per a accedir a mongoDB desde programes es fa servir la estructura <code>mongoclient</code>, i és <code>pymongo</code> la llibreria encarregada de proporcionar-nos dita funcionalitat. Sempre que ens connectem a una BBDD, independentment del llenguatge de programació, el fluxe de treball serà:</p>
+<ol>
+<li>Carregar el driver (mongoclient)</li>
+<li>Crear la cadena de connexió, on indicarem on està el servidor, usuari i contrassenya, i si escau la BBDD</li>
+<li>Seleccionar la BBDD per defecte</li>
+<li>Crear la consulta|modificació que volem llançar</li>
+<li>Executar-la</li>
+<li>Recuperar i processar els resultats, si és que hi han</li>
+<li>Tancar la connexió abans d'eixir del programa.</li>
+</ol>
+<p>La documentació completa la podeu trobar a la pàgina oficial <a href="https://pymongo.readthedocs.io/en/stable/">https://pymongo.readthedocs.io/en/stable/</a></p>
+<p>Anem a veure ara pas a pas com es faria:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span>
+<span class="normal"><a href="#__codelineno-21-25">25</a></span>
+<span class="normal"><a href="#__codelineno-21-26">26</a></span>
+<span class="normal"><a href="#__codelineno-21-27">27</a></span>
+<span class="normal"><a href="#__codelineno-21-28">28</a></span>
+<span class="normal"><a href="#__codelineno-21-29">29</a></span>
+<span class="normal"><a href="#__codelineno-21-30">30</a></span>
+<span class="normal"><a href="#__codelineno-21-31">31</a></span>
+<span class="normal"><a href="#__codelineno-21-32">32</a></span>
+<span class="normal"><a href="#__codelineno-21-33">33</a></span>
+<span class="normal"><a href="#__codelineno-21-34">34</a></span>
+<span class="normal"><a href="#__codelineno-21-35">35</a></span>
+<span class="normal"><a href="#__codelineno-21-36">36</a></span>
+<span class="normal"><a href="#__codelineno-21-37">37</a></span>
+<span class="normal"><a href="#__codelineno-21-38">38</a></span>
+<span class="normal"><a href="#__codelineno-21-39">39</a></span>
+<span class="normal"><a href="#__codelineno-21-40">40</a></span>
+<span class="normal"><a href="#__codelineno-21-41">41</a></span>
+<span class="normal"><a href="#__codelineno-21-42">42</a></span>
+<span class="normal"><a href="#__codelineno-21-43">43</a></span>
+<span class="normal"><a href="#__codelineno-21-44">44</a></span>
+<span class="normal"><a href="#__codelineno-21-45">45</a></span>
+<span class="normal"><a href="#__codelineno-21-46">46</a></span>
+<span class="normal"><a href="#__codelineno-21-47">47</a></span>
+<span class="normal"><a href="#__codelineno-21-48">48</a></span>
+<span class="normal"><a href="#__codelineno-21-49">49</a></span>
+<span class="normal"><a href="#__codelineno-21-50">50</a></span>
+<span class="normal"><a href="#__codelineno-21-51">51</a></span>
+<span class="normal"><a href="#__codelineno-21-52">52</a></span>
+<span class="normal"><a href="#__codelineno-21-53">53</a></span>
+<span class="normal"><a href="#__codelineno-21-54">54</a></span>
+<span class="normal"><a href="#__codelineno-21-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1"># 1. Carregar el driver</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">from</span> <span class="nn">pymongo</span> <span class="kn">import</span> <span class="n">MongoClient</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># 2. Crear la cadena de connexió, on indicarem on està el servidor, usuari i contrassenya,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="c1"># i si escau la BBDD</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="c1">## Per defecte sense credencials</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">()</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="c1">## Per defecte sense credencials</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">27017</span><span class="p">)</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="c1">## Amb cadena, sense credencials</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="n">uri</span><span class="o">=</span><span class="s2">&quot;mongodb://localhost:27017/&quot;</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="c1">## Amb cadena, amb credencials</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="n">uri</span> <span class="o">=</span> <span class="s2">&quot;mongodb://user:password@localhost:27017/default_db?authSource=admin&quot;</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="c1">## Amb cadena i variables</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="n">user</span><span class="o">=</span><span class="s2">&quot;root&quot;</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="n">passwd</span><span class="o">=</span><span class="s2">&quot;toor&quot;</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="n">ddbb</span><span class="o">=</span><span class="s2">&quot;pelis&quot;</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="n">server</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="n">port</span><span class="o">=</span><span class="s2">&quot;27017&quot;</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="n">uri</span> <span class="o">=</span> <span class="s1">&#39;mongodb://</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">@</span><span class="si">%s</span><span class="s1">:</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">?authSource=admin&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">passwd</span><span class="p">,</span><span class="n">server</span><span class="p">,</span><span class="n">port</span><span class="p">,</span><span class="n">ddbb</span><span class="p">)</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29"></a>
+<a id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="c1"># 2.1 Seleccionar o canviar la BBDD per defecte.</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="c1"># En aquestes ordres seleccionem la BBDD</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="n">db</span><span class="o">=</span><span class="n">client</span><span class="p">[</span><span class="s2">&quot;pelis&quot;</span><span class="p">]</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33"></a>
+<a id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="n">db</span><span class="o">=</span><span class="n">client</span><span class="p">[</span><span class="s2">&quot;restaurants&quot;</span><span class="p">]</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35"></a>
+<a id="__codelineno-21-36" name="__codelineno-21-36"></a><span class="c1"># 3. Operem sobre la BBDD</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37"></a>
+<a id="__codelineno-21-38" name="__codelineno-21-38"></a><span class="c1"># Seleccionem amb quina colecció dins de la BBDD anem a treballar</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39"></a><span class="n">collection</span><span class="o">=</span><span class="n">db</span><span class="o">.</span><span class="n">nom_coleccio</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40"></a>
+<a id="__codelineno-21-41" name="__codelineno-21-41"></a><span class="c1"># 4. i 5. Fem la consulta i/o operació i la executem</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42"></a><span class="c1"># tota la col·lecció</span>
+<a id="__codelineno-21-43" name="__codelineno-21-43"></a><span class="n">cursor</span><span class="o">=</span><span class="n">collection</span><span class="o">.</span><span class="n">find</span><span class="p">()</span>
+<a id="__codelineno-21-44" name="__codelineno-21-44"></a><span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">cursor</span><span class="p">:</span>
+<a id="__codelineno-21-45" name="__codelineno-21-45"></a>  <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<a id="__codelineno-21-46" name="__codelineno-21-46"></a>
+<a id="__codelineno-21-47" name="__codelineno-21-47"></a><span class="c1"># o be el primer document que te 24 anys</span>
+<a id="__codelineno-21-48" name="__codelineno-21-48"></a><span class="n">filtre</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;edat&quot;</span><span class="p">:</span><span class="mi">24</span><span class="p">}</span>
+<a id="__codelineno-21-49" name="__codelineno-21-49"></a><span class="n">doc</span><span class="o">=</span><span class="n">collection</span><span class="o">.</span><span class="n">find_one</span><span class="p">(</span><span class="n">filtre</span><span class="p">)</span>
+<a id="__codelineno-21-50" name="__codelineno-21-50"></a><span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<a id="__codelineno-21-51" name="__codelineno-21-51"></a>
+<a id="__codelineno-21-52" name="__codelineno-21-52"></a><span class="c1"># o be aplicar un descompte</span>
+<a id="__codelineno-21-53" name="__codelineno-21-53"></a><span class="n">filtre</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;edat&quot;</span><span class="p">:</span><span class="mi">24</span><span class="p">}</span>
+<a id="__codelineno-21-54" name="__codelineno-21-54"></a><span class="n">modifica</span><span class="o">=</span><span class="p">{</span><span class="err">$</span><span class="nb">set</span><span class="p">:{</span><span class="s2">&quot;descompte&quot;</span><span class="p">:</span><span class="mf">0.1</span><span class="p">}}</span>
+<a id="__codelineno-21-55" name="__codelineno-21-55"></a><span class="n">collection</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">filtre</span><span class="p">,</span><span class="n">modifica</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></p>
+<h2 id="conclusio">Conclusió</h2>
+<p>En aquest tema hem vist els continguts principals de com desenvolupar una aplicació completa amb Python. Des de crear una interfície gràfica amb Flet, connectar amb un servidor per a demanar-li coses, o fins i tot crear el nostre propi servidor.</p>
+<p>A partir d'ara ens quedarà integrar totes les eines d'IA dins de les nostres aplicacions, important conceptes estudiats als altres mòduls del curs.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>

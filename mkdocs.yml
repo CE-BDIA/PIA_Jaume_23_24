@@ -1,0 +1,99 @@
+site_name: Programació d'Intel·ligència Artificial - CE Big Data i IA
+docs_dir: "md"
+site_dir: "docs"
+nav:
+   - Unitat 1. Introducció a la Programació:
+     - 1. Algorismes i llenguatges: U01 Introducció a la programació/01_Algorismes_Llenguatges.md
+     - 2. Exercici pràctic: U01 Introducció a la programació/Exercici.md
+   - Unitat 2. El llenguatge Python: 
+      - 1. Preparació de l'entorn: U02 Python/01_Entorns_i_projectes.md
+      - 2. Tipus de Dades. Operadors: U02 Python/02_Tipus_Variables_Operadors.md
+      - 3. Estructures de control: U02 Python/03_Estructures_de_control.md
+      - 4. Funcions: U02 Python/04_Funcions.md
+      - 5. Estructures de dades: U02 Python/05_Estructures_de_dades.md
+      - 6. Programació orientada a objectes: U02 Python/06_POO.md
+      - 7. Projecte: U02 Python/07_Projecte.md
+      - 8. Exercici pre projecte guiat: U02 Python/08_ExerciciPreProjecte.md
+      - 9. Annex I - Tractament de fitxers i carpetes amb python: U02 Python/09_Tractament_de_fitxer.md
+  
+   - Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial: 
+     - Teoria:
+       - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
+       - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy.md
+       - 3. Manipulació de Dades amb Pandas: U03 Python aplicat al Big Data i Intel·ligencia Artificial/02_Pandas.ipynb
+  #   - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/3. Matplotlib-Seaborn.md
+  #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
+  #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
+     - Tasques:
+       - 1. NumPy:
+         - 1. Activitats numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/01_numpy.ipynb
+         - 2. Pràctiques numpy: 
+           - 1. Mario: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/02_mario.ipynb
+           - 2. Derivades: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/03_derivades.ipynb
+           - 3. Vi: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/04_vi.ipynb
+           - 4. KNN: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/05_KNN.ipynb
+  #  - Unitat 4. Programació d'aplicacions: 
+  #     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
+  # #    - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy .md
+  #     - 2. Contenidors. Bases de Dades: U04 Programació d'Aplicacions/2. Contenidors de BBDD amb Docker.md
+  #     - 3. Peticions HTTP. API REST: U04 Programació d'Aplicacions/3. Peticions HTTP. API-REST.md
+  #     - 4. Servidors amb Flask: U04 Programació d'Aplicacions/4. Servidors amb Flask.md
+  # #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
+  # #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
+  #  - Unitat 5. Programació d'aplicacions d'IA: 
+  #    - 1. Azure Text: U05 Programació d'Apps d'IA/01_AzureTextAnalytics.md
+  #    - 2. Azure Face: U05 Programació d'Apps d'IA/02_FaceDetection.md
+  #    - 3. Computer Vision: U05 Programació d'Apps d'IA/03_ComputerVision.md
+
+   - Informació general:
+      - Guia didàctica: info/guia_didactica.md
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+theme: 
+  name: material
+  logo: img/jaume.png
+  language: ca 
+  palette:
+#   - primary: purple
+#    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    
+
+    
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+
+# extra_css:
+#   - css/extra.css
+
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+     ignore_h1_titles: True
+    #  execute: true
+    #  execute_ignore:
+    #     - "*.py"
+     
+#  - pdf-export

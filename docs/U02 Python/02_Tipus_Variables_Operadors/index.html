@@ -1,0 +1,2598 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01_Entorns_i_projectes/">
+      
+      
+        <link rel="next" href="../03_Estructures_de_control/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>2. Tipus de Dades. Operadors - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#21-tipus-de-dades" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Tipus de Dades. Operadors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-tipus-de-dades" class="md-nav__link">
+    2.1 Tipus de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Tipus de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-tipus-elementals" class="md-nav__link">
+    2.1.1 Tipus elementals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-integer-o-int" class="md-nav__link">
+    2.1.1 integer o int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-float" class="md-nav__link">
+    2.1.2 float
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.2 float">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modificadors-dels-tipus-elementals" class="md-nav__link">
+    Modificadors dels tipus elementals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-bool" class="md-nav__link">
+    2.1.3 bool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-string-o-str" class="md-nav__link">
+    2.1.4 string o str
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-tipus-compostos" class="md-nav__link">
+    2.2 Tipus compostos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-declaracio-de-variables" class="md-nav__link">
+    2.3 Declaració de variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-ambit-i-visibilitat" class="md-nav__link">
+    2.4 Àmbit i visibilitat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-operadors-i-expressions" class="md-nav__link">
+    2.5 Operadors i Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Operadors i Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-operadors-aritmetics" class="md-nav__link">
+    2.5.1 Operadors aritmètics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-operadors-relacionals" class="md-nav__link">
+    2.5.2 Operadors relacionals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-operadors-logics" class="md-nav__link">
+    2.5.3 Operadors lògics
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5.3 Operadors lògics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curtcircuit-dexpressions" class="md-nav__link">
+    Curtcircuit d’expressions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-operadors-dassignacio" class="md-nav__link">
+    2.6 Operadors d’assignació
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Operadors d’assignació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-aritmetics-reduits-operacio-assignacio" class="md-nav__link">
+    Operadors aritmètics reduïts (Operació-assignació)
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadors aritmètics reduïts (Operació-assignació)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-dactualitzacio" class="md-nav__link">
+    Operadors d’actualització
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-autoincrement-i-autodecrement-javai-c" class="md-nav__link">
+    Operadors autoincrement i autodecrement (Javai C)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-altres-operadors" class="md-nav__link">
+    2.7 Altres operadors
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Altres operadors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271-operador-condicional-java" class="md-nav__link">
+    2.7.1 Operador condicional  ? : (Java)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#272-operador-sizeof" class="md-nav__link">
+    2.7.2 Operador sizeof
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-expressions" class="md-nav__link">
+    2.8 Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-conversions-de-tipus" class="md-nav__link">
+    2.9 Conversions de tipus
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 Conversions de tipus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-promocio-interna" class="md-nav__link">
+    2.9.1 Promoció interna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-promocio-per-assignacio" class="md-nav__link">
+    2.9.2 Promoció per assignació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-promocio-forcada-o-casting" class="md-nav__link">
+    2.9.3 Promoció forçada o Càsting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-precedencia-i-associativitat-doperadors" class="md-nav__link">
+    2.10 Precedència i associativitat d’operadors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-entrada-i-eixida-en-python" class="md-nav__link">
+    2.11 Entrada i eixida en Python
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11 Entrada i eixida en Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2111-sortida-de-dades-la-funcio-print" class="md-nav__link">
+    2.11.1 Sortida de dades: la funció print
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11.1 Sortida de dades: la funció print">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificant-el-format" class="md-nav__link">
+    Especificant el format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2112-entrada-de-dades-la-funcio-input" class="md-nav__link">
+    2.11.2 Entrada de dades: la funció input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_1_2" id="__nav_3_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques numpy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques numpy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-tipus-de-dades" class="md-nav__link">
+    2.1 Tipus de dades
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 Tipus de dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-tipus-elementals" class="md-nav__link">
+    2.1.1 Tipus elementals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-integer-o-int" class="md-nav__link">
+    2.1.1 integer o int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-float" class="md-nav__link">
+    2.1.2 float
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1.2 float">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modificadors-dels-tipus-elementals" class="md-nav__link">
+    Modificadors dels tipus elementals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-bool" class="md-nav__link">
+    2.1.3 bool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214-string-o-str" class="md-nav__link">
+    2.1.4 string o str
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-tipus-compostos" class="md-nav__link">
+    2.2 Tipus compostos
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-declaracio-de-variables" class="md-nav__link">
+    2.3 Declaració de variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-ambit-i-visibilitat" class="md-nav__link">
+    2.4 Àmbit i visibilitat
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-operadors-i-expressions" class="md-nav__link">
+    2.5 Operadors i Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 Operadors i Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251-operadors-aritmetics" class="md-nav__link">
+    2.5.1 Operadors aritmètics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-operadors-relacionals" class="md-nav__link">
+    2.5.2 Operadors relacionals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-operadors-logics" class="md-nav__link">
+    2.5.3 Operadors lògics
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5.3 Operadors lògics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curtcircuit-dexpressions" class="md-nav__link">
+    Curtcircuit d’expressions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-operadors-dassignacio" class="md-nav__link">
+    2.6 Operadors d’assignació
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Operadors d’assignació">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-aritmetics-reduits-operacio-assignacio" class="md-nav__link">
+    Operadors aritmètics reduïts (Operació-assignació)
+  </a>
+  
+    <nav class="md-nav" aria-label="Operadors aritmètics reduïts (Operació-assignació)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operadors-dactualitzacio" class="md-nav__link">
+    Operadors d’actualització
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadors-autoincrement-i-autodecrement-javai-c" class="md-nav__link">
+    Operadors autoincrement i autodecrement (Javai C)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-altres-operadors" class="md-nav__link">
+    2.7 Altres operadors
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 Altres operadors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#271-operador-condicional-java" class="md-nav__link">
+    2.7.1 Operador condicional  ? : (Java)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#272-operador-sizeof" class="md-nav__link">
+    2.7.2 Operador sizeof
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-expressions" class="md-nav__link">
+    2.8 Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-conversions-de-tipus" class="md-nav__link">
+    2.9 Conversions de tipus
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9 Conversions de tipus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#291-promocio-interna" class="md-nav__link">
+    2.9.1 Promoció interna
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#292-promocio-per-assignacio" class="md-nav__link">
+    2.9.2 Promoció per assignació
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#293-promocio-forcada-o-casting" class="md-nav__link">
+    2.9.3 Promoció forçada o Càsting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-precedencia-i-associativitat-doperadors" class="md-nav__link">
+    2.10 Precedència i associativitat d’operadors
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-entrada-i-eixida-en-python" class="md-nav__link">
+    2.11 Entrada i eixida en Python
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11 Entrada i eixida en Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2111-sortida-de-dades-la-funcio-print" class="md-nav__link">
+    2.11.1 Sortida de dades: la funció print
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11.1 Sortida de dades: la funció print">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#especificant-el-format" class="md-nav__link">
+    Especificant el format
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2112-entrada-de-dades-la-funcio-input" class="md-nav__link">
+    2.11.2 Entrada de dades: la funció input
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>2. Tipus de Dades. Operadors</h1>
+
+<h2 id="21-tipus-de-dades">2.1 Tipus de dades</h2>
+<p>Els tipus de dades són els distints tipus d'informació que podem guardar a les nostres variables. Han anat evolucionant al llarg del temps, i cada vegada accepten valors més grans degut a les potències i capacitats cada cop més grans dels ordenadors.</p>
+<h3 id="211-tipus-elementals">2.1.1 Tipus elementals</h3>
+<p>Partirem de la taula de tipus que s'aplica en <code>C</code> i en <code>Java</code>, que estan molt més detallats.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">TIPUS</th>
+<th style="text-align: center;">SIGNIFICAT</th>
+<th style="text-align: center;">BYTES</th>
+<th style="text-align: center;">RANG DE VALORS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">str</td>
+<td style="text-align: center;">Cadena de caràcters</td>
+<td style="text-align: center;">4 per caràcter en UTF-8</td>
+<td style="text-align: center;">Segons codificació</td>
+</tr>
+<tr>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Enter</td>
+<td style="text-align: center;">2 o 4</td>
+<td style="text-align: center;">[-2<sup>15</sup>  . .  2<sup>15</sup>]</td>
+</tr>
+<tr>
+<td style="text-align: center;">boolean</td>
+<td style="text-align: center;">Lògic</td>
+<td style="text-align: center;">1 bit</td>
+<td style="text-align: center;">True o False</td>
+</tr>
+<tr>
+<td style="text-align: center;">float</td>
+<td style="text-align: center;">Real simple precisió</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">[-3,4<sup>38</sup>  . .  3,4<sup>38</sup>]</td>
+</tr>
+<tr>
+<td style="text-align: center;">double</td>
+<td style="text-align: center;">Real doble precisió</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">[1,7<sup>308</sup>  . .  1,7<sup>308</sup>]</td>
+</tr>
+<tr>
+<td style="text-align: center;">void o null</td>
+<td style="text-align: center;">(cap valor)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<p>El tipus void/null serveix per a representar l’absència de valor, com per exemple en funcions que no retornen cap valor o quan no sabem alguna informació. Imaginem que tenim una variable entera <code>temperatura</code>, de la qual no sabem el valor. No podem dir que la temperatura és zero, ja que podriem pensar que si l'hem medit ( i evidentment fa fret).</p>
+<h3 id="211-integer-o-int">2.1.1 <code>integer</code> o <code>int</code></h3>
+<p>Serveix per a representar nombres enters (sense decimals) amb signe. El tamany està limitat a la memòria del dispositiu. Per defecte el número enter es representa en el sistema decimal, però podem representar-lo en binari, octal i hexadecimal, afegint al principi del numero el prefix de la base en la qual ho representem:</p>
+<details class="example" open="open">
+<summary>Representacions de nombres enters</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>     <span class="c1"># mostra 11</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="mo">0o11</span><span class="p">)</span>   <span class="c1"># mostra 9</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="mh">0x11</span><span class="p">)</span>   <span class="c1"># mostra 17</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nb">print</span><span class="p">(</span><span class="mb">0b11</span><span class="p">)</span>   <span class="c1"># mostra 3</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<table>
+<thead>
+<tr>
+<th>Prefixe</th>
+<th>Significat</th>
+<th>Base</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0b</code> o <code>0B</code></td>
+<td>Binari</td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>0o</code> o <code>0O</code></td>
+<td>Octal</td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>0x</code> o <code>0X</code></td>
+<td>Hexadecimal</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<p>Adonar-se que l'ordre de sortida <code>print</code> ho mostra sempre en decimal.</p>
+<h3 id="212-float">2.1.2 <code>float</code></h3>
+<p>Serveix per a representar els numeros reals en notació de coma deximal. Podem representar també en notació científica afegint una <code>E</code> seguit d'un enter positiu o negatiu</p>
+<details class="example" open="open">
+<summary>Ús de tipus reals</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">4.27</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="mf">4.27</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="mf">4.27</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">4.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="mf">4.0</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">.27</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="mf">0.27</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">.4e7</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="mf">4000000.0</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="o">&gt;&gt;&gt;</span> <span class="mf">4.2e-4</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="mf">0.00042</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Els números reals estàn acotats:</p>
+<ul>
+<li>Els numeros més grans, positiu i negatiu: <code>1.79e308</code> i <code>-1.79e308</code></li>
+<li>Els números més xicotets, positiu i negatiu: <code>5e-324</code> i <code>-5e-324</code></li>
+</ul>
+<blockquote>
+<p>NOTA: <code>Python</code> també supporta els números complexes, que els veurem al llarg del curs</p>
+</blockquote>
+<h4 id="modificadors-dels-tipus-elementals">Modificadors dels tipus elementals</h4>
+<p>Servixen per a alterar els rangs dels tipus elementals vistos anteriorment. 
+Existixen 2 tipus de modificadors:</p>
+<ul>
+<li>Modificadors de longitud:<ul>
+<li><code>short</code>   →   per a enters (opció per defecte en alguns compiladors)</li>
+<li><code>long</code>  →     per a enters i reals. Dobla el rang</li>
+</ul>
+</li>
+<li>Modificadors de signe (per a enters):<ul>
+<li><code>signed</code>  →   amb signe (opció per defecte)</li>
+<li><code>unsigned</code>    →   sense signe</li>
+</ul>
+</li>
+</ul>
+<p>Els valors màxims i mínims de cada tipus estan definits en les llibreries de cada llenguatge, i canvia segons els compiladors.</p>
+<p>En <code>Python</code> hi han menys tipus, però tot i això no perdrem res de potència, donat que, per exemple els límits a partir de <code>Python3</code> no tenen topes</p>
+<h3 id="213-bool">2.1.3 <code>bool</code></h3>
+<p>Els valors lògis vertader i fals, especificats per <code>True</code> i <code>False</code>.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">bool</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">bool</span><span class="s1">&#39;&gt;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h3 id="214-string-o-str">2.1.4 <code>string</code> o <code>str</code></h3>
+<p>El tipus <code>string</code> no existeix al llenguatge <code>C</code>, i es veu com una successió de caràcters. En <code>Java</code> ja va apareixer com a objecte i en <code>Python</code> ja és un tipus bàsic. Un <code>string</code> és una successió de 0 o més caràcters dins de cometes simples o dobles. Aquestes cometes no poden apareixer dins de la cadena, ja que la primera obri i l'última tanca:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soc una cadena.&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">Soc</span> <span class="n">una</span> <span class="n">cadena</span><span class="o">.</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soc una &quot;</span><span class="n">cadena</span><span class="o">.</span><span class="s2">&quot;)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</code></pre></div></td></tr></table></div>
+<p>Posibles solucions:</p>
+<ul>
+<li>Intercanviar cometes dobles per simples, segons necessitats</li>
+<li>Fer servir el caracter contrabarra <code>\</code> que anula el significat dels simbols especials. Aquest caràcter es llig caracter de <code>escape</code> o <code>d'escapament</code></li>
+<li>Fer servir com a inici de la cadena la cometa simple <code>'</code> i dins ja podem fer servir la cometa doble o vicerversa. </li>
+</ul>
+<details class="example" open="open">
+<summary>Combinacions de símbols de cadena</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Soc una &quot;cadena.&#39;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">Soc</span> <span class="n">una</span> <span class="s2">&quot;cadena.</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soc una </span><span class="se">\&quot;</span><span class="s2">cadena.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">Soc</span> <span class="n">una</span> <span class="s2">&quot;cadena.</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="o">&gt;&gt;&gt;</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soc una &#39;cadena.&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">Soc</span> <span class="n">una</span> <span class="s1">&#39;cadena.</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Aquest caràcter té molts usos també, ja que de vegades combinat amb altres caràcters podem aconseguir caràcter no imprimibles o de control:</p>
+<table>
+<thead>
+<tr>
+<th>Seqüència de Escape</th>
+<th>Significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\a</code></td>
+<td>Alert. S'emet un pitit de l'altaveu</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>Backspace. S'esborra un caràcter</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>Line Feed. S'avança una línia</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>Carriage Return. Es torna el cursor al principi</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>Tabulador. S'avança</td>
+</tr>
+</tbody>
+</table>
+<details class="example" open="open">
+<summary>Més exemples:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemple 1&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adeu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemple 2&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\b</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adeu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemple 3&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adeu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemple 4&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adeu&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exemple 5&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\f</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adeu&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>Exemple 1   
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>Hola    Adeu    
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>Exemple 2 
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>HolAdeu
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>Exemple 3
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>Adeu                                                                  
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>Exemple 4
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>Hola
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>Adeu  
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>Exemple 5                                                            
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>Hola         
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>    Adeu
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="22-tipus-compostos">2.2 Tipus compostos</h2>
+<p>Els tipus simples serveixen quan tenim que guardar una informació <em>simple</em>, és a dir formada per una sóla dada. Exemple són una temperatura, un nom, una edat, etc. La cosa ja canvia quan tenim que guardar una informació formada per varies dades, com per exemple una <em>data de naixement</em>. Com és evident, aquesta informació està formada per 3 informacions simples (dia, mes i any). Altre exemple seria una <em>adreça</em>, formada per tipus de carrer, nom del mateix, número, escala, codi postal, etc.</p>
+<blockquote>
+<p>Aquest tipus de dades s'estudiaran més endavant, i són tipus que els definirem els programadors, prenent com a base els bàsics que hem vist anteriorment.</p>
+</blockquote>
+<h2 id="23-declaracio-de-variables">2.3 Declaració de variables</h2>
+<p>Una variable és una porció de memòria (RAM), representada per un nom (identificador) on es guardarà un valor que pot variar al llarg de l’execució d’un programa.
+Els llenguatges de programació, depenent de com es declaren les variables poden ser de tipat fort o dinàmic. Anem a veure-ho i veurem exemples.</p>
+<p>Els llenguatges fortament tipat obliguen de indicar la variable de quin tipus serà abans de fer-la servir. Exemples d'aquest llenguatges són <code>C</code> i <code>Java</code>. Desprès al moment de fer servir les variables els llenguatges vigilen i controlen que el valor que s'emmagatzema correspon al tipus de la variable. Cas de no correspondre donarà error.</p>
+<details class="example" open="open">
+<summary>Llenguatge fortment tipat</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span>
+<span class="normal"><a href="#__codelineno-7-8">8</a></span>
+<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">      </span><span class="c1">// diguem que n és enter</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w">    </span><span class="c1">// diguem que x és real</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span><span class="w">         </span><span class="c1">// OK</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">n</span><span class="o">=</span><span class="s">&quot;hola&quot;</span><span class="p">;</span><span class="w">     </span><span class="c1">// ERROR</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">x</span><span class="o">=</span><span class="mf">5.47</span><span class="p">;</span><span class="w">       </span><span class="c1">// OK</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">x</span><span class="o">=</span><span class="mi">7</span><span class="p">;</span><span class="w">          </span><span class="c1">// conversió:  x valdrà 7.0</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="n">n</span><span class="o">=</span><span class="mf">4.56</span><span class="w">        </span><span class="c1">// semierror:  n valdrà 4, es perd la part real</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Els llenguatges de <strong>tipat dinàmic</strong>, com poden ser <code>Python</code> o <code>PHP</code> no cal declarar la variable prèviament, simplement si ens cal una variable, li assignem el valor que vullguem i ja està. Mai ens ocorreran les situacios d'error d'abans. EL que ens pot ocòrrer és que una variable que contenia un numero, li assignem altre tipus i ens porte a situacions inconsistents. Tindrem que tenir molta cura en aquests casos.</p>
+<details class="example" open="open">
+<summary>Llenguatge de tipat feble</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">n</span><span class="o">=</span><span class="mi">10</span>        <span class="c1"># és int</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">n</span><span class="o">=</span><span class="mf">5.67</span>      <span class="c1"># ara és float</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">n</span><span class="o">=</span><span class="mi">6</span>         <span class="c1"># ara torna a ser int</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span>       <span class="c1"># int i val 8</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">n</span><span class="o">=</span><span class="s2">&quot;salut&quot;</span>   <span class="c1"># ara n és str (String) , no dona error, pero...</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span>       <span class="c1"># ERROR, no li podem sumar 2 al text &quot;salut&quot;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="mi">2</span>       <span class="c1"># ESPAI, multiplicar una cadena per un número el duplica &quot;salutsalut&quot;</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<blockquote>
+<p>El tipat de <code>Python</code> es coneix també com a <a href="https://en.wikipedia.org/wiki/Duck_typing">Duck typing</a></p>
+</blockquote>
+<h2 id="24-ambit-i-visibilitat">2.4 Àmbit i visibilitat</h2>
+<p>Les variables (i constants) poden definir-se/declarar-se en qualsevol part del programa, però segons el lloc on siguen declarades, les podrem fer servir en tot el programa (globals) o només en alguna part (locals).</p>
+<ul>
+<li>La <strong>visibilitat</strong>    és la propietat que indica si es pot accedir o no a una variable en un punt determinat del programa.</li>
+<li>L’<strong>àmbit</strong> és la zona del programa on és visible una variable.</li>
+</ul>
+<p>A partir d’estos conceptes podem diferenciar entre objectes locals i globals:</p>
+<ul>
+<li>Objectes locals: Variables (o constants) declarades dins d’un bloc o funció i, per tant, visibles només en l’àmbit d’eixe bloc i dins dels seus sub-blocs.</li>
+<li>Objectes globals: Variables (o constants) declarades al programa principal (fora del main) i, per tant, visibles des de qualsevol lloc del programa. </li>
+</ul>
+<p>Tenir en compte que:</p>
+<ul>
+<li>En <code>C</code> i <code>Java</code> anomenem bloc a tot allò que està entre claus { }. Per tant, qualsevol funció, com veurem més endavant, és un bloc.</li>
+<li>En <code>Python</code> un bloc són totes aquelles instruccions que estan al mateix nivell d'indentació, mitjançant tabulacions.</li>
+</ul>
+<p>Cal tindre clar que si es declaren variables en un bloc (locals) oculten les variables amb el mateix nom globals.  </p>
+<blockquote>
+<p>Aquests conceptes s'estudiaran més endavant, quan treballem en la programació <em>modular</em></p>
+</blockquote>
+<h2 id="25-operadors-i-expressions">2.5 Operadors i Expressions</h2>
+<p>Per tancar aquest tema anem a estudiar els operadors que disposem als nostres llenguatges, així com la manera d'interactuar amb l'usuari per a demanar-li dades i mostrar-li els resultats. Mitjançant els operadors podrem construir expressions complexes per a formar els nostres algorismes.</p>
+<h3 id="251-operadors-aritmetics">2.5.1 Operadors aritmètics</h3>
+<p>Anem a veure els operadors dels llenguatges de programació. La majoria són similars que <code>Java</code> o altres llenguatges, però hi han xicotetes diferències:</p>
+<table>
+<thead>
+<tr>
+<th>Significat</th>
+<th><code>Python</code></th>
+<th><code>Java</code></th>
+<th>Exemple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Potència</td>
+<td><code>**</code></td>
+<td>no hi ha</td>
+<td>3**2 retorna 9</td>
+</tr>
+<tr>
+<td>Producte</td>
+<td><code>*</code></td>
+<td><code>*</code></td>
+<td>3*6 retorna 18</td>
+</tr>
+<tr>
+<td>Divisió</td>
+<td><code>/</code></td>
+<td><code>/</code></td>
+<td>10/2  retorna 5</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>11/2  retorna 5.5 en Python</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>11/2  retorna 5 en Java (divisió entera)</td>
+</tr>
+<tr>
+<td>Divisió entera</td>
+<td><code>//</code></td>
+<td>(<code>Python</code>)</td>
+<td>11/2 retorna 5</td>
+</tr>
+<tr>
+<td>Residu</td>
+<td><code>%</code></td>
+<td><code>%</code></td>
+<td>12/5 retorna 2 (residu de la divisió entera)</td>
+</tr>
+<tr>
+<td>Suma</td>
+<td><code>+</code></td>
+<td><code>+</code></td>
+<td>12 + 7 retorna 19</td>
+</tr>
+<tr>
+<td>Resta</td>
+<td><code>-</code></td>
+<td><code>-</code></td>
+<td>12 - 7 retorna 5</td>
+</tr>
+</tbody>
+</table>
+<p>No cal gaire explicació, donat que son els operadors matemàtics de sempre. Tindre especial cura en la divisió entera.</p>
+<h3 id="252-operadors-relacionals">2.5.2 Operadors relacionals</h3>
+<p>Servixen per a comparar 2 expressions, retornant un valor lògic: vertader o fals. Son els mateixos en <code>Python</code> i en <code>Java</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Operador</th>
+<th>Significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>Menor</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Major</td>
+</tr>
+<tr>
+<td>==</td>
+<td>Igual</td>
+</tr>
+<tr>
+<td>!= o &lt;&gt;(sols Python)</td>
+<td>Distint</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Menor o igual</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Major o igual</td>
+</tr>
+</tbody>
+</table>
+<h3 id="253-operadors-logics">2.5.3 Operadors lògics</h3>
+<p>Els operadors lògics són els de la taula següent. Serveixen per a composar distintes expressions lògiques:</p>
+<table>
+<thead>
+<tr>
+<th><code>Python</code></th>
+<th><code>Java</code></th>
+<th>Significat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>or</code></td>
+<td><code>|                 |</code></td>
+<td>El <em>OR</em> lògic</td>
+</tr>
+<tr>
+<td><code>and</code></td>
+<td><code>&amp;&amp;</code></td>
+<td>La <em>AND</em> lògica</td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td><code>!</code></td>
+<td>El <em>NOT</em> lògic</td>
+</tr>
+</tbody>
+</table>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="kc">False</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="kc">True</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="ow">not</span> <span class="n">a</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="kc">False</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h4 id="curtcircuit-dexpressions">Curtcircuit d’expressions</h4>
+<p>Si recordem les taules de veritat de les expressions lògiques, podem afirmar que:</p>
+<ul>
+<li><code>false AND ...    →   false</code>: false and els que siga sempre és false</li>
+<li><code>true OR ...      →   true</code>: true or el que siga sempre és true</li>
+</ul>
+<p>Per tant, com les expressions s’avaluen d’esquerra a dreta, en el moment en què  puga assegurar el valor final de l’expressió lògica (true o false), pararà d’avaluar-la. Esta manera de treballar s’anomena curtcircuit d’expressions. Això ens dóna un benefici pel que fa a control d’errors i a velocitat d’execució.</p>
+<p>Exemples:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dto_1</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">dto_2</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">dto_3</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;S’ha aplicat algun descompte&quot;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Si el <code>dto_1</code> és major que 0, ja no es comproven les altres 2 expressions i passa a executar-se directament el <code>print</code>.</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El valor de la variable x és negatiu&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Només es farà el printf si el valor de x és negatiu.</p>
+<details class="example" open="open">
+<summary>Exercici resolt Pensa què passaria en cada cas sense i amb curtcircuit d’expressions.</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># Versió 1</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">x</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">)):</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>  <span class="k">pass</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="c1"># Versió 2</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="n">x</span><span class="o">=</span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="k">if</span> <span class="p">((</span><span class="n">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">):</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>  <span class="k">pass</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<details class="example">
+<summary>Solució</summary>
+<blockquote>
+<p>A la versió 1: 
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">if</span> <span class="p">((</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2</span> <span class="ow">and</span> <span class="p">(</span><span class="n">y</span><span class="o">!=</span><span class="mi">0</span><span class="p">)):</span>                                                 
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span> 
+</code></pre></div></td></tr></table></div></p>
+<p>A la versió 2 cap error</p>
+</blockquote>
+</details>
+<p>NOTA: l'ordre <code>pass</code> es fa servir quan volem deixar en blanc algun bloc de codi, com és el cas que sols volem provar les condicions</p>
+<h2 id="26-operadors-dassignacio">2.6 Operadors d’assignació</h2>
+<p>En tots els llenguatges de programació l’operador d’assignació és el símbol igual <code>=</code>. Aques operador necessita una variable a l'esquerre i una expressió a la dreta. El funcionament consistix en assignar a la variable el valor de l'expressió prèviament calculada. Funciona avaluant primer la part de la dreta, obtenint el seu resultat i assignant-lo a la variable de l’esquerra.</p>
+<p><img alt="Assignació" src="../img/T3_01.png" /></p>
+<p>Per exemple:        </p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>x = 10;
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>y = 20;
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>x = x + 1;    # x valdrà 11
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>y = x + y;    # y valdrà 31
+</code></pre></div></td></tr></table></div>
+<p>Per descomptat, l’assignació és destructiva, ja que elimina el valor antic de la variable. És a dir, només pot guardar una dada en un moment determinat.</p>
+<p>Els llenguatges també permet assignar un valor a diverses variables en una assignació encadenada. Van assignat-se els valors de <strong>dreta a esquerre</strong>. <code>a=b=c=d=2</code>. L’expressió anterior és equivalent a fer les següents assignacions (i en eixe ordre):</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>d = 2;
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>c = d;
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>b = d;
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>a = d;
+</code></pre></div></td></tr></table></div>
+<h3 id="operadors-aritmetics-reduits-operacio-assignacio">Operadors aritmètics reduïts (<strong>Operació-assignació</strong>)</h3>
+<p>Existixen formes compactes d’escriure algunes operacions aritmètiques molt freqüents. Són els operadors reduïts:
+•   Operadors d’actualització: <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code> i <code>%=</code>
+•   Operadors autoincrement i autodecrement: <code>++</code>, <code>--</code> (sols <code>C</code>i <code>Java</code>)
+Estos operadors fan 2 coses: una operació i una assignació.</p>
+<h4 id="operadors-dactualitzacio">Operadors d’actualització</h4>
+<p>A banda del clàssic <code>=</code>, existixen 5 operadors més d’assignació, que estan formats amb els operadors aritmètics i l’operador <code>=</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Assignació reduïda</th>
+<th>Assignació equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x += y</code></td>
+<td><code>x = x + y</code></td>
+</tr>
+<tr>
+<td><code>x -= y</code></td>
+<td><code>x = x - y</code></td>
+</tr>
+<tr>
+<td><code>x *= y</code></td>
+<td><code>x = x * y</code></td>
+</tr>
+<tr>
+<td><code>x /= y</code></td>
+<td><code>x = x / y</code></td>
+</tr>
+<tr>
+<td><code>x //= y</code></td>
+<td><code>x = x // y</code></td>
+</tr>
+<tr>
+<td><code>x %= y</code></td>
+<td><code>x = x % y</code></td>
+</tr>
+</tbody>
+</table>
+<p>On <code>x</code> és una variable i <code>y</code> una expressió, constant o variable.</p>
+<details class="example" open="open">
+<summary>Example d'assignacions</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">     </span><span class="c1">// x = x + y        → x = 5</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">     </span><span class="c1">// x = x * 2        → x = 10</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w">     </span><span class="c1">// x = x – (3 - y)  → x = 10 – (2)  → x = 8</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h4 id="operadors-autoincrement-i-autodecrement-javai-c">Operadors autoincrement i autodecrement (<code>Java</code>i <code>C</code>)</h4>
+<p>Els operadors incrementals <code>++</code> i <code>--</code> són operadors unaris que incrementen o decrementen en 1 unitat la variable a qui acompanyen. </p>
+<ul>
+<li>Si l’operador va davant (<code>++x</code>), primer s’incrementa la variable i després s’utilitza el valor de la variable en l’expressió on apareix. </li>
+<li>Si l’operador va després (<code>x++</code>), primer s’utilitza el valor de la variable en l’expressió i després s’incrementa la variable.</li>
+</ul>
+<p><img alt="Assignació" src="../img/T3_02.png" /></p>
+<p><img alt="Assignació" src="../img/T3_03.png" /></p>
+<blockquote>
+<p>Fixa't que pots trobar concursos de <a href="https://www.ioccc.org">programació ofuscada</a></p>
+</blockquote>
+<h2 id="27-altres-operadors">2.7 Altres operadors</h2>
+<h3 id="271-operador-condicional-java">2.7.1 Operador condicional  <code>? :</code> (<code>Java</code>)</h3>
+<p>Sintaxi: <code>condició  ?  expressió_sí  :  expressió_no ;</code>
+Exemples d’ús:</p>
+<ol>
+<li>Assignar un valor diferent a una variable segons una condició:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">major</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">a</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">distancia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">?</span><span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">b</span><span class="w">  </span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="err">–</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">num_positiu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">num</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="n">num</span><span class="w">  </span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>
+<p>Mostrar un valor diferent segons una condició:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>printf(  edat&gt;18 ?  “Adult” : “Infantil” );
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Executar una instrucció diferent segons una condició:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>edat&gt;18?  printf(“Adult”)  : printf(“Infantil”);
+</code></pre></div></td></tr></table></div></p>
+</li>
+</ol>
+<p>Nota: també es poden posar operadors condicionals dins d’altres.</p>
+<p><strong>Exercici proposat 1</strong> Fes un programa que, donats 2 variables enteres, mostre quin és el número més gran i quin el més menut.</p>
+<h3 id="272-operador-sizeof">2.7.2 Operador sizeof</h3>
+<p>La quantitat de bytes que s’utilitza per a guardar un determinat tipus de dades depén de la versió del compilador i del tipus de processador que s’utilitze. Per tant, perquè el nostre programa puga ser portable, de vegades és necessari saber quants bytes ocupen les variables amb les quals treballarem.
+Per a això, <code>C</code> i <code>Java</code> disposa de l’operador <code>sizeof()</code>, qui calcula la quantitat de bytes que ocupa la variable o tipus que li posem dins dels parèntesis <code>x = sizeof( variable o tipus )</code>.</p>
+<details class="example" open="open">
+<summary>En <code>Python</code> per a calcular-ho podem fer:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">x</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">text</span><span class="o">=</span><span class="s1">&#39;10&#39;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getsizeof</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="s2">&quot;bytes&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="28-expressions">2.8 Expressions</h2>
+<p>Ara que ja hem vist els tipus d’operands i els operadors, ja podem formar expressions. Què pot ser una expressió?</p>
+<ul>
+<li>Un valor (constant literal)</li>
+<li>Una constant amb nom o una variable</li>
+<li>Una funció</li>
+<li>Una combinació dels elements anteriors amb operadors, els quals han de complir certes regles de construcció.</li>
+<li>Res més és una expressió</li>
+</ul>
+<h2 id="29-conversions-de-tipus">2.9 Conversions de tipus</h2>
+<p>Dins d’una expressió poden aparéixer dades de distints tipus. Aleshores, el compilador ha de prendre una decisió de com fer el càlcul i no donar error.</p>
+<h3 id="291-promocio-interna">2.9.1 Promoció interna</h3>
+<p>Si en una expressió hi ha dades de diferent tipus, el compilador transforma els tipus d’una grandària inferior al tipus de la dada de grandària superior.</p>
+<p><code>char → int → unsigned → long → unsigned long → float → double → long → double</code></p>
+<p><strong>Nota</strong> Com <code>Python</code> no te tipat, això no passarà i sempre es canviarà el tipus de dades</p>
+<h3 id="292-promocio-per-assignacio">2.9.2 Promoció per assignació</h3>
+<p>Esta conversió la fa el compilador quan s’intenta assignar a una variable una expressió de diferent tipus.</p>
+<ul>
+<li>(int) = (char)      → no hi ha problema.</li>
+<li>(char) = (int)      →   s’elimina els bytes menys significatiu.</li>
+<li>(int) = (float)         →   es trunca la part fraccionària.</li>
+<li>(float) = (double)  →   s’arredonix el número</li>
+</ul>
+<p>En els casos on es perd certa informació ens pot portar a resultats inesperats. Per tant, en eixos casos és recomana fer conversions forçades.</p>
+<p><strong>Nota</strong> Com <code>Python</code> no te tipat, això no passarà i sempre es canviarà el tipus de dades.</p>
+<h3 id="293-promocio-forcada-o-casting">2.9.3 Promoció forçada o <strong>Càsting</strong></h3>
+<p>En este cas no esperem que siga el compilador qui faça la promoció (conversió de tipus), sinó que serà el propi programador qui indique quina dada ha de canviar de tipus i a quin. S’especifica posant el tipus entre parèntesi just abans de l’expressió en <code>Java</code> o fent una crida a la funció que converteix el tipus en <code>Python</code>:</p>
+<ul>
+<li><code>Java</code> → <code>(tipus) expressió</code></li>
+<li><code>Python</code>→ <code>tipus(expressió)</code></li>
+</ul>
+<details class="example" open="open">
+<summary>Exemples:</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Java</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">n</span><span class="o">/</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">;</span><span class="w">  </span><span class="c1">// (float) 3      → 3.0</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">n</span><span class="o">/</span><span class="n">m</span><span class="p">;</span><span class="w">     </span><span class="c1">// (float)(n) / m   → 10.0 / 3  →  3.3333..</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="210-precedencia-i-associativitat-doperadors">2.10 Precedència i associativitat d’operadors</h2>
+<p>Ací tenim una relació dels operadors ordenats per precedència de major a menor. En cas d’igualtat de precedència de diversos operadors en una expressió, l’associativitat ens diu per on es comença a avaluar.</p>
+<div class="admonition note">
+<p class="admonition-title">Precedència i associativitat en Python</p>
+<p><img alt="Precedència en Python" src="../img/T3_04.png" /></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Precedència i associativitat en C i Java</p>
+<p><img alt="Precedència en C i Java" src="../img/T3_05.png" /></p>
+</div>
+<h2 id="211-entrada-i-eixida-en-python">2.11 Entrada i eixida en Python</h2>
+<p>Les instruccions d’entrada i eixida (a partir d’ara E/S) permeten la construcció de programes interactius. És a dir, introduir dades des de teclat (<code>input</code>) i visualitzar en pantalla els resultats (<code>print</code>). </p>
+<p>Les funcions d’E/S es dividixen en 2 grups:</p>
+<ul>
+<li>Sense format → es mostren els text i numeros com apareixen</li>
+<li>Amb format → es formaten els numeros d'alguna manera especial</li>
+</ul>
+<h3 id="2111-sortida-de-dades-la-funcio-print">2.11.1 Sortida de dades: la funció <code>print</code></h3>
+<p>Aquesta funció simplement mostra per pantalla allò que li se passa, que és un text. Anem a anar vegent-la de manera incremental, amb un codi comentat:</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span>
+<span class="normal"><a href="#__codelineno-22-5">5</a></span>
+<span class="normal"><a href="#__codelineno-22-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">Hola</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="s1">&#39;que tal?&#39;</span><span class="p">,</span><span class="s2">&quot;començant el curs&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">Hola</span> <span class="n">que</span> <span class="n">tal</span><span class="err">?</span> <span class="n">començant</span> <span class="n">el</span> <span class="n">curs</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola &quot;</span><span class="o">+</span> <span class="s2">&quot;com va&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">Hola</span> <span class="n">com</span> <span class="n">va</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>com podem veure <code>print</code> rep un o més texts, que poden estar entre cometes simples o dobles. Aques texts els separa per blancs i afig un bot de línia al final de tota la unió de texts. Les cadenes de text poden concatenar-se també amb l'operador <code>+</code>, però llavors haurem de separar-les nosaltres l'espai en blanc.</p>
+<p>La sintaxi completa és:</p>
+<blockquote>
+<p><code>print(object(s), separator=separator, end=end, file=file, flush=flush)</code>
+- <code>object(s)</code> → son les cadenes de text o objectes que volem imprimir.
+- <code>separator=separator</code> → El símbol que volem fer servir per a separar els objectes anterior. Sinó posem res és l'espai en blanc
+- <code>end=end</code> → El simbol que farem servir al final de tota la impressió. Sinó posem res és el <code>enter</code> o bot de línia.
+- <code>file=file</code> → Sinó diguem res el text que s'escriu va a pantalla. Cas de voler enviar-ho a un fitxer, ací indicarem a quim (ho veurem al final del curs). El fitxer que simbolitza la pantalla és <code>sys.stdout</code> (el <em>standard output del sistema</em>)
+- <code>flush=flush</code> → aquest serà un valor boolea que indica si volem que la sortida es guarde (<code>True</code>) per a volcar-la tota de colp o si volem que tal i com s'execute es mostre (<code>False</code> i opció per defecte). Quan volem fer <code>flush</code> tot el que escrivim no es mostra i es guarda en un <code>buffer</code> o memòria temporal, fins que vullguem mostrar-ho tot de colp.</p>
+</blockquote>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span>
+<span class="normal"><a href="#__codelineno-23-6">6</a></span>
+<span class="normal"><a href="#__codelineno-23-7">7</a></span>
+<span class="normal"><a href="#__codelineno-23-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="s2">&quot;com va tot?&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">Hola</span> <span class="n">com</span> <span class="n">va</span> <span class="n">tot</span><span class="err">?</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="s2">&quot;com va tot?&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">)</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="n">Hola</span><span class="c1">#com va tot?</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="s2">&quot;com va tot?&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="n">Hola</span><span class="o">---</span><span class="n">com</span> <span class="n">va</span> <span class="n">tot</span><span class="err">?</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="s2">&quot;com va tot?&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;---&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="n">Hola</span><span class="o">---</span><span class="n">com</span> <span class="n">va</span> <span class="n">tot</span><span class="err">?</span><span class="o">@&gt;&gt;&gt;</span>  <span class="c1"># observa, sense bot de línia</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h4 id="especificant-el-format">Especificant el format</h4>
+<details class="example" open="open">
+<summary>Combinant texts i nombres</summary>
+</details>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span>
+<span class="normal"><a href="#__codelineno-24-6">6</a></span>
+<span class="normal"><a href="#__codelineno-24-7">7</a></span>
+<span class="normal"><a href="#__codelineno-24-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Un enter es&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;i un real és&quot;</span><span class="p">,</span><span class="mf">3.256</span><span class="p">)</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">Un</span> <span class="n">enter</span> <span class="n">es</span> <span class="mi">4</span> <span class="n">i</span> <span class="n">un</span> <span class="n">real</span> <span class="n">és</span> <span class="mf">3.256</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Un enter es&quot;</span> <span class="o">+</span><span class="mi">4</span> <span class="o">+</span><span class="s2">&quot;i un real és&quot;</span> <span class="o">+</span> <span class="mf">3.256</span><span class="p">)</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>  <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Un enter es &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot; i un real és &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mf">3.256</span><span class="p">))</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="n">Un</span> <span class="n">enter</span> <span class="n">es</span> <span class="mi">4</span> <span class="n">i</span> <span class="n">un</span> <span class="n">real</span> <span class="n">és</span> <span class="mf">3.256</span>
+</code></pre></div></td></tr></table></div>
+<p>vegem que:</p>
+<ul>
+<li>Si posem valors numerics amb els separadors no hi han problemes</li>
+<li>Si concatenem amb l'operador <code>+</code> <strong>si</strong> hi han problemes. Aquest problemes els podem solucionar convertint els números a cadenes amb la funció <code>str()</code></li>
+</ul>
+<p>Imaginem que volem imprimir certes hores del dia. EL que fariem és:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span>
+<span class="normal"><a href="#__codelineno-25-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;hores del dia&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;de setembre i fa&quot;</span><span class="p">,</span><span class="mf">7.27</span><span class="p">,</span><span class="s2">&quot;ºC&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les&quot;</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="s2">&quot;hores del dia&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="s2">&quot;de setembre i fa&quot;</span><span class="p">,</span><span class="mf">15.27</span><span class="p">,</span><span class="s2">&quot;ºC&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les&quot;</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="s2">&quot;hores del dia&quot;</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="s2">&quot;de setembre i fa&quot;</span><span class="p">,</span><span class="mf">9.2</span><span class="p">,</span><span class="s2">&quot;ºC&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;hores del dia&quot;</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="s2">&quot;de setembre i fa&quot;</span><span class="p">,</span><span class="mf">10.3</span><span class="p">,</span><span class="s2">&quot;ºC&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>la sortida que produeix és:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span>
+<span class="normal"><a href="#__codelineno-26-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>Son les 4 hores del dia 7 de setembre i fa 7.27 ºC
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>Son les 16 hores del dia 7 de setembre i fa 15.27 ºC
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>Son les 23 hores del dia 17 de setembre i fa 9.2 ºC
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a>Son les 3 hores del dia 18 de setembre i fa 10.3 ºC
+</code></pre></div></td></tr></table></div>
+<p>observem que cada cadena té una longitud distinta. El problema és que els numeros enters ocupen 1  o 2 caràcters, depenenet del número de xifres que tenen, i que els numeros decimal també varien la seua longitud. Això ho podem arreglar amb els especificadors de format:</p>
+<ul>
+<li>Per a números enters <code>%nd</code>, on <code>n</code> indica quants caràceters ha de omplir com a mínim</li>
+<li>Per a números reals <code>%n.mf</code>on <code>n</code> indica quants caràceters ha de omplir com a mínim i <code>m</code> indica els decimals que ha de mostrar</li>
+</ul>
+<p><div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les </span><span class="si">%2d</span><span class="s2"> hores del dia </span><span class="si">%2d</span><span class="s2"> de setembre i fa </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">7.27</span><span class="p">))</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les </span><span class="si">%2d</span><span class="s2"> hores del dia </span><span class="si">%2d</span><span class="s2"> de setembre i fa </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mf">15.27</span><span class="p">))</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les </span><span class="si">%2d</span><span class="s2"> hores del dia </span><span class="si">%2d</span><span class="s2"> de setembre i fa </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mf">9.2</span><span class="p">))</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Son les </span><span class="si">%2d</span><span class="s2"> hores del dia </span><span class="si">%2d</span><span class="s2"> de setembre i fa </span><span class="si">%6.3f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mf">10.3</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+la sortida que produeix és:
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a>Son les  4 hores del dia  7 de setembre i fa  7.270
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>Son les 16 hores del dia  7 de setembre i fa 15.270
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>Son les 23 hores del dia 17 de setembre i fa  9.200
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>Son les  3 hores del dia 18 de setembre i fa 10.300
+</code></pre></div></td></tr></table></div></p>
+<details class="example" open="open">
+<summary>Més formats de cadenes</summary>
+<p>Les cadenes un cop construides les podem formatar i aliniar a esquerre, centre i dreta, tal i com es veu:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="n">cadena</span><span class="o">=</span><span class="s2">&quot;Això és un text&quot;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">cadena</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a><span class="n">Això</span> <span class="n">és</span> <span class="n">un</span> <span class="n">text_____________________________________________</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">cadena</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="n">______________________Això</span> <span class="n">és</span> <span class="n">un</span> <span class="n">text_______________________</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">cadena</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">))</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a><span class="n">_____________________________________________Això</span> <span class="n">és</span> <span class="n">un</span> <span class="n">text</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Com es pot veure les función <code>.rjust</code>, <code>.center</code> i <code>.ljsut</code> justifiquen el text al que s'apliquen, ocupant els caràcter que s'indiquen en el primer argument, i omplint els buits amb el caràcter que s'indica en el segon argument (per defecte blanc).</p>
+<p>Dins de les cadenes poden fer-se servir també els caràcters especials: <code>\a</code>, <code>\b</code>, <code>\n</code>,<code>\r</code>,<code>\t</code> i <code>\\</code> per a una contrabarra.</p>
+<h3 id="2112-entrada-de-dades-la-funcio-input">2.11.2 Entrada de dades: la funció <code>input</code></h3>
+<p>La funció <code>input</code> llig allò que l'usuari ha escrit fins que polse un <code>enter</code>. És molt interessant posar com a argument allò que li volem preguntar, sinó hem de fer servir abnas la funció <code>print</code>. Exemple:</p>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span>
+<span class="normal"><a href="#__codelineno-30-4">4</a></span>
+<span class="normal"><a href="#__codelineno-30-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dis-me la teua edat&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">edat</span><span class="o">=</span><span class="nb">input</span><span class="p">()</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="c1"># és molt més còmode fer</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="n">edat</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me la teua edat&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>El gran problema és que aquesta fució retorna un <code>str</code> i llavors, encara que el podem fer servir no podrem fer càlculs amb ells. La solució és fer un càsting o conversió de tipus segons la dada que volem llegir:</p>
+<details class="example" open="open">
+<summary>Llegir i transformar</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">6</a></span>
+<span class="normal"><a href="#__codelineno-31-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="n">edat</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me la teua edat: &quot;</span><span class="p">))</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="n">pes</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me la teua pes: &quot;</span><span class="p">))</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a><span class="n">nom</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me el teu nom: &quot;</span><span class="p">)</span>  <span class="c1"># no cal fer conversió</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">,</span><span class="n">nom</span><span class="p">,</span><span class="s2">&quot;, tens&quot;</span><span class="p">,</span><span class="n">edat</span><span class="p">,</span><span class="s2">&quot;anys i peses&quot;</span><span class="p">,</span><span class="n">pes</span><span class="p">,</span><span class="s2">&quot;kilos)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<p>Si volem llegir diversos arguments alhora, separats per algun caracter especial, podem fer servir la funció <code>split</code> de la classe <code>str</code>:</p>
+<details class="example" open="open">
+<summary>Llegir i dividir</summary>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Python</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
+<span class="normal"><a href="#__codelineno-32-2">2</a></span>
+<span class="normal"><a href="#__codelineno-32-3">3</a></span>
+<span class="normal"><a href="#__codelineno-32-4">4</a></span>
+<span class="normal"><a href="#__codelineno-32-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="n">pes</span><span class="p">,</span> <span class="n">altura</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me el pes i altura (separats per blanc): &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="n">hores</span><span class="p">,</span> <span class="n">minuts</span><span class="p">,</span> <span class="n">segons</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dis-me l&#39;hora exacta en format hh:mm:ss: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="c1"># ATENCIO -&gt; això ho retorna tot en format str. Hi hauria que fer desprès les conversión als formats adequats</span>
+</code></pre></div></td></tr></table></div>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+    
+  </body>
+</html>
