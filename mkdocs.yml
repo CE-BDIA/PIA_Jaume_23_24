@@ -17,21 +17,24 @@ nav:
       - 9. Annex I - Tractament de fitxers i carpetes amb python: U02 Python/09_Tractament_de_fitxer.md
   
    - Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial: 
-     - Teoria:
-       - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
-       - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy.md
-       - 3. Manipulació de Dades amb Pandas: U03 Python aplicat al Big Data i Intel·ligencia Artificial/02_Pandas.ipynb
-  #   - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/3. Matplotlib-Seaborn.md
-  #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
-  #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
-     - Tasques:
-       - 1. NumPy:
+     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
+     - 2. Manipulació de Dades amb Numpy: 
+       - Teoria: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy.md
+       - Tasques:
          - 1. Activitats numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/01_numpy.ipynb
          - 2. Pràctiques numpy: 
            - 1. Mario: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/02_mario.ipynb
            - 2. Derivades: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/03_derivades.ipynb
            - 3. Vi: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/04_vi.ipynb
            - 4. KNN: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/05_KNN.ipynb
+     - 3. Manipulació de Dades amb Pandas: 
+       - Teoria: U03 Python aplicat al Big Data i Intel·ligencia Artificial/02_Pandas.ipynb
+       - Tasques:
+          - 1. Activitats: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/pandas/01_activitats_pandas.ipynb
+          # - 2. Pràctiques: 
+  #   - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/3. Matplotlib-Seaborn.md
+  #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
+  #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
   #  - Unitat 4. Programació d'aplicacions: 
   #     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
   # #    - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy .md
