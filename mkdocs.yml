@@ -33,6 +33,8 @@ nav:
               - Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/pandas/01_creacio.ipynb
               - Indexació, selecció i assignació: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/pandas/02_indexacio_seleccio_assignacio.ipynb
               - Funcions de resum i mapatge: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/pandas/03_resum_mapatge.ipynb
+              - Agrupament i ordenació: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/pandas/04_agrupament_i_ordenacio.ipynb
+
           # - 2. Pràctiques: 
   #   - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/3. Matplotlib-Seaborn.md
   #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
