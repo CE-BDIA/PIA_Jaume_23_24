@@ -10,6 +10,17 @@ Per a insertar admonitions a un quadern de Jupyter ha de ser amb html:
 </div>
 ```
 
+Per a insertar admonitions tancats:
+
+```html
+<details class='success'>
+  <summary>Comprovar resposta</summary>
+    <p>
+      reviews.loc[(reviews.country == 'Italy') |  (reviews.country == 'France')]
+    </p>
+</details>
+```
+
 On les possibles classes son:
 
 - note
