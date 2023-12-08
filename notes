@@ -30,3 +30,22 @@ Per a posar imatges a un quadern de Jupyter, afegir .. a la ruta que correspon, 
 Exemple: 
 -----img/imatge.png
 |----arxiu.ipynb   ![imatge](../img/imatge.png)
+
+Alguns Snippets
+
+"Imatge %":{
+		"prefix":"imatge",
+		"body":"<center>![$1]($2){width=${3|25,33,50,66,75,100|}%</center>",
+		"description":"centra una imatge al XX%"
+	},
+
+"adm_box": {
+    "prefix": "adm_example",
+    "body": [
+        "${1|!!!,???,???+|}  ${2|note, abstract, info, tip, success, question, warning, failure, danger, bug, example, quote|} \"$3\"",
+        "    ```${4|python,java,php,sh|}",
+        "    $5",
+        "    ```"
+    ],
+    "description": "Example amb codi"
+}

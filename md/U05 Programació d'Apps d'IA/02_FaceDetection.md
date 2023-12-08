@@ -1,4 +1,4 @@
-## 1. Introducció a `Face`
+## 1. Introducció a `Face` - No vàlid amb compte corporatiu
 
 **Face** és el servei de reconeixement facial d'**Azure Cognitive Services**. Aquest servei ens ofereix cinc operacions relacionades amb el reconeixement de cares en imatges:
 
@@ -68,10 +68,6 @@ Com sempre en **Claves y productos** és on haurem de copiar el _token_ i els _e
     Ademés:
 
     * Les peticions a aquests serveis, els podem fer be directament amb API request o be amb el SDK que ens ofereix Microsoft per a cada llenguatge. Escollirem aquesta última opció
-
-## 3. Detecció de cares
-
-Anem a detectar les cares d'aquestes persones. Podriem fer-ho amb qualssevol altra imatge que vullgueu.
 
 
 <hr>
