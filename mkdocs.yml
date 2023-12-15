@@ -21,7 +21,7 @@ nav:
       - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
       - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy.md
       - 3. Manipulació de Dades amb Pandas: U03 Python aplicat al Big Data i Intel·ligencia Artificial/02_Pandas.ipynb
-  #   - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/3. Matplotlib-Seaborn.md
+      - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/03_Matplotlib-Seaborn.ipynb
   #   - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/4. Sklearn.md
   #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
     - Tasques:
@@ -108,12 +108,12 @@ plugins:
     #     - "*.py"
 
      # No revisa aquestes carpetes
-  # - exclude:   # https://github.com/apenwarr/mkdocs-exclude
-  #     glob:
-  #       - U01 Introducció a la programació/**
-  #       - U02 Python/**
-  #       - U03 Python aplicat al Big Data i Intel·ligencia Artificial/**
-  #       - U04 Programació d'Aplicacions/**
+  - exclude:   # https://github.com/apenwarr/mkdocs-exclude
+      glob:
+        - U01 Introducció a la programació/**
+        - U02 Python/**
+        - U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/**
+        - U04 Programació d'Aplicacions/**
 
      
 #  - pdf-export
