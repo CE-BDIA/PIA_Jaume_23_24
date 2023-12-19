@@ -108,12 +108,12 @@ plugins:
     #     - "*.py"
 
      # No revisa aquestes carpetes
-  - exclude:   # https://github.com/apenwarr/mkdocs-exclude
-      glob:
-        - U01 Introducció a la programació/**
-        - U02 Python/**
-        - U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/**
-        - U04 Programació d'Aplicacions/**
+  # - exclude:   # https://github.com/apenwarr/mkdocs-exclude
+  #     glob:
+  #       - U01 Introducció a la programació/**
+  #       - U02 Python/**
+  #       - U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/**
+  #       - U04 Programació d'Aplicacions/**
 
      
 #  - pdf-export
