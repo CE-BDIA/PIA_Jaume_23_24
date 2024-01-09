@@ -48,6 +48,7 @@ nav:
           - 1. Gràfics de línies: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/seaborn/01_linecharts.ipynb
           - 2. Gràfics de barres i mapes de calor: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/seaborn/02_bars_heatmaps.ipynb
           - 3. Gràfics de dispersió: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/seaborn/03_scatters.ipynb
+          - 4. Distibucions: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/seaborn/04_distributions.ipynb
   #  - Unitat 4. Programació d'aplicacions: 
   #     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
   # #    - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy .md
