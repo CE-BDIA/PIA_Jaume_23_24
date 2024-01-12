@@ -796,6 +796,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#subajust-i-sobreajust-del-model-underfitting-i-overfitting" class="md-nav__link">
+    Subajust i sobreajust del model (underfitting i overfitting)
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1602,6 +1609,88 @@
 
               
             
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_4_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_4_2" id="__nav_3_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercicis/sklearn/03_comparacio_de_models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Comparació de models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercicis/sklearn/04_overfitting_underfitting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Ajust de models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1722,6 +1811,13 @@
           <li class="md-nav__item">
   <a href="#altres-metriques-segons-el-model" class="md-nav__link">
     Altres mètriques segons el model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subajust-i-sobreajust-del-model-underfitting-i-overfitting" class="md-nav__link">
+    Subajust i sobreajust del model (underfitting i overfitting)
   </a>
   
 </li>
@@ -3304,19 +3400,18 @@ print(mean_absolute_error(val_y, val_predictions))</div>
 <ul>
 <li><p>Classificació:</p>
 <ul>
-<li>Precisió (Accuracy)</li>
-<li>Recall (Sensibilitat o True Positive Rate)</li>
-<li>Precisió (Precision)</li>
-<li>F1 Score</li>
-<li>Matriu de Confusió: Una taula que mostra les relacions entre les prediccions del model i les classes reals.</li>
+<li>Precisió (Accuracy): prediccions correctes respecte al total de prediccions.</li>
+<li>Recall (Sensibilitat o True Positive Rate): mesura la proporció de <em>True positives</em> (mostres positives que s'han predit correctament) respecte al total de positives reals. És útil quan és crucial identificar tots els casos positius, per exemple, diagnòstics d'enfermetats greus.</li>
+<li>Precisió (Precision): proporció de <em>True positives</em> respecte al total de prediccions positives. És important quan és important minimitzar els falsos positius, per exemple, diagnòstics d'enfermetats greus.</li>
+<li>F1 Score: L'F1 Score és una mitjana de precisió i recall. Proporciona un equilibri entre aquestes dues mètriques i és útil quan hi ha un desequilibri entre les classes (True positives, True negatives, False positives, False negative).</li>
+<li>Matriu de Confusió: Una taula que mostra les relacions entre les prediccions del model i les classes reals (True positives, True negatives, False positives, False negative).</li>
 </ul>
 </li>
 <li><p>Regressió:</p>
 <ul>
-<li>Error Quadràtic Mitjà (Mean Squared Error - MSE):</li>
-<li>Error Absolut Mitjà (Mean Absolute Error - MAE)</li>
-<li>Coeficient de Determinació (R-squared)</li>
-<li>Mesura la proporció de variabilitat en la variable dependent que és explicada pel model</li>
+<li>Error Quadràtic Mitjà (Mean Squared Error - MSE): Mesura la mitjana dels quadrats de les diferències entre les prediccions del model i els valors reals.</li>
+<li>Error Absolut Mitjà (Mean Absolute Error - MAE): Mesura la mitjana de les diferències absolutes entre les prediccions i els valors reals.</li>
+<li>Coeficient de Determinació (R-squared): Proporciona una mesura de com de bé s'ajusta el model a les punts de dades. El valor pot oscil·lar entre 0 i 1.</li>
 </ul>
 </li>
 <li><p>Agrupament:</p>
@@ -3327,6 +3422,25 @@ print(mean_absolute_error(val_y, val_predictions))</div>
 </ul>
 </li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="subajust-i-sobreajust-del-model-underfitting-i-overfitting">Subajust i sobreajust del model (underfitting i overfitting)<a class="anchor-link" href="#subajust-i-sobreajust-del-model-underfitting-i-overfitting">¶</a></h3><p>Ara que coneixem una manera fiable de mesurar la precisió del model, podem experimentar amb models alternatius i veure quins ofereixen les millors prediccions. Però quines alternatives tenim per als models?</p>
+<p>Podem veure a la documentació de scikit-learn que el model d'arbre de decisions té moltes opcions (més de les que necessitarem). Les opcions més importants determinen la profunditat de l'arbre. Recordem que la profunditat d'un arbre és una mesura de quantes divisions fa abans d'arribar a una predicció.</p>
+<p>A la pràctica, no és estrany que un arbre tinga 10 divisions entre el nivell superior (totes les cases) i una fulla. A mesura que l'arbre s'enfonsa, el conjunt de dades es ramifica en rames amb menys cases. Si un arbre només tenia 1 divisió, divideix les dades en 2 grups. Si cada grup es torna a dividir, obtindríem 4 grups de cases. Dividir cadascun d'ells de nou crearia 8 grups. Si seguim duplicant el nombre de grups afegint més divisions a cada nivell. Quan arribem al nivell 10, tindriem 2^10 = 1024 fulles.</p>
+<p>Quan dividim les cases entre moltes fulles, també tenim menys cases a cada fulla. Les fulles amb molt poques cases faran prediccions molt pròximes als valors reals d'aquestes cases (amb les dades d'entrenament), però poden fer prediccions molt poc fiables per a dades noves (perquè cada predicció es basa només en unes poques cases).</p>
+<p>Es tracta d'un fenomen anomenat <strong>sobreajust o overfitting</strong>, on un model coincideix amb les dades d'entrenament quasi perfectament, però funciona malament en la validació i altres dades noves. D'altra banda, si fem que el nostre arbre siga molt poc profund, no divideix les cases en grups molt diferenciats.</p>
+<p>En un extrem, si un arbre divideix les cases en només 2 o 4 grups, cada grup encara té una gran varietat de cases. Les prediccions resultants poden estar lluny per a la majoria de cases, fins i tot per a les dades d'entrenament (i també serà roïn en la validació pel mateix motiu). Quan un model no aconsegueix capturar distincions i patrons importants a les dades, de manera que funciona mal fins i tot en les dades d'entrenament, això s'anomena <strong>subajust o underfitting</strong>.</p>
+<p>Com que ens importa la precisió de les dades noves, que estimem a partir de les nostres dades de validació, volem trobar el punt òptim entre l'ajustament insuficient i el sobreajust. Visualment, volem el punt baix de la corba de validació (roja) a la figura següent:</p>
+<p><img alt="" src="img/sklearn/over_under_fitting.png"/></p>
+<p>Tots els algorismes de ML tenen formes de controlar el <em>overfitting i el underfitting</em>.</p>
 </div>
 </div>
 </div>

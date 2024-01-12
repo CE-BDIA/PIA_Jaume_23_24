@@ -53,7 +53,9 @@ nav:
         - 1. Activitats:
           - 1. Contrucció del model: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/01_model.ipynb
           - 2. Validació del model: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/02_validacio.ipynb
-  
+        - 2. Pràctiques:
+          - 1. Comparació de models: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/03_comparacio_de_models.ipynb
+          - 2. Ajust de models: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/04_overfitting_underfitting.ipynb
   #  - Unitat 4. Programació d'aplicacions: 
   #     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
   # #    - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy .md
