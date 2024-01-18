@@ -3439,7 +3439,7 @@ print(mean_absolute_error(val_y, val_predictions))</div>
 <p>Es tracta d'un fenomen anomenat <strong>sobreajust o overfitting</strong>, on un model coincideix amb les dades d'entrenament quasi perfectament, però funciona malament en la validació i altres dades noves. D'altra banda, si fem que el nostre arbre siga molt poc profund, no divideix les cases en grups molt diferenciats.</p>
 <p>En un extrem, si un arbre divideix les cases en només 2 o 4 grups, cada grup encara té una gran varietat de cases. Les prediccions resultants poden estar lluny per a la majoria de cases, fins i tot per a les dades d'entrenament (i també serà roïn en la validació pel mateix motiu). Quan un model no aconsegueix capturar distincions i patrons importants a les dades, de manera que funciona mal fins i tot en les dades d'entrenament, això s'anomena <strong>subajust o underfitting</strong>.</p>
 <p>Com que ens importa la precisió de les dades noves, que estimem a partir de les nostres dades de validació, volem trobar el punt òptim entre l'ajustament insuficient i el sobreajust. Visualment, volem el punt baix de la corba de validació (roja) a la figura següent:</p>
-<p><img alt="" src="img/sklearn/over_under_fitting.png"/></p>
+<p><img alt="" src="../img/sklearn/over_under_fitting.png"/></p>
 <p>Tots els algorismes de ML tenen formes de controlar el <em>overfitting i el underfitting</em>.</p>
 </div>
 </div>
