@@ -2256,14 +2256,14 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p>Li preguntes al teu cosí com ha predit els valors immobiliaris en el passat, i diu que és només una intuïció. Però més preguntes revelen que ha identificat patrons de preus de cases que ha vist en el passat, i els utilitza per fer prediccions per a les cases noves que està considerant.</p>
 <p>L'aprenentatge automàtic funciona de la mateixa manera. Començarem amb un model anomenat arbre de decisió (<em>decision tree</em>). Hi ha models més potents que donen prediccions més precises, però els arbres de decisió són fàcils d'entendre i són l'element bàsic d'alguns dels millors models en ciència de dades.</p>
 <p>Per simplificar, començarem amb l'arbre de decisions el més senzill possible.</p>
-<p><img alt="" src="img/sklearn/tree1.png"/></p>
+<p><img alt="" src="../img/sklearn/tree1.png"/></p>
 <p>Divideix les cases només en dues categories, segons tinguen dues o més habitacions. El preu previst per a qualsevol casa en consideració és el preu mitjà històric de les cases de la mateixa categoria.</p>
 <p>Utilitzem les dades per decidir com dividir les cases en dos grups, i després de nou per determinar el preu previst a cada grup. Aquest pas de captura de patrons a partir de dades s'anomena ajustament o <strong>entrenament del model</strong>. Les dades utilitzades per ajustar el model s'anomenen <strong>dades d'entrenament</strong>.</p>
 <p>Els detalls de com s'ajusta el model (p. ex., com dividir les dades) són prou complexos i els guardarem per a més endavant. Un cop s'haja ajustat el model, podem aplicar-lo a dades noves per predir els preus d'habitatges addicionals.</p>
-<p><img alt="" src="img/sklearn/tree2.png"/></p>
+<p><img alt="" src="../img/sklearn/tree2.png"/></p>
 <p>L'arbre de decisions de l'esquerra (Arbre de decisions 1) probablement té més sentit, perquè recull la realitat que les cases amb més habitacions solen vendre's a preus més alts que les cases amb menys habitacions. El major inconvenient d'aquest model és que no recull la majoria dels factors que afecten el preu de l'habitatge, com ara el nombre de banys, la mida de l'habitatge, la ubicació, etc.</p>
 <p>Podeu capturar més factors utilitzant un arbre que tingui més <em>divisions</em>. Aquests s'anomenen arbres <em>més profunds</em>. Un arbre de decisions que també considera la mida total del solar de cada casa podria semblar així:</p>
-<p><img alt="" src="img/sklearn/tree3.png"/></p>
+<p><img alt="" src="../img/sklearn/tree3.png"/></p>
 <p>Es prediu el preu de qualsevol casa rastrejant l'arbre de decisió, sempre escollint el camí corresponent a les característiques d'aquesta casa. El preu previst per a la casa és a la part inferior de l'arbre. El punt de la part inferior on fem una predicció s'anomena <code>fulla</code>.</p>
 <p>Les divisions i els valors de les fulles estaran determinats per les dades, així que és hora que comprovem les dades amb les quals treballareu.</p>
 </div>
