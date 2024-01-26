@@ -23,7 +23,7 @@ nav:
       - 3. Manipulació de Dades amb Pandas: U03 Python aplicat al Big Data i Intel·ligencia Artificial/02_Pandas.ipynb
       - 4. Visualització de dades amb Matplotlib i Seaborn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/03_Matplotlib-Seaborn.ipynb
       - 5. Introducció al Machine Learning amb Scikit-Learn: U03 Python aplicat al Big Data i Intel·ligencia Artificial/04_Sklearn.ipynb
-  #   - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/5. Keras.md
+      - 6. Introducció al DeepLearning amb Keras: U03 Python aplicat al Big Data i Intel·ligencia Artificial/05_Keras.ipynb
     - Tasques:
       - 2. NumPy:
         - 1. Activitats: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/numpy/01_numpy.ipynb
@@ -56,6 +56,15 @@ nav:
         - 2. Pràctiques:
           - 1. Comparació de models: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/03_comparacio_de_models.ipynb
           - 2. Ajust de models: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/sklearn/04_overfitting_underfitting.ipynb
+      - 6. keras:
+        - 1. Activitats:
+          - 1. Subajust i sobreajust - Parada anticipada: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/01_underfitting_overfitting.ipynb
+          - 2. Abandonament: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/02_dropout.ipynb
+          - 3. Normalització de lots: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/03_batch_normalization.ipynb
+        - 2. Pràctiques:
+          - 1. Xarxes Neuronals - Regressió: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/04_regression.ipynb
+          - 2. Xarxes Neuronals - Classificació: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/05_classification.ipynb
+          - 3. Algoritmes clàssics front a xarxes neuronals: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/06_sklearn_vs_keras.ipynb
   #  - Unitat 4. Programació d'aplicacions: 
   #     - 1. Introducció: U03 Python aplicat al Big Data i Intel·ligencia Artificial/0. Index.md
   # #    - 2. Manipulació de Dades amb Numpy: U03 Python aplicat al Big Data i Intel·ligencia Artificial/1. NumPy .md
@@ -84,6 +93,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
 
 theme: 
   name: material
@@ -111,6 +122,10 @@ theme:
     - content.code.annotate
 
 
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - search
