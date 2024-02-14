@@ -66,6 +66,7 @@ nav:
           - 1. Xarxes Neuronals - Regressió: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/04_regression.ipynb
           - 2. Xarxes Neuronals - Classificació: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/05_classification.ipynb
           - 3. Algoritmes clàssics front a xarxes neuronals: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/06_sklearn_vs_keras.ipynb
+          - 4. Guardat i càrrega de models: U03 Python aplicat al Big Data i Intel·ligencia Artificial/exercicis/keras/07_save_and_load.md
   # - Unitat 4. Programació d'aplicacions: 
   #   - 1. Programació d'aplicacions client amb Flet: 
   #   - 2. Contenidors. Bases de Dades: U04 Programació d'Aplicacions/2. Contenidors de BBDD amb Docker.md

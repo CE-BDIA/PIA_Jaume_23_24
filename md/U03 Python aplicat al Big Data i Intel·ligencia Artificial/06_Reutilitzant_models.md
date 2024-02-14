@@ -172,14 +172,3 @@ Això ens permet,en un futur, quan tinguem que passar-li dades al nostre model, 
     # calculem la prediccio
     estimacio=model.predict(dades)
     ```
-
-??? question "Ara et toca a tu"
-
-    Amb qualssevol de les pràctiques anteriors del tema has de:
-
-    - Guardar el model amb totes les característiques
-    - Guardar el preprocessament, cas d'haver-lo fet
-    - Crea un nou quadern i carrega tot el guardat anteriorment
-    - Creat un json amb nova informació (inventada)
-    - Preprocessar-la, comprovant l'eixida
-    - Fes una predicció i comprova que funcione
