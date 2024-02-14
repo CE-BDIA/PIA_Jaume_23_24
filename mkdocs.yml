@@ -131,10 +131,10 @@ plugins:
     #  execute_ignore:
     #     - "*.py"
      # No revisa aquestes carpetes
-  - exclude:   # https://github.com/apenwarr/mkdocs-exclude
-      glob:
-        - "*.ipynb"
-        - "*.py"
+  # - exclude:   # https://github.com/apenwarr/mkdocs-exclude
+  #     glob:
+  #       - "*.ipynb"
+  #       - "*.py"
 
      
 #  - pdf-export
