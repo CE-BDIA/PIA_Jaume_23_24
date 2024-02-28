@@ -188,6 +188,7 @@ with open('claus.json') as json_file:
 Anem a veure com quedaria ara la carrega de les credencials i la creació del client respecta als anteriors exemples
 
 ???+ example "Carregant el client"
+
     ```python
     # Afegim les claus i punt de connexió
     key_computer_vision=claus['key_computer_vision']
@@ -225,6 +226,7 @@ https://la_teua_urscompvision.cognitiveservices.azure.com/vision/v3.2/read/analy
 El que ens interessa agafar és el codi a partir de la última barra, per a demanar-li l'anàlisi de la imatge. Anem a veure el codi, explicat entre els comentaris 
 
 ???+ example "Arreplegant els resultats"
+
     ```python
     # Agafem els resultats de l'anàlisi
     read_result = client.get_read_result(operation_id)

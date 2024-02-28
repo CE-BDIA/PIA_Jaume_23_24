@@ -20,7 +20,7 @@ En aquest apartat, exploraràs com aprofitar de manera sinèrgica OpenCV i PIL p
 
 La classe més important de la biblioteca d'imatges de Python `PIL` és la classe `Image`, definida al mòdul amb el mateix nom. Podeu crear instàncies d'aquesta classe de diverses maneres; ja sigui carregant imatges dels fitxers, processant altres imatges o creant imatges des de zero.
 
-### 1.1. Obrir i tancar
+### 1.1. Obrir i tancar AMP PIL
 La manera més senzilla de crear-la és a partir d'un fitxer del sistema d'arxius, mitjançant `Image.open(ruta_a_la imatge)`.
 
 Podrem mostrar algunes característiques amb els atributs:
@@ -73,6 +73,11 @@ Per a desar una imatge ja processada, ho farem mitjançant `save(nom_del_fitxer)
     # Imatge a punt per a processar
     img.show()
     ```
+
+
+
+
+
 
 ### 1.2. Miniatures
 Altre metode interessant és el de modificar la imatge per a fer minitures (`thumbnail`). Aquest mètode rep el shape al que volem transformar, i l'adapta per a mantenir la relació d'aspecte. Espai que aquest mètode transforma la imatge original
