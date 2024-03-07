@@ -78,7 +78,7 @@ nav:
   #   - 2. Azure Face:  U05 Programació d'Apps d'IA/02_FaceDetection.md
   #   - 3. Computer Vision:  U05 Programació d'Apps d'IA/03_ComputerVision.md
   # - Unitat 6. Convergència tecnològica: 
-  #   - 1. Computer Vision:  U06 Convergencia tecnologica/01_OpenCV.md
+  #   - 1. Computer Vision:  U06 Convergencia tecnologica/01_OpenCV_Basic.md
   - Informació general:
     - Guia didàctica: info/guia_didactica.md
 
@@ -133,10 +133,10 @@ plugins:
     #  execute_ignore:
     #     - "*.py"
      # No revisa aquestes carpetes
-  - exclude:   # https://github.com/apenwarr/mkdocs-exclude
-      glob:
-        - "*.ipynb"
-        - "*.py"
+  # - exclude:   # https://github.com/apenwarr/mkdocs-exclude
+  #     glob:
+  #       - "*.ipynb"
+  #       - "*.py"
 
      
 #  - pdf-export
