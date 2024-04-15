@@ -73,10 +73,11 @@ nav:
     - 3. Peticions HTTP. API REST: U04 Programació d'Aplicacions/3. Peticions HTTP. API-REST.md
     - 4. Servidors amb Flask: U04 Programació d'Aplicacions/4. Servidors amb Flask.md
     - 5. Pràctiques: U04 Programació d'Aplicacions/5. Practiques.md
-  # - Unitat 5. Programació d'aplicacions d'IA: 
-  #   - 1. Azure Text:  U05 Programació d'Apps d'IA/01_AzureTextAnalytics.md
-  #   - 2. Azure Face:  U05 Programació d'Apps d'IA/02_FaceDetection.md
-  #   - 3. Computer Vision:  U05 Programació d'Apps d'IA/03_ComputerVision.md
+  - Unitat 5. Programació d'aplicacions d'IA: 
+    - 1. Azure Text:  U05 Programació d'Apps d'IA/01_AzureTextAnalytics.md
+    - 2. Azure Face:  U05 Programació d'Apps d'IA/02_FaceDetection.md
+    - 3. Computer Vision:  U05 Programació d'Apps d'IA/03_ComputerVision.md
+    - 4. Pràctiques:  U05 Programació d'Apps d'IA/04_Practiques.md
   # - Unitat 6. Convergència tecnològica: 
   #   - 1. Computer Vision:  U06 Convergencia tecnologica/01_OpenCV_Basic.md
   - Informació general:
@@ -132,9 +133,9 @@ plugins:
     #     - "*.py"
      # No revisa aquestes carpetes
   # - exclude:   # https://github.com/apenwarr/mkdocs-exclude
-  #     glob:
-  #       - "*.ipynb"
-  #       - "*.py"
+  #    glob:
+  #      - "*.ipynb"
+  #      - "*.py"
 
      
 #  - pdf-export

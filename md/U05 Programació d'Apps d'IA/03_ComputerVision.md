@@ -19,7 +19,7 @@ Ens centrem de moment en computer vision. Computer Vision ens permet→
 
 ![ComputerVision](./img/AzureCompVision04.png)
 
-### 1.1. Anàlisi d'imatges
+## 2. Anàlisi d'imatges
 
 Quan utilitzem la funcionalitat d'anàlisi d'imatge podrem sol·licitar al servei les característiques següents→
 
@@ -33,7 +33,7 @@ Quan utilitzem la funcionalitat d'anàlisi d'imatge podrem sol·licitar al serve
 * Adults → determina si el contingut de la imatge pot ser catalogat com contingut per a adults, pujat de to o violent.
 * Tipus d'imatge → detecta si la imatge és un dibuix o imatge predissenyada.
 
-#### 1.1.1. Creant peticions
+### 2.1. Creant peticions
 
 ???+ example "Preparant la petició"
     ```python
@@ -75,7 +75,7 @@ Quan utilitzem la funcionalitat d'anàlisi d'imatge podrem sol·licitar al serve
     * En compte de `analyze_image` podem cridar a `analyze_image_in_stream` passant-li la imatge pròpiament dita en compte de la url de la mateixa.
   
 
-#### 1.1.2. Processant les respostes
+### 2.2. Processant les respostes
 El servei ens retornarà un objecte del tipus `ImageAnalysis`, que contindrà, segons el demanat les següents claus, del tipus indicant:
 ```json
 {
@@ -101,7 +101,7 @@ Pot consultar-se si tenim o no dits atributs:
 
 Fixar-se que alguns atributs estan tancats entre claudàtors, el que significa que el valor retornat és una llista, i tindrem per tant una col·lecció d'objectes, com per exemple s'han detectat diversos objectes.
 
-#### 1.1.3. Dibuixant caixes i Àrees d'interes
+### 2.3. Dibuixant caixes i Àrees d'interes
 
 Podem fer servir les llibreries de `matplotlib` combinades amb la llibreria `PIL` per a representar les imatges analitzades i afegir els mecanismes de detecció.
 
@@ -131,7 +131,7 @@ Una de les coses més habituals serà tancar en una caixa (rectangle) els object
     plt.imshow(img)
     ```
 
-### 1.2. Exercici.
+### 2.4 Exercici.
 
 A partit d'una imatge que tinga 3 o 4 objectes ben diferenciats has de :
 
@@ -140,7 +140,7 @@ A partit d'una imatge que tinga 3 o 4 objectes ben diferenciats has de :
   * Retalla cadascun dels objectes
   * Guarda una imatge amb cada retall aconseguit
 
-### 1.3. Miniatures
+## 3. Miniatures
 
 El servei de miniatures (_thumbnail_) no sols ens permet fer una versió reduïda de la imatge que facilitem, sinò el fer una miniatura del que es coneix com un retall intel·ligent o _smart_croping_.
 
@@ -161,7 +161,7 @@ El mètode que ens permet fer-ho és `generate_thumbnail` o `generate_thumbnail_
 
 Aquesta operació genera una imatge en miniatura amb l'amplada i l'alçada especificades per l'usuari. Per defecte, el servei analitza la imatge, identifica la regió d'interès (**ROI**) i genera coordenades de retall intel·ligent basades en el ROI. El retall intel·ligent ajuda quan especifiqueu una relació d'aspecte diferent de la de la imatge d'entrada. Una resposta correcta conté el binari de la imatge en miniatura. Si la sol·licitud ha fallat, la resposta conté un codi d'error i un missatge per ajudar a determinar què ha fallat.
 
-### 1.4. OCR des d'imatges
+## 4. OCR des d'imatges
 
 En aquesta secció anem a extreure text de les nostres imatges, el que és coneix com a OCR **Optical Character Recognition**. El text pot ser impres o manuscrit, així com les imatges poden estar online o passar-li nosaltres les pròpies imatges.
 
@@ -243,7 +243,7 @@ El que ens interessa agafar és el codi a partir de la última barra, per a dema
                 print(line.bounding_box)
     ```
 
-Una possible exiida seria com la que es veu. De l'objecte `read_result.analyze_result.read_results` ens trobem una col·lecció d'objectes `line`, que tenen els següents atributs:
+Una possible eixida seria com la que es veu. De l'objecte `read_result.analyze_result.read_results` ens trobem una col·lecció d'objectes `line`, que tenen els següents atributs:
 
 - `text` → mostra el text reconegut
 - `bounding_box` Mostra les coordenades d'un polígon (habitualment un rectangle) que tanca el text detectat. No ha de ser un rectangle, ja que el text pot no estar en horizontal.
@@ -262,7 +262,8 @@ Així, a partir d'aquesta imatge:
 obtindrem alguna cosa com:
 
 <center>![Entrada](./img/OCR_out.PNG){width=75%}</center>
-## 2. CustomVision
+
+## 5. CustomVision
 
 Custom Vision d'Azure és un servei de Microsoft que et permet construir, entrenar i implementar models de visió per computador personalitzats de manera senzilla i eficient. Bàsicament, es tracta de proporcionar eines perquè puguis ensenyar al teu sistema a reconèixer patrons visuals específics que siguin rellevants per al teu projecte o aplicació.
 
@@ -273,7 +274,8 @@ Per utilitzar aquest servei haurem de fer dos passos:
 1. Entrenament del model
 2. Ús del model per fer una predicció.
 
-### 2.1. Entrenament del model
+
+### 5.1 Entrenament del model
 
 Durant l´entrenament del model proporcionarem a Custom Vision **imatges d´exemple amb l´etiqueta** que aquestes imatges tenen associada. Com més exemples proporcionem dels diferents tipus d'imatges que volem reconèixer, més precisió tindrà el nostre model. Un cop subministrades les imatges, **el model ha de ser entrenat** perquè aprengui de les imatges aportades.
 
@@ -288,11 +290,11 @@ L'entrenament del model es pot fer des del portal https://customvision.ai o util
 
 Després d'entrenar el model, ens poden arribar noves fotos i podem voler incorporar aquestes imatges noves a una **nova iteració** per millorar la predicció. Cada cop que s'entreni el model se'n generarà una nova versió (iteració), i a l'hora de predir es podrà triar la iteració a utilitzar.
 
-### 2.2. Predicció
+### 5.2 Predicció
 
 Un cop preparat i entrenat el nostre model, podrem fer-lo servir per fer una predicció a partir d'una imatge nova. Per això utilitzarem l'API de predicció (Custom Vision - Prediction).
 
-### 2.3. Pràctica - Entrenem un conjunt de flors
+### 5.3 Pràctica - Detectem un conjunt de flors
 
 El primer que hem de fer és crear el recurs de Custom Vision de la mateixa manera que creem els recursos. Sols recorda de marcar  la tarifa d¡aprenentatge i previsió `Free F0` que ens permet 2 peticions per segon en 2 projectes.
 
@@ -329,7 +331,7 @@ Tenir en compte que així com abans sols teniem una clau i un endpoint ara en ti
     training_key = os.environ["VISION_TRAINING_KEY"]
     ```
 
-#### 2.3.1. Entrenament de les dades
+#### 5.3.1. Entrenament de les dades
 
 L'entrenament el podem efectuar desde el nostre codi, fent servir les llibreries del SDK de Python. La classe involucrada en l'entrenament de les imatges és `CustomVisionTrainingClient`, i pots trobar informació en aquest [enllaç](https://learn.microsoft.com/es-es/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) sobre dita classe.
 
@@ -350,7 +352,7 @@ Desprès haurem de crear el projecte
 
 ![Detalls del projecte](./img/CustomVision04.png)
 
-### 2.4. Afegint imatges per entrenar el model
+#### 5.3.2 Afegint imatges per entrenar el model
 
 Ara haurem d'afegir imatges per a entrenar el model. Resulta interessant fer el que us hauran comentat en altres moduls i també en aquest, de dividir les dades que tenim en un 80%-20% per a entrenament i per a test.
 
@@ -376,7 +378,12 @@ Finalment li donarem a publicar dins del nostre recurs de predicció, i podrem v
 
 ![Entrenament](./img/CustomVision10.png)|
 
-### 2.5. Accedint al servei
+#### 5.3.3 Accedint al servei
 
-Ens resta el accedir al servei per a fer prediccions d'imatges, evident-ment de les no utilitzades
+Ens resta el accedir al servei per a fer prediccions d'imatges, evident-ment amb les no utilitzades
 
+## Programes d'IA amb Azure
+
+Ens queda ara el aglutinar tot el que hem estudiat en un sola aplicació
+
+(PENDENT DE REDACCIO)
