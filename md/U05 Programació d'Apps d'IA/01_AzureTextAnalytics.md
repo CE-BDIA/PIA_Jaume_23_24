@@ -533,7 +533,5 @@ Indiquem sols el programa d'exemple, el qual deuries de provar i analitzar.
     ``` 
 
 
-### 6.3. Exercici
 
-Intenta fer un programa que et demana textos, els transforma en veu i els guarda en arxiu de àudio (wav o mp3)
 

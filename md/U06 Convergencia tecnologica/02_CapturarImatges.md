@@ -113,9 +113,7 @@ ret, frame = cap.read() # ja tenim el primer frame del video
 
 ### Escrivint videos
 
-## Write Video using OpenCV
-
-Per escriure el vídeo, necessites crear un objecte VideoWriter amb els paràmetres adequats.
+Per escriure el vídeo, necessites crear un objecte `VideoWriter` amb els paràmetres adequats.
 
 
 ```python

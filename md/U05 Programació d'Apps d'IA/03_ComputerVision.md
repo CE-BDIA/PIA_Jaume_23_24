@@ -381,9 +381,3 @@ Finalment li donarem a publicar dins del nostre recurs de predicció, i podrem v
 #### 5.3.3 Accedint al servei
 
 Ens resta el accedir al servei per a fer prediccions d'imatges, evident-ment amb les no utilitzades
-
-## Programes d'IA amb Azure
-
-Ens queda ara el aglutinar tot el que hem estudiat en un sola aplicació
-
-(PENDENT DE REDACCIO)
