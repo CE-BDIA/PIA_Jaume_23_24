@@ -24,3 +24,30 @@ Crea una aplicació servidora que escoltara peticions des d'un client. El client
 El servidor haurà de classificar-la amb un servei **creat prèviamnet** amb Azure de manera similar a l'apartat 5.3
 
 La informació en l'element detectat serà retornada a l'aplicació client.
+
+# 4 Traducció automàtica de manuscrits
+
+Crea una aplicació amb Flet que utilitze la càmera web per capturar imatges de text manuscrit. Aquestes imatges s’enviaran a AWS Rekognition per a la seva anàlisi i reconeixement de text. El text que ens reconega, s'enviarà de nou a AWS Translate per a la seua traduccióa l’idioma seleccionat per l’usuari a través de la interfície.
+
+- **Interfície d’Usuari (UI)**:
+  - Activar la càmera web.
+  - Prendre una fotografia del text manuscrit.
+  - Seleccionar l’idioma de destí per a la traducció.
+  - Visualitzar el text traduït.
+
+- **Integració amb AWS Rekognition**:
+  - Configurar una connexió amb AWS Rekognition.
+  - Enviar la imatge capturada a AWS Rekognition per a l’anàlisi de text.
+  - Recuperar el text reconegut des de AWS Rekognition.
+
+- **Traducció**:
+  - Configurar una conexió amb AWS Translate.
+  - Traduir el text reconegut a l'idioma seleccionat per l’usuari.
+
+- **Prova i Validació**:
+  - Realitzar proves per assegurar-se que l’aplicació funciona correctament, validant la precisió del text reconegut i la traducció.
+
+## Entrega:
+
+- Codi font de l’aplicació Flet.
+- Captures de proves i validació.
