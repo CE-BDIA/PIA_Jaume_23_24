@@ -27,7 +27,7 @@ La informació en l'element detectat serà retornada a l'aplicació client.
 
 # 4 Traducció automàtica de manuscrits
 
-Crea una aplicació amb Flet que utilitze la càmera web per capturar imatges de text manuscrit. Aquestes imatges s’enviaran a AWS Rekognition per a la seva anàlisi i reconeixement de text. El text que ens reconega, s'enviarà de nou a AWS Translate per a la seua traduccióa l’idioma seleccionat per l’usuari a través de la interfície.
+Crea una aplicació amb Flet que utilitze la càmera web per capturar imatges de text manuscrit. Aquestes imatges s’enviaran a AWS Textract per a la seva anàlisi i reconeixement de text. El text que ens reconega, s'enviarà de nou a AWS Translate per a la seua traduccióa l’idioma seleccionat per l’usuari a través de la interfície.
 
 - **Interfície d’Usuari (UI)**:
   - Activar la càmera web.
@@ -35,10 +35,10 @@ Crea una aplicació amb Flet que utilitze la càmera web per capturar imatges de
   - Seleccionar l’idioma de destí per a la traducció.
   - Visualitzar el text traduït.
 
-- **Integració amb AWS Rekognition**:
-  - Configurar una connexió amb AWS Rekognition.
-  - Enviar la imatge capturada a AWS Rekognition per a l’anàlisi de text.
-  - Recuperar el text reconegut des de AWS Rekognition.
+- **Integració amb AWS Textract**:
+  - Configurar una connexió amb AWS Textract.
+  - Enviar la imatge capturada a AWS Textract per a l’anàlisi de text.
+  - Recuperar el text reconegut des de AWS Textract.
 
 - **Traducció**:
   - Configurar una conexió amb AWS Translate.
