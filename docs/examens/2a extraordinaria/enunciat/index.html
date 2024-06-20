@@ -1,0 +1,2619 @@
+
+<!doctype html>
+<html lang="ca" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../2a%20-%20ordinaria/ordinaria/">
+      
+      
+        <link rel="next" href="../../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/">
+      
+      
+      <link rel="icon" href="../../../img/jaume.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.8">
+    
+    
+      
+        <title>Extraordinària - Programació d'Intel·ligència Artificial - CE Big Data i IA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#examen-de-programacio-dintelligencia-artificial" class="md-skip">
+          Salta el contingut
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Capçalera">
+    <a href="../../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-header__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../../img/jaume.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programació d'Intel·ligència Artificial - CE Big Data i IA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Extraordinària
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Cerca" placeholder="Cerca" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Cerca">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Neteja" aria-label="Neteja" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicialitzant cerca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegació" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Programació d&#39;Intel·ligència Artificial - CE Big Data i IA" class="md-nav__button md-logo" aria-label="Programació d'Intel·ligència Artificial - CE Big Data i IA" data-md-component="logo">
+      
+  <img src="../../../img/jaume.png" alt="logo">
+
+    </a>
+    Programació d'Intel·ligència Artificial - CE Big Data i IA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Examens
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Examens
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2a%20-%20ordinaria/ordinaria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ordinària
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Extraordinària
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Extraordinària
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examen-de-programacio-dintelligencia-artificial" class="md-nav__link">
+    Examen de Programació d'Intel·ligència Artificial
+  </a>
+  
+    <nav class="md-nav" aria-label="Examen de Programació d'Intel·ligència Artificial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pregunta-1-web-scraping" class="md-nav__link">
+    Pregunta 1: Web Scraping
+  </a>
+  
+    <nav class="md-nav" aria-label="Pregunta 1: Web Scraping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enunciat" class="md-nav__link">
+    Enunciat:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-2-comparativa-dalgorismes-de-machine-learning" class="md-nav__link">
+    Pregunta 2: Comparativa d'Algorismes de Machine Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-3-optimitzacio-de-xarxes-neuronals" class="md-nav__link">
+    Pregunta 3: Optimització de Xarxes Neuronals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-4-creacio-dun-backend-amb-flask-i-mysql-en-docker" class="md-nav__link">
+    Pregunta 4: Creació d'un Backend amb Flask i MySQL en Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-5-desenvolupament-dun-frontend-amb-camera-web-per-a-un-aparcament" class="md-nav__link">
+    Pregunta 5: Desenvolupament d'un Frontend amb Càmera Web per a un Aparcament
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 1. Introducció a la Programació
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 1. Introducció a la Programació
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/01_Algorismes_Llenguatges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Algorismes i llenguatges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U01%20Introducci%C3%B3%20a%20la%20programaci%C3%B3/Exercici/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Exercici pràctic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 2. El llenguatge Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 2. El llenguatge Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/01_Entorns_i_projectes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Preparació de l'entorn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/02_Tipus_Variables_Operadors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Tipus de Dades. Operadors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/03_Estructures_de_control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Estructures de control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/04_Funcions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Funcions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/05_Estructures_de_dades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Estructures de dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/06_POO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Programació orientada a objectes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/07_Projecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Projecte
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/08_ExerciciPreProjecte/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Exercici pre projecte guiat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U02%20Python/09_Tractament_de_fitxer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Annex I - Tractament de fitxers i carpetes amb python
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 3. Python aplicat al Big Data i Intel·ligencia Artificial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Teoria
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/0.%20Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Introducció
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/1.%20NumPy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Manipulació de Dades amb Numpy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/02_Pandas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Manipulació de Dades amb Pandas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/03_Matplotlib-Seaborn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Visualització de dades amb Matplotlib i Seaborn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/04_Sklearn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Introducció al Machine Learning amb Scikit-Learn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/05_Keras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Introducció al DeepLearning amb Keras
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/06_Reutilitzant_models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Reutilizant models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tasques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tasques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. NumPy
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            2. NumPy
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/01_numpy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Activitats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2_1_2" id="__nav_4_2_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/02_mario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Mario
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/03_derivades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Derivades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/04_vi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Vi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/numpy/05_KNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. KNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    3. Pandas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            3. Pandas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_1" >
+        
+          <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. Activitats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. Activitats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/01_creacio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Creacio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/02_indexacio_seleccio_assignacio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Indexació, Selecció i Assignació
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/03_resum_mapatge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Resum i mapatge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/04_agrupament_i_ordenacio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Agrupaments i ordenació
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/05_tipus_de_dades_i_valors_nulls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Dades i valors nuls
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/06_renombrat_i_combinacio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Renombrat i combinació
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/01_practica_vendes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Vendes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/pandas/02_practica_dades_categoriques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Dades categòriques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    4. Matplotlib i Seaborn
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            4. Matplotlib i Seaborn
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_1" >
+        
+          <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. Activitats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. Activitats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/seaborn/01_linecharts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Gràfics de línies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/seaborn/02_bars_heatmaps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Gràfics de barres i mapes de calor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/seaborn/03_scatters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Gràfics de dispersió
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/seaborn/04_distributions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Distibucions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" >
+        
+          <label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    5. Sklearn
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            5. Sklearn
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4_1" >
+        
+          <label class="md-nav__link" for="__nav_4_2_4_1" id="__nav_4_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. Activitats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. Activitats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/sklearn/01_model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Contrucció del model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/sklearn/02_validacio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Validació del model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2_4_2" id="__nav_4_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/sklearn/03_comparacio_de_models/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Comparació de models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/sklearn/04_overfitting_underfitting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Ajust de models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_5" >
+        
+          <label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    6. Keras
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            6. Keras
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_5_1" >
+        
+          <label class="md-nav__link" for="__nav_4_2_5_1" id="__nav_4_2_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    1. Activitats
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            1. Activitats
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/01_underfitting_overfitting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Subajust i sobreajust - Parada anticipada
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/02_dropout/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Abandonament
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/03_batch_normalization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Normalització de lots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_5_2" >
+        
+          <label class="md-nav__link" for="__nav_4_2_5_2" id="__nav_4_2_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2. Pràctiques
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            2. Pràctiques
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/04_regression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Xarxes Neuronals - Regressió
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/05_classification/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Xarxes Neuronals - Classificació
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/06_sklearn_vs_keras/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Algoritmes clàssics front a xarxes neuronals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U03%20Python%20aplicat%20al%20Big%20Data%20i%20Intel%C2%B7ligencia%20Artificial/exercicis/keras/07_save_and_load/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Guardat i càrrega de models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 4. Programació d'aplicacions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 4. Programació d'aplicacions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U04%20Programaci%C3%B3%20d%27Aplicacions/1.%20Aplicacions%20clients%20amb%20Flet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Programació d'aplicacions client amb Flet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U04%20Programaci%C3%B3%20d%27Aplicacions/2.%20Contenidors%20de%20BBDD%20amb%20Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Contenidors. Bases de Dades
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U04%20Programaci%C3%B3%20d%27Aplicacions/3.%20Peticions%20HTTP.%20API-REST/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Peticions HTTP. API REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U04%20Programaci%C3%B3%20d%27Aplicacions/4.%20Servidors%20amb%20Flask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Servidors amb Flask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U04%20Programaci%C3%B3%20d%27Aplicacions/5.%20Practiques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Pràctiques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Unitat 5. Programació d'aplicacions d'IA
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Unitat 5. Programació d'aplicacions d'IA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U05%20Programaci%C3%B3%20d%27Apps%20d%27IA/01_AzureTextAnalytics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Azure Text
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U05%20Programaci%C3%B3%20d%27Apps%20d%27IA/02_FaceDetection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Azure Face
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U05%20Programaci%C3%B3%20d%27Apps%20d%27IA/03_ComputerVision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Computer Vision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../U05%20Programaci%C3%B3%20d%27Apps%20d%27IA/04_Practiques/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Pràctiques
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Informació general
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Informació general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../info/guia_didactica/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia didàctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Taula de continguts">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Taula de continguts
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#examen-de-programacio-dintelligencia-artificial" class="md-nav__link">
+    Examen de Programació d'Intel·ligència Artificial
+  </a>
+  
+    <nav class="md-nav" aria-label="Examen de Programació d'Intel·ligència Artificial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pregunta-1-web-scraping" class="md-nav__link">
+    Pregunta 1: Web Scraping
+  </a>
+  
+    <nav class="md-nav" aria-label="Pregunta 1: Web Scraping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enunciat" class="md-nav__link">
+    Enunciat:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-2-comparativa-dalgorismes-de-machine-learning" class="md-nav__link">
+    Pregunta 2: Comparativa d'Algorismes de Machine Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-3-optimitzacio-de-xarxes-neuronals" class="md-nav__link">
+    Pregunta 3: Optimització de Xarxes Neuronals
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-4-creacio-dun-backend-amb-flask-i-mysql-en-docker" class="md-nav__link">
+    Pregunta 4: Creació d'un Backend amb Flask i MySQL en Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pregunta-5-desenvolupament-dun-frontend-amb-camera-web-per-a-un-aparcament" class="md-nav__link">
+    Pregunta 5: Desenvolupament d'un Frontend amb Càmera Web per a un Aparcament
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Extraordinària</h1>
+
+<h2 id="examen-de-programacio-dintelligencia-artificial">Examen de Programació d'Intel·ligència Artificial</h2>
+<h3 id="pregunta-1-web-scraping">Pregunta 1: Web Scraping</h3>
+<h4 id="enunciat"><strong>Enunciat</strong>:</h4>
+<p>Utilitzant la tècnica de web scraping, extrau la següent informació de cada portàtil listat a la pàgina <a href="https://www.pccomponentes.com/portatiles">PcComponentes Portàtils</a>:</p>
+<ol>
+<li>Nom del producte</li>
+<li>Preu</li>
+<li>Característiques principals (com ara processador, RAM, capacitat de l'emmagatzematge, mida de la pantalla)</li>
+<li>Enllaç al producte</li>
+</ol>
+<p><strong>Requeriments</strong>:
+- Utilitza Python com a llenguatge de programació.
+- Empra la llibreria BeautifulSoup per a analitzar el HTML.
+- Guarda les dades extretes en un fitxer CSV amb les següents columnes: <code>Nom_Producte</code>, <code>Preu</code>, <code>Processador</code>, <code>RAM</code>, <code>Disc</code>, <code>Pes net</code>,  <code>Tamany de pantalla</code>, <code>Enllaç_Producte</code>.
+- Gestiona les excepcions que poden sorgir durant el web scraping, com ara la pàgina que no respon o canvis en l'estructura del HTML.</p>
+<p><strong>Entrega</strong>:
+- El codi font complet juntament amb el fitxer CSV generat.</p>
+<h2 id="pregunta-2-comparativa-dalgorismes-de-machine-learning">Pregunta 2: Comparativa d'Algorismes de Machine Learning</h2>
+<p><strong>Enunciat</strong>:
+Realitza un estudi comparatiu utilitzant almenys <strong>tres algorismes de machine learning</strong> diferents per a predir el preu de productes del següent <a href="../datasets/Laptop_price_dirty.csv">dataset</a>. Els algorismes a comparar són:</p>
+<ol>
+<li>Regressió Lineal</li>
+<li>Màquines de Suport Vectorial (SVM)</li>
+<li>Random Forest</li>
+</ol>
+<p><strong>Entrega</strong>:
+- El codi font complet.
+- Un informe que incloga una comparativa dels resultats, gràfics de rendiment, i una justificació del millor model basada en les mètriques d'avaluació.</p>
+<h2 id="pregunta-3-optimitzacio-de-xarxes-neuronals">Pregunta 3: Optimització de Xarxes Neuronals</h2>
+<p><strong>Enunciat</strong>:
+Desenvolupa un model de xarxa neuronal per a predir el preu de productes basant-se en un conjunt de dades proporcionat. Experimenta amb diverses arquitectures, ajustant el nombre de capes i neurones, per determinar la configuració més eficaç.</p>
+<p><strong>Requeriments</strong>:
+- Implementa una xarxa neuronal utilitzant una llibreria d'aprenentatge profund com keras.
+- Prova diferents arquitectures de xarxa, variat el nombre de capes ocultes i neurones per capa.
+- Optimitza el procés d'entrenament per assegurar una convergència ràpida i evitar l'ajust excessiu.
+- Genera un gràfic comparatiu que mostri l'impacte de les diferents arquitectures en el rendiment del model.</p>
+<p><strong>Entrega</strong>:
+- El codi font complet del model de xarxa neuronal.
+- El gràfic comparatiu dels resultats d'entrenament.
+- Un informe que justifique els resultats, incloent una discussió sobre les decisions preses durant l'optimització del model.</p>
+<h2 id="pregunta-4-creacio-dun-backend-amb-flask-i-mysql-en-docker">Pregunta 4: Creació d'un Backend amb Flask i MySQL en Docker</h2>
+<p><strong>Enunciat</strong>:
+Crea un servei backend amb Flask que expose dos endpoints HTTP. Quan el primer endpoint (entrada) reba una petició POST amb una matrícula de vehicle en el cos, el sistema haurà d'inserir un nou registre a la base de dades MySQL amb la matrícula proporcionada i el timestamp actual. Quan el segon endpoint (eixida) reba una petició, marcarà al registre l'hora d'eixida.</p>
+<p><strong>Requeriments</strong>:
+- Utilitza Docker per a encapsular l'aplicació Flask i la base de dades MySQL.
+- Configura la base de dades MySQL per a acceptar connexions des de l'aplicació Flask.
+- Crea una taula <code>aparcament</code> amb les columnes <code>id</code>, <code>matricula</code>, <code>entrada</code> i <code>eixida</code>.
+- Implementa la lògica per a processar peticions POST i inserir dades a la base de dades.
+- Assegura't que el timestamp siga el moment exacte en què la petició és processada.</p>
+<p><strong>Entrega</strong>:
+- El codi font de l'aplicació Flask.
+- Els fitxers de configuració de Docker necessaris per a executar l'aplicació i la base de dades.
+- Un script SQL per a crear la taula <code>aparcament</code> a la base de dades MySQL.
+- Documentació que explique com construir i executar el contenidor Docker, així com com fer peticions al backend.
+- Captures que demostren que el backend funciona.</p>
+<h2 id="pregunta-5-desenvolupament-dun-frontend-amb-camera-web-per-a-un-aparcament">Pregunta 5: Desenvolupament d'un Frontend amb Càmera Web per a un Aparcament</h2>
+<p><strong>Enunciat</strong>:
+Desenvolupa una interfície d'usuari amb Flet que interactue amb el backend definit en la pregunta 4. L'aplicació haurà de:
+- Activar la càmera web per permetre a l'usuari fer una foto de la matrícula del vehicle a l'entrada i a l'eixida de l'aparcament.
+- Enviar la foto capturada al primer endpoint (entrada) del backend per inserir un nou registre amb la matrícula i el timestamp actual.
+- Enviar una petició al segon endpoint (eixida) per marcar l'hora de sortida i calcular el temps total d'estada.
+- Calcular el cost de l'aparcament a raó de <strong>1 cèntim per minut</strong>.
+- Mostrar a l'usuari l'import total a pagar en el moment de la sortida.</p>
+<p><strong>Requeriments</strong>:
+- Implementa la funcionalitat de càmera web dins de l'aplicació Flet.
+- Assegura't que les fotos de les matrícules siguin clares i llegibles.
+- Estableix una comunicació segura i eficient entre l'aplicació frontend i els endpoints del backend.
+- Presenta a l'usuari una interfície clara i intuïtiva per a la captura de fotos i la visualització del cost.</p>
+<p><strong>Entrega</strong>:
+- El codi font de l'aplicació Flet.
+- Captures de pantalla o vídeos demostrant la funcionalitat de l'aplicació.
+- Documentació que explique el flux d'interacció entre l'usuari, l'aplicació frontend, i el backend.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copiat al porta-retalls", "clipboard.copy": "C\u00f2pia al porta-retalls", "search.result.more.one": "1 m\u00e9s en aquesta p\u00e0gina", "search.result.more.other": "# m\u00e9s en aquesta p\u00e0gina", "search.result.none": "Cap document coincideix", "search.result.one": "1 document coincident", "search.result.other": "# documents coincidents", "search.result.placeholder": "Escriu per a comen\u00e7ar a cercar", "search.result.term.missing": "Desaparegut", "select.version": "Selecciona la versi\u00f3"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

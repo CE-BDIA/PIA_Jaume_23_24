@@ -5,6 +5,8 @@ site_dir: "docs"
 nav:
   - Examens: 
     - Ordinària: examens/2a - ordinaria/ordinaria.md
+    - Extraordinària: examens/2a extraordinaria/enunciat.md
+
   - Unitat 1. Introducció a la Programació:
     - 1. Algorismes i llenguatges: U01 Introducció a la programació/01_Algorismes_Llenguatges.md
     - 2. Exercici pràctic: U01 Introducció a la programació/Exercici.md
